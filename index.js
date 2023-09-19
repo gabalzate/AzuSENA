@@ -1263,7 +1263,7 @@ function responderTexto(texto) {
     }
   }
   if (activo === 14) { // historia clinica
-
+//esta es la historia clinica
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
     const iniciar = ["iniciar", "inicio"]; 
     const apertura = ["abir historia", "apertura de historia"];     

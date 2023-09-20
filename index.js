@@ -1263,29 +1263,29 @@ function responderTexto(texto) {
     }
   }
   if (activo === 14) { // historia clinica
-
+//esta es la historia clinica
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
     const iniciar = ["iniciar", "inicio"]; 
     const apertura = ["abir historia", "apertura de historia"];     
     const pasar = ["hacerlo pasar", "que pase", "que siga"];  
-    const casos = ["casos"];
-    const ambos = ["ambos", "los dos sistemas"];
-    const eps = ["eps", "adres", "address"];
-    const subsidiado = ["subsidiado"];
-    const no = ["no"];
+    const siconozco = ["si la conozco"];
+    const noconozco = ["no la conozco"];
+    const nose = ["no se", "fecha de naciemiento"];
+    const si = ["no"];
     const gobierno = ["el gobierno","el estado"];
-    const nose = ["no se"];
+    const sise = ["eps", "adres", "address"];
+    const nosep = ["no se"];
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"];
     
     for (let i = 0; i < iniciar.length; i++) {
       if (oracion.includes(iniciar[i])) {
-        const texto = '●	El usuario se acerca al Prestador de Servicios de Salud para acudir a la cita médica, el funcionario le solicita el tipo y número de documento de identidad para verificar si reposa historia clínica en el archivo de gestión de la prestadora de servicios de salud. Este usuario es atendido por primera vez que se debe hacer: ¿apertura de historia clínica o hacerlo pasar con el médico para que él haga apertura de la historia clínica?';
+        const texto = 'El usuario se acerca al Prestador de Servicios de Salud para acudir a la cita médica, el funcionario le solicita el tipo y número de documento de identidad para verificar si reposa historia clínica en el archivo de gestión de la prestadora de servicios de salud. Este usuario es atendido por primera vez que se debe hacer: ¿apertura de historia clínica o hacerlo pasar con el médico para que él haga apertura de la historia clínica?'    
         leerTexto(texto);
       }
     }
     for (let i = 0; i < apertura.length; i++) {
       if (oracion.includes(apertura[i])) {
-        const texto = '¡Muy bien!!.la solicitud del documento es importante para validar si el usuario está registrado. ahora ¿Validas el usuario en sistema de la EPS, en la plataforma adres o ambos?.';
+        const texto = 'Una historia clínica se abre con el propósito principal de documentar y mantener un registro completo y organizado de la información médica y de salud de un paciente a lo largo del tiempo. Esta información es esencial para proporcionar atención médica de alta calidad y segura. ¿Conoces la información que se registra en una historia clínica?  Responde si la conozco o no la conozco';
         leerTexto(texto);    
       }
     }
@@ -1295,23 +1295,21 @@ function responderTexto(texto) {
         leerTexto(texto);    
       }
     }
-    for (let i = 0; i < subsidiado.length; i++) {
-      if (oracion.includes(subsidiado[i])) {
-        const texto = '¡Muy bien!!. Si encontraste que está afiliado como subsidiado ¿quien se encarga de pagar los gastos de este usuario?';
+    for (let i = 0; i < siconozco.length; i++) {
+      if (oracion.includes(siconozco[i])) {
+        const texto = '¡Perfecto! Para asegurarme de ello voy a listar la información y me dirás cual hace falta, los datos que se requieren son: tipo y número de identificación, apellidos y nombres completos, Estado civil, Edad, Sexo, Ocupación, dirección, teléfono, lugar de residencia, Aseguradora o EPS y el Tipo de vinculación Cotizante, beneficiario o vinculado si aciertas podremos seguir, si no, solo di no la conozco';
         leerTexto(texto);    
       }
     }
-    for (let i = 0; i < gobierno.length; i++) {
-      if (oracion.includes(gobierno[i])) {
-        const texto = 'vamos por buen camino... es importante conocer esto porque así se sabrá a qué servicios puede acceder el usuario quien cubre este servicio, haz respondido muy bien en caso, ahora puedes seleccionar otro caso con la palabra casos o regresar al inicio con la palabra cambiar tema';
+    for (let i = 0; i < noconozco.length; i++) {
+      if (oracion.includes(noconozco[i])) {
+        const texto = 'Se deben tener en cuenta los siguientes datos tipo y número de identificación, apellidos y nombres completos, Estado civil, fecha de nacimiento, Edad, Sexo, Ocupación, dirección, teléfono, lugar de residencia, Aseguradora o EPS y el Tipo de vinculación Cotizante, beneficiario o vinculado. El usuario viene con un acompañante ¿sabes que datos se deben solicitar? Responde: si sé o no sé';
         leerTexto(texto);  
-        activo = 1;
-        console. log('activo esta en: ' + activo)
       }
     }
-    for (let i = 0; i < no.length; i++) {
-      if (oracion.includes(no[i])) {
-        const texto = 'Eso no es correcto, vuelve a intentar. responde si o no: ¿debes validar si está afiliado como usuario subsidiado o contributivo?';
+    for (let i = 0; i < nose.length; i++) {
+      if (oracion.includes(nose[i])) {
+        const texto = 'Los datos que se deben solicitar son Nombre completo del acompañante, Teléfono, Parentesco de la persona, Grado de consanguinidad, de afinidad o civil. ¿reconoces cuáles son los aspectos claves a tener en cuenta para diligenciar la historia clínica? Responde Si reconozco o no reconozco';
         leerTexto(texto);    
       }
     }

@@ -1271,10 +1271,10 @@ function responderTexto(texto) {
     const siconozco = ["si la conozco"];
     const noconozco = ["no la conozco"];
     const nose = ["no se", "fecha de naciemiento"];
-    const si = ["no"];
-    const gobierno = ["el gobierno","el estado"];
-    const sise = ["eps", "adres", "address"];
-    const nosep = ["no se"];
+    const sitengo = ["si tengo conocimiento"];
+    const notengo = ["no tengo conocimiento", "espacios en blanco"];
+    const borrar = ["borrar"];
+    const ambos = ["ambos","los dos"];
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"];
     
     for (let i = 0; i < iniciar.length; i++) {
@@ -1309,29 +1309,27 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < nose.length; i++) {
       if (oracion.includes(nose[i])) {
-        const texto = 'Los datos que se deben solicitar son Nombre completo del acompañante, Teléfono, Parentesco de la persona, Grado de consanguinidad, de afinidad o civil. ¿reconoces cuáles son los aspectos claves a tener en cuenta para diligenciar la historia clínica? Responde Si reconozco o no reconozco';
+        const texto = 'Los datos que se deben solicitar son Nombre completo del acompañante, Teléfono, Parentesco de la persona, Grado de consanguinidad, de afinidad o civil. tienes conocimiento de ¿cuáles son los aspectos claves a tener en cuenta para diligenciar la historia clínica? Responde Si tengo conocimiento o no tengo conocimiento';
         leerTexto(texto);    
       }
     }
 
-    for (let i = 0; i < eps.length; i++) {
-      if (oracion.includes(eps[i])) {
-        const texto = 'estas cerca pero rectifica tu respuesta y vuelve a seleccionar, porque las dos validaciones son importantes, entonces ¿Validas el usuario en sistema de la EPS, en la plataforma adres o ambos?.';
+    for (let i = 0; i < sitengo.length; i++) {
+      if (oracion.includes(sitengo[i])) {
+        const texto = 'Para estar seguros te daré un listado y me dirás cual hace falta. Se debe tener en cuenta los siguientes aspectos: Diligenciamiento en forma clara, legible, sin intercalaciones, no utilizar siglas, Hora y fecha en la que se realiza el diligenciamiento, Nombre completo y firma del autor del diligenciamiento.  sí aciertas seguimos, de lo contrario responde no tengo conocimiento.';
         leerTexto(texto);
       }
     }
-    for (let i = 0; i < dinero.length; i++) {
-      if (oracion.includes(dinero[i])) {
-        const texto = '¡lo siento!. Rectifica tu respuesta y vuelve a seleccionar, porque hay que hacer registro del usuario y para eso no es necesario solicitar dinero o cuotas moderadoras, entonces ¿qué es lo primero que usted debe solicitar?';
+    for (let i = 0; i < notengo.length; i++) {
+      if (oracion.includes(notengo[i])) {
+        const texto = 'Es importante tener cuenta los siguientes aspectos: Diligenciamiento en forma clara, legible, sin intercalaciones, no dejar espacios en blanco y sin utilizar siglas, Hora y fecha en la que se realiza el diligenciamiento, Nombre completo y firma del autor del diligenciamiento. ¿Cuándo se encuentra un error de diligenciamiento en la historia clínico el funcionario debe borrar y corregir o hacer un nuevo registro con la corrección?';
         leerTexto(texto);
       }
     }
-    for (let i = 0; i < nose.length; i++) {
-      if (oracion.includes(nose[i])) {
-        const texto = 'debes prepararte un poco mas, yo puedo guiarte con tus conocimientos pero el aprendizaje depende de tí. vamos a enpezar de nuevo';
+    for (let i = 0; i < borrar.length; i++) {
+      if (oracion.includes(borrar[i])) {
+        const texto = 'Eso es incorrecto intenta de nuevo. Si es una nota médica que debe hacer Identifique el registro específico, ingrese la información contenida o ambos';
         leerTexto(texto);
-        activo = 0;
-        console. log('activo esta en: ' + activo)
       }
     }
     for (let i = 0; i < casos.length; i++) {

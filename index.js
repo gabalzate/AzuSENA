@@ -607,6 +607,7 @@ function responderTexto(texto) {
     const urgencia = ["urgencias"]; // activo = 11 
     const externa = ["telefonica"]; // activo = 12 
     const presencial = ["presencial"]; // activo = 13 
+    const clinica = ["historia clinica"]; // activo = 14 
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
 
     for (let i = 0; i < urgencia.length; i++) {
@@ -631,6 +632,14 @@ function responderTexto(texto) {
         const texto = 'Bienvenido al área de consulta externa presencial. puedes empezar con la palabra iniciar';
         leerTexto(texto);
         activo = 13;
+        console. log('activo esta en: ' + activo)
+      }
+    }
+    for (let i = 0; i < clinica.length; i++) {
+      if (oracion.includes(clinica[i])) {
+        const texto = 'Bienvenido al área de historia clinica. puedes empezar con la palabra iniciar';
+        leerTexto(texto);
+        activo = 14;
         console. log('activo esta en: ' + activo)
       }
     }
@@ -1281,7 +1290,10 @@ function responderTexto(texto) {
     const remite = ["remitir","remitirlo"];
     const nombre = ["aleatorio"];
     const desconocido = ["nomen","nescio"];
+    const adres = ["adres","eps"];
     const juntos = ["las dos",];
+    const paga = ["pago", "dinero"];
+    const poliza = ["poliza"];
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"];
     
     for (let i = 0; i < iniciar.length; i++) {
@@ -1381,15 +1393,27 @@ function responderTexto(texto) {
         leerTexto(texto);
       }
     }
-    for (let i = 0; i < juntos.length; i++) {
-      if (oracion.includes(juntos[i])) {
+    for (let i = 0; i < adres.length; i++) {
+      if (oracion.includes(adres[i])) {
         const texto = 'Eso es incorrecto intenta de nuevo se debe hacer consultar en la plataforma ADRES en la EPS o en las dos';
         leerTexto(texto);
       }
     }
-    for (let i = 0; i < ambos.length; i++) {
-      if (oracion.includes(ambos[i])) {
-        const texto = 'o?';
+    for (let i = 0; i < juntos.length; i++) {
+      if (oracion.includes(juntos[i])) {
+        const texto = 'Se debe consultar con el tipo y número documento de identidad del usuario en ADRES y el sistema de la institución para hacer verificación de derechos y determinar el tipo de afiliación. Luego de hacer la verificación se encuentra que el usuario no está activo en el sistema porque es un turista extranjero ¿qué se debe hacer solicitar el pago de todos los servicios al usuario o se verifica si cuenta con una póliza?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < paga.length; i++) {
+      if (oracion.includes(paga[i])) {
+        const texto = 'Eso es incorrecto verifica tu respuesta, ¿qué se debe hacer solicitar el pago de todos los servicios al usuario o se verifica si cuenta con una póliza?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < poliza.length; i++) {
+      if (oracion.includes(poliza[i])) {
+        const texto = 'Se debe consultar al usuario si cuenta con una póliza se le garantiza la atención inicial de urgencia, al tenor de los principios éticos y las normas que determinan las acciones y el comportamiento del personal de salud se realizan el proceso de egreso, valoración médica, estancia, entre otras y se realiza la solicitud de cobro del servicio prestado a la asegurada contratada por el turista extranjero y asi termina la atención del usuario y la apertura de la historia clínica. ahora puede cambiar de tema';
         leerTexto(texto);
       }
     }

@@ -6,11 +6,11 @@ import {
 	TOUCH,
 	Vector2,
 	Vector3
-} from './librerias/three.module.js';
+} from './three/three.module.js';
 
 // OrbitControls performs orbiting, dollying (zooming), and panning.
 // Unlike TrackballControls, it maintains the "up" direction object.up (+Y by default).
-// creado
+//
 //    Orbit - left mouse / touch: one-finger move
 //    Zoom - middle mouse, or mousewheel / touch: two-finger spread or squish
 //    Pan - right mouse, or left mouse + ctrl/meta/shiftKey, or arrow keys / touch: two-finger move

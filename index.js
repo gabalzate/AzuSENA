@@ -425,7 +425,7 @@ function responderTexto(texto) {
 
     for (let i = 0; i < inicio.length; i++) {
       if (oracion.includes(inicio[i])) {
-        const texto = 'Hola, Muy buen día para todos. gracias por invitarme a este magnifico evento';
+        const texto = 'Hola, soy Asucena ¿como puedo ayudarte?';
         leerTexto(texto);
       }
     } 
@@ -1274,7 +1274,14 @@ function responderTexto(texto) {
     const sitengo = ["si tengo conocimiento"];
     const notengo = ["no tengo conocimiento", "espacios en blanco"];
     const borrar = ["borrar"];
+    const registro = ["nuevo registro"];
+    const identifica = ["identificar", "ingresar"];
     const ambos = ["ambos","los dos"];
+    const revisa = ["documentacion","revisar"];
+    const remite = ["remitir","remitirlo"];
+    const nombre = ["aleatorio"];
+    const desconocido = ["nomen","nescio"];
+    const juntos = ["las dos",];
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"];
     
     for (let i = 0; i < iniciar.length; i++) {
@@ -1328,16 +1335,62 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < borrar.length; i++) {
       if (oracion.includes(borrar[i])) {
-        const texto = 'Eso es incorrecto intenta de nuevo. Si es una nota médica que debe hacer Identifique el registro específico, ingrese la información contenida o ambos';
+        const texto = 'Eso es incorrecto. Si se encuentra un error por ningun motivo se debe borrar un registro en la historia clinica intenta de nuevo.';
         leerTexto(texto);
       }
     }
-    for (let i = 0; i < casos.length; i++) {
-      if (oracion.includes(casos[i])) {
-        const texto = 'puedes seleccionar una de las opciones, telefonico, urgencias o presencial';
+    for (let i = 0; i < registro.length; i++) {
+      if (oracion.includes(registro[i])) {
+        const texto = 'El funcionario debe agregar en el registro de modificación la fecha, hora, nombre e identificación de quien hizo la corrección y haciendo referencia al error que se subsana. El funcionario verifica la documentación aportada por los colaboradores, para saber qué tipo de procedimiento médico se realizó. Si es una nota médica que debe hacer Identificar el registro específico, ingresar la información contenida o ambos';
         leerTexto(texto);
-        activo = 1;
-        console. log('activo esta en: ' + activo)
+      }
+    }
+    for (let i = 0; i < identifica.length; i++) {
+      if (oracion.includes(identifica[i])) {
+        const texto = 'eso es incorrecto inténtalo de nuevo Si es una nota médica que debe hacer Identificar el registro específico, ingresar la información contenida o ambos';
+        leerTexto(texto);
+      }
+    } 
+    for (let i = 0; i < ambos.length; i++) {
+      if (oracion.includes(ambos[i])) {
+        const texto = '¡Muy bien! No solamente para las notas medicas se debe hacer este procedimiento, también se usa para nota de enfermería, resultado médico obtenido por un procedimiento de laboratorio clínico o un resultado médico obtenido por un procedimiento de ayuda diagnóstica, si llega un usuario por urgencias al prestador de Servicios de Salud donde tiene habilitado el servicio, el funcionario verifica las condiciones iniciales de salud y encuentra que está inconsciente, ¿qué debe hacer remitirlo inmediatamente a valoración clínica preliminar o revisar su documentación?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < revisa.length; i++) {
+      if (oracion.includes(revisa[i])) {
+        const texto = 'eso es incorrecto si el paciente está inconsciente se debe hacer una rápida valoración, intenta de nuevo ¿qué debe hacer remitirlo inmediatamente a valoración clínica preliminar o revisar su documentación?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < remite.length; i++) {
+      if (oracion.includes(remite[i])) {
+        const texto = 'Cuando un paciente llega inconsciente se debe remitir lo más pronto posible para valoración clínica Preliminar ya que esto puede hacer la diferencia entre la vida y la muerte del paciente. la valoración es superior a TRIAGE II se debe ingresar inmediatamente a sala de Observación o Sala de Cirugía luego de hacer revisión de las pertenencias del paciente no se encontró documentación que se debe hacer continuar el ingreso con un nombre aleatorio o registrarlo como Nomen Nescio';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < nombre.length; i++) {
+      if (oracion.includes(nombre[i])) {
+        const texto = 'Eso es incorrecto, el funcionario no puede inventar nombres a un usuario intenta de nuevo, que se debe hacer continuar el ingreso con un nombre aleatorio o registrarlo como Nomen Nescio';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < desconocido.length; i++) {
+      if (oracion.includes(desconocido[i])) {
+        const texto = 'El usuario será registrado como Nomen Nescio (Nombre desconocido) en la base de datos de la Prestadora de Servicios de Salud y se registrarán los procedimientos médicos realizados se iniciará el protocolo de identificación del paciente y se informará a la entidad encargada Departamental, Distrital o Municipal de la situación presentada. Si el usuario cuenta con documento de identidad que se debe hacer consultar en la plataforma ADRES en la EPS o en las dos';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < juntos.length; i++) {
+      if (oracion.includes(juntos[i])) {
+        const texto = 'Eso es incorrecto intenta de nuevo se debe hacer consultar en la plataforma ADRES en la EPS o en las dos';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < ambos.length; i++) {
+      if (oracion.includes(ambos[i])) {
+        const texto = 'o?';
+        leerTexto(texto);
       }
     }
     for (let i = 0; i < tema.length; i++) {

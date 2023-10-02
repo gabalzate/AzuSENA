@@ -803,37 +803,8 @@ function responderTexto(texto) {
         const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
         leerTexto(texto);
       }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
+    }
+    for (let i = 0; i < ubicacion.length; i++) {
       if (oracion.includes(ubicacion[i])) {
         const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
         leerTexto(texto);
@@ -845,7 +816,42 @@ function responderTexto(texto) {
         leerTexto(texto);
       }
     }
-
+    for (let i = 0; i < ubicacion.length; i++) {
+      if (oracion.includes(ubicacion[i])) {
+        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < ubicacion.length; i++) {
+      if (oracion.includes(ubicacion[i])) {
+        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < ubicacion.length; i++) {
+      if (oracion.includes(ubicacion[i])) {
+        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < ubicacion.length; i++) {
+      if (oracion.includes(ubicacion[i])) {
+        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < ubicacion.length; i++) {
+      if (oracion.includes(ubicacion[i])) {
+        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < ubicacion.length; i++) {
+      if (oracion.includes(ubicacion[i])) {
+        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
+        leerTexto(texto);
+      }
+    }
     for (let i = 0; i < tema.length; i++) {
       if (oracion.includes(tema[i])) {
         const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
@@ -1578,7 +1584,6 @@ function Cambiarsubtitulo(cambiar){
                         margin-right: 1%;
                         font-family:Josefin Sans;`
   }
-
 }
 let contenedor = document.getElementById("contenedor");
 contenedor.style = `background-color: none;  

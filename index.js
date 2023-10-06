@@ -454,7 +454,7 @@ function responderTexto(texto) {
     for (let i = 0; i < casos.length; i++) {
       if (oracion.includes(casos[i])) {
         Cambiarsubtitulo(1);
-        const texto = 'Con gusto. Tengo casos de consulta externa telefónica, consulta externa presencial, consulta neonatal y consulta por urgencias. ¿cual quieres conocer?';
+        const texto = 'Con gusto. Tengo casos de consulta externa telefónica, consulta externa presencial, consulta neonatal, consulta por urgencias y PQRSD. ¿cual quieres conocer?';
         leerTexto(texto);
         activo = 1;
         console. log('activo esta en: ' + activo)
@@ -609,6 +609,7 @@ function responderTexto(texto) {
     const presencial = ["presencial"]; // activo = 13 
     const clinica = ["historia clinica"]; // activo = 14 
     const neonata = ["neonatal","canguro"]; // activo = 15
+    const pqr = ["pqr"]; // activo = 16
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
 
     for (let i = 0; i < urgencia.length; i++) {
@@ -649,6 +650,14 @@ function responderTexto(texto) {
         const texto = 'Bienvenido al área de consulta externa neonatal. puedes empezar con la palabra iniciar';
         leerTexto(texto);
         activo = 15;
+        console. log('activo esta en: ' + activo)
+      }
+    }
+    for (let i = 0; i < pqr.length; i++) {
+      if (oracion.includes(pqr[i])) {
+        const texto = '	¡¡Bienvenido al área de PQRSD!!. puedes empezar con la palabra iniciar';
+        leerTexto(texto);
+        activo = 16;
         console. log('activo esta en: ' + activo)
       }
     }
@@ -1519,6 +1528,54 @@ function responderTexto(texto) {
     for (let i = 0; i < termina.length; i++) {
       if (oracion.includes(termina[i])) {
         const texto = 'lo siento rectifica tu respuesta, porque en ese momento el usuario hizo registro de ingreso con usted, asi que ¿Usted empieza protocolo para reporte por fallecimiento neonatal o deja la gestión hasta el momento?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < tema.length; i++) {
+      if (oracion.includes(tema[i])) {
+        const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
+        leerTexto(texto);
+        activo = 0;
+        console. log('activo esta en: ' + activo)
+      }
+    }
+  }
+  if (activo === 16) { // PQRSD
+    const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
+    const iniciar = ["iniciar", "inicio"]; 
+    const quees = ["que son las pqrs", "que es el pqrs"]; 
+    const sigla = ["siglas pqrs"];  
+    const cas = ["caso pqrs"];
+    const realiza = ["realiza aprendiz", "realiza un aprendiz", "realiza el aprendiz"];
+    const tema = ['cambiar tema',"cambiar el tema","cambiemos de tema","cambiar de tema"];
+
+    for (let i = 0; i < iniciar.length; i++) {
+      if (oracion.includes(iniciar[i])) {
+        const texto = 'Es el área encargada de realizar el proceso de ingreso de los pacientes a los diferentes servicios que presta la IPS o EPS como lo son consulta externa o consulta urgencias. ¿Cuál deseas indagar?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < quees.length; i++) {
+      if (oracion.includes(quees[i])) {
+        const texto = 'Las PQRSD nos permite evaluar la calidad, oportunidad, accesibilidad y continuidad de uso en los servicios de salud para generar acciones correctivas.';
+        leerTexto(texto);    
+      }
+    }
+    for (let i = 0; i < sigla.length; i++) {
+      if (oracion.includes(sigla[i])) {
+        const texto = 'PETICION: Solicitud que tiene como objeto indagar sobre un hecho, acto o actuación administrativa que corresponda a la naturaleza y finalidad del Ministerio. QUEJA: Manifestación mediante la cual se pone en conocimiento del Ministerio de Salud y Protección Social conductas inadecuadas por parte de sus funcionarios en el ejercicio de su cargo. RECLAMO: Manifestación mediante la cual se ponen en conocimiento del Ministerio de Salud y Protección Social deficiencias en la prestación de los servicios que ofrece la entidad. SUGERENCIA: Es una recomendación o propuesta que formula un ciudadano para el mejoramiento de las funciones, servicios, metas y objetivos de la entidad. DENUNCIA: Manifestación mediante la cual se ponen en conocimiento del Ministerio de Salud y Protección Social conductas posiblemente irregulares por parte de sus funcionarios, relacionadas con extralimitación de funciones, toma de decisiones prohibidas en el ejercicio de su cargo o el interés directo en una decisión tomada. Incluye actos de corrupción.';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < cas.length; i++) {
+      if (oracion.includes(cas[i])) {
+        const texto = 'Paciente hospitalizado, informa e interpone una PQRSD por falta de comunicación entre jefes de enfermería al cambio de turno para la suministración de medicamento al paciente sin dejar el registro clínico. En esta situación, se genera por medios virtuales, como lo es el correo electrónico, se procede hacer la creación de la PQRSD al correo institucional correspondiente. Cuando la institución recibe, deberá descargar el archivo y se empieza analizar la situación según lo estipulado en la normatividad vigente. Una vez se haya cargado en la plataforma y sea analizado, se debe transcribir al formulario, que se encuentra en la página institucional de la EPS. Los datos más comunes son, tipo y numero de documento, nombres completos, correo electrónico, lugar de los hechos y descripción del problema (EPS Sanitas). En este caso, el paciente decide poner una queja.';
+        leerTexto(texto);    
+      }
+    }
+    for (let i = 0; i < realiza.length; i++) {
+      if (oracion.includes(realiza[i])) {
+        const texto = '	Se debe analizar la situación, se hace la transcripción de datos al formulario y se le deberá dar respuesta al usuario que en 15 día hábiles se le dará un numero de radicado para que valide su respuesta a su PQRSD por el correo electrónico del paciente. En caso de que la solicitud sea por teléfono, se deberá transcribir lo que el usuario indiqué en la llamada, darle un numero de radicado, indicarle el tiempo estipulado de respuesta es de menor a 15 días hábiles y que se esté comunicando con ese número de radicado. O indicarle al paciente la repuesta emitida por la institución o entidad a cargo.';
         leerTexto(texto);
       }
     }

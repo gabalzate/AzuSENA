@@ -168,8 +168,8 @@ let contenido_main = ''; // Inicialmente, no se muestra ningún contenido
 function mostrarContenido() {
   const main = document.getElementById("main");
   main.innerHTML = ""; // Limpia el contenido anterior
-  
-  if (contenido_main === "listado") {
+//Texto
+if (contenido_main === "listado") {
     // Agrega un listado de procesos administrativos en salud
     const procesosList = document.createElement("ul");
     const procesos = [
@@ -191,7 +191,10 @@ function mostrarContenido() {
   });
 
   main.appendChild(procesosList);
-} else if (contenido_main === "admisiones") {
+
+}
+//Texto parrafo
+else if (contenido_main === "admisiones") {//Texto
   // Limpia el contenido anterior
   const main = document.getElementById("main");
   main.innerHTML = "";
@@ -209,7 +212,9 @@ function mostrarContenido() {
 
   // Agrega el párrafo al cuadro main
   main.appendChild(textoParrafo);
-} else if (contenido_main === "video") {
+} 
+//video mp4
+else if (contenido_main === "video") {
   // Limpia el contenido anterior
   const main = document.getElementById("main");
   main.innerHTML = "";
@@ -235,7 +240,9 @@ function mostrarContenido() {
 
   // Agrega el reproductor de video al cuadro main
   main.appendChild(videoElement);
-} else if (contenido_main === "equipo") {
+} 
+//foto png
+else if (contenido_main === "equipo") {
   // Limpia el contenido anterior
   const main = document.getElementById("main");
   main.innerHTML = "";
@@ -255,7 +262,9 @@ function mostrarContenido() {
 
   // Agrega la imagen al cuadro main
   main.appendChild(imgElement);
-} else if(contenido_main === "casos") {
+} 
+//texto listado
+else if(contenido_main === "casos") {
   // Agrega un listado de procesos administrativos en salud
   const procesosList = document.createElement("ul");
   const procesos = [
@@ -276,7 +285,9 @@ function mostrarContenido() {
 });
 
 main.appendChild(procesosList);
-}  else if (contenido_main === "casoUrgencias") {
+}  
+//Texto parrafo
+else if (contenido_main === "casoUrgencias") {
   // Limpia el contenido anterior
   const main = document.getElementById("main");
   main.innerHTML = "";
@@ -294,7 +305,9 @@ main.appendChild(procesosList);
 
   // Agrega el párrafo al cuadro main
   main.appendChild(textoParrafo);
-} else if (contenido_main === "documentos") {
+} 
+//Texto listado
+else if (contenido_main === "documentos") {
   // Agrega un listado de procesos administrativos en salud
   const procesosList = document.createElement("ul");
   const procesos = [
@@ -315,7 +328,9 @@ main.appendChild(procesosList);
 });
 
 main.appendChild(procesosList);
-} else if (contenido_main === "pdf") {
+} 
+//documento pdf
+else if (contenido_main === "pdf") {
     // Agrega un visor de PDF u otro contenido PDF
     // Puedes personalizar esto según tus necesidades
     const pdfEmbed = document.createElement("embed");
@@ -324,7 +339,9 @@ main.appendChild(procesosList);
     pdfEmbed.width = "100%";
     pdfEmbed.height = "500px";
     main.appendChild(pdfEmbed);
-} else if (contenido_main === "especifico") {
+} 
+//documento pdf
+else if (contenido_main === "especifico") {
   // Agrega un visor de PDF u otro contenido PDF
   // Puedes personalizar esto según tus necesidades
   const pdfEmbed = document.createElement("embed");

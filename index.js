@@ -454,7 +454,7 @@ function responderTexto(texto) {
     for (let i = 0; i < casos.length; i++) {
       if (oracion.includes(casos[i])) {
         Cambiarsubtitulo(1);
-        const texto = 'Con gusto. Tengo casos de consulta externa telefónica, consulta externa presencial y consulta por urgencias. ¿cual quieres conocer?';
+        const texto = 'Con gusto. Tengo casos de consulta externa telefónica, consulta externa presencial, consulta neonatal y consulta por urgencias. ¿cual quieres conocer?';
         leerTexto(texto);
         activo = 1;
         console. log('activo esta en: ' + activo)
@@ -608,6 +608,7 @@ function responderTexto(texto) {
     const externa = ["telefonica"]; // activo = 12 
     const presencial = ["presencial"]; // activo = 13 
     const clinica = ["historia clinica"]; // activo = 14 
+    const neonata = ["neonatal","canguro"]; // activo = 15
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
 
     for (let i = 0; i < urgencia.length; i++) {
@@ -640,6 +641,14 @@ function responderTexto(texto) {
         const texto = 'Bienvenido al área de historia clinica. puedes empezar con la palabra iniciar';
         leerTexto(texto);
         activo = 14;
+        console. log('activo esta en: ' + activo)
+      }
+    }
+    for (let i = 0; i < neonata.length; i++) {
+      if (oracion.includes(neonata[i])) {
+        const texto = 'Bienvenido al área de consulta externa neonatal. puedes empezar con la palabra iniciar';
+        leerTexto(texto);
+        activo = 15;
         console. log('activo esta en: ' + activo)
       }
     }
@@ -1432,6 +1441,96 @@ function responderTexto(texto) {
       }
     }
   } 
+  if (activo === 15) { // consulta externa neonatal
+    const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
+    const iniciar = ["iniciar", "inicio"]; 
+    const documento = ["documento de identidad", "identificacion","cedula"]; 
+    const dinero = ["cuota moderadora"];  
+    const ambos = ["ambos"];
+    const eps = ["eps", "adres", "address"];
+    const control = ["verifica", "verificar", "control de rutina"];
+    const sala = ["espere en sala", "espere en la sala"];
+    const doctor = ["llama al doctor", "llamar al doctor"];
+    const espera = ["espero", "esperar"];
+    const report = ["reporta", "reportar", "reporto"];
+    const termina = ["deja la gestion", "dejar la gestion"];
+    const tema = ['cambiar tema',"cambiar el tema","cambiemos de tema","cambiar de tema"];
+
+    for (let i = 0; i < iniciar.length; i++) {
+      if (oracion.includes(iniciar[i])) {
+        const texto = 'Empecemos con este caso donde usuaria Amelia Castañeda llega al Hospital Universitario Barrios Unidos por un control rutinario neonatal del programa especial Mamá Canguro que tiene con su bebe. 	¿Le solicitas documento de identidad o cuota moderadora?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < documento.length; i++) {
+      if (oracion.includes(documento[i])) {
+        const texto = '¡Muy bien!!.la solicitud del documento es muy importante. Debes validar si el usuario esta registrado en sistema ¿Validas al usuario en el sistema de la EPS, ADRESS o ambos? ';
+        leerTexto(texto);    
+      }
+    }
+    for (let i = 0; i < dinero.length; i++) {
+      if (oracion.includes(dinero[i])) {
+        const texto = '¡lo siento!. Rectifica tu respuesta y vuelve a seleccionar, porque hay que hacer registro del usuario y para eso no es necesario solicitar dinero o cuotas moderadoras, rectifica en tu conocimiento y vuelve a seleccionar.	¿Le solicitas documento de identidad o cuota moderadora?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < ambos.length; i++) {
+      if (oracion.includes(ambos[i])) {
+        const texto = '¡Sigamos!. Para brindar servicios al usuario se debe realizar ambas validaciones.luego que encuentras que sí está registrado la usuaria Amelia Castañeda con su bebe, cuéntame ¿Verificas si tiene su control de rutina o la envías a sala de espera?';
+        leerTexto(texto);    
+      }
+    }
+    for (let i = 0; i < eps.length; i++) {
+      if (oracion.includes(eps[i])) {
+        const texto = 'estas cerca pero rectifica tu respuesta y vuelve a seleccionar, porque las dos validaciones son importantes, entonces ¿Validas el usuario en sistema de la EPS, en la plataforma adres o ambos?.';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < control.length; i++) {
+      if (oracion.includes(control[i])) {
+        const texto = '¡Muy bien!. antes de hacer esperar al usuario se debe confirmar si tiene o no control programado. 	Después que la usuaria Amelia termina su control rutinario neonatal con los signos vitales bien de su bebe, sale a la sala de llamados en espera del pediatra cuando el bebe empieza a presentar una tonalidad morada y amarilla en la piel ¿Esperas a que llegue un asistencial o haces llamado al doctor más cercano?';
+        leerTexto(texto);    
+      }
+    }
+    for (let i = 0; i < sala.length; i++) {
+      if (oracion.includes(sala[i])) {
+        const texto = 'no debes hacer esperar en sala a un usuario que no tenga cita programada porque no lo atenderán y solo le hará perder su tiempo. vuelve a intentar.¿Verificas si tiene su control de rutina o la envías a sala de espera?';
+        leerTexto(texto); 
+      }
+    }
+    for (let i = 0; i < doctor.length; i++) {
+      if (oracion.includes(doctor[i])) {
+        const texto = '¡vas muy bien! en ese momento debes pedir la sistencia del doctor más cercano porque esto podría salvar la vida de una persona. despues de que llego el doctor y a pesar de los intentos de primeros auxilios por parte del personal capacitado, el bebe entra en un estado de paro cardio-respiratorio y fallece ¿Usted empieza protocolo para reporte por fallecimiento neonatal o deja la gestión hasta el momento?';
+        leerTexto(texto);    
+      }
+    }
+    for (let i = 0; i < espera.length; i++) {
+      if (oracion.includes(espera[i])) {
+        const texto = 'te equivocas, porque de eso dependerá la vida de una persona, intentalo de nuevo ¿Esperas a que llegue un asistencial o haces llamado al doctor más cercano?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < report.length; i++) {
+      if (oracion.includes(report[i])) {
+        const texto = 'excelente aún cuando el usuario fallece es importante que inicie el protocolo de fallecimineto para ya que en ese momento es usted la persona con los datos necesarios para ello... has teminado el caso correctamente ahora ya puedes cambiar de tema';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < termina.length; i++) {
+      if (oracion.includes(termina[i])) {
+        const texto = 'lo siento rectifica tu respuesta, porque en ese momento el usuario hizo registro de ingreso con usted, asi que ¿Usted empieza protocolo para reporte por fallecimiento neonatal o deja la gestión hasta el momento?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < tema.length; i++) {
+      if (oracion.includes(tema[i])) {
+        const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
+        leerTexto(texto);
+        activo = 0;
+        console. log('activo esta en: ' + activo)
+      }
+    }
+  }
    
 
 }

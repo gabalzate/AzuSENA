@@ -131,7 +131,7 @@ contenedor.style = `background-color: none;
                     padding-left: 4%;
                     width: 90%;
                     height: 90%;
-                    margin-top: 1%;
+                    margin-top: 0%;
                     margin-bottom: 3%;
                     margin-left: 4%;
                     margin-right: 4%;
@@ -153,4 +153,4 @@ main.style = `margin-top: -40px;
               color: transparent;
               text-decoration: none;`;
 
-export { Cambiar }
+export { Cambiar };

@@ -377,7 +377,7 @@ let pdfMapping = {
 };
 let cambiar;
 let activo = 0;
-Cambiarsubtitulo(1);
+
 console. log('activo esta en: ' + activo)
 console.log('cambiar esta en: ' + cambiar)
 console.log('contenido main esta en: ' + contenido_main)
@@ -432,6 +432,7 @@ function responderTexto(texto) {
     for (let i = 0; i < inicio.length; i++) {
       if (oracion.includes(inicio[i])) {
         animar(0, 2);
+        Cambiar(1);
         const texto = 'Hola, Muy buen día para todos. gracias por invitarme a este magnifico evento';
         leerTexto(texto);
         
@@ -445,15 +446,15 @@ function responderTexto(texto) {
       }    
     }   for (let i = 0; i < proyecto.length; i++) {
       if (oracion.includes(proyecto[i])) {
-        animar(0, 1);
+        animar(0, 2);
         const texto = 'soy una IA que permite interactuar con aprendices e instructores para fortalecer los procesos administrativos en salud. quieres saber que procesos administrativos se contemplan?';
         leerTexto(texto);
       }
     }     
     for (let i = 0; i < continuemos.length; i++) {
       if (oracion.includes(continuemos[i])) {
-        Cambiarsubtitulo(2);
-        animar(0, 1);
+       
+        animar(0, 2);
         console. log('cambiar titulo es = a 2');
         contenido_main = 'listado';
         console.log('contenido main esta en: ' + contenido_main)
@@ -518,8 +519,8 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < listar.length; i++) {
       if (oracion.includes(listar[i])) {
-        animar(0, 1);
-        Cambiarsubtitulo(2);
+        animar(0, 4);
+      
         console. log('cambiar titulo es = a 2');
         contenido_main = 'documentos';
         console.log('contenido main esta en: ' + contenido_main)
@@ -530,6 +531,7 @@ function responderTexto(texto) {
     } 
     for (let i = 0; i < consultar.length; i++) {
       if (oracion.includes(consultar[i])) {
+        animar(0, 2);
         const texto = '¿cual de los documentos quieres consultar: ley 100, ley 1733 o ley 1164?';
         leerTexto(texto);
         activo = 7;
@@ -538,42 +540,49 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < cristian.length; i++) {
       if (oracion.includes(cristian[i])) {
+        animar(0, 1);
         const texto = 'Cristian Reinoso, es mi creador, es un programador e investigador experto del área de senova'; 
         leerTexto(texto);
       }
     }
     for (let i = 0; i < cordinacion.length; i++) {
       if (oracion.includes(cordinacion[i])) {
+        animar(0, 1);
         const texto = 'Ana Carolina Feris Córdoba Coordinadora del Grupo de Formación Integral, Gestión Educativa y Promoción y Relaciones Corporativas'
         leerTexto(texto);
       }
     }
     for (let i = 0; i < regional.length; i++) {
       if (oracion.includes(regional[i])) {
-         const texto = 'Gerardo Arturo Medina Rosas es el director de la regional distrito capital'
+        animar(0, 1); 
+        const texto = 'Gerardo Arturo Medina Rosas es el director de la regional distrito capital'
          leerTexto(texto);
       }
     }
     for (let i = 0; i < diseño.length; i++) {
       if (oracion.includes(diseño[i])) {
+        animar(0, 1);
         const texto = 'Iván Darío García es el encargado del arte gráfico y un investigador experto de Senoba'
         leerTexto(texto);
       }
     }
     for (let i = 0; i < pregunta1.length; i++) {
       if (oracion.includes(pregunta1[i])) {
+        animar(0, 1);
         const texto = 'Senoba se encuenta ubicado en el nivel 1, bajando por las escaleras cerca de la cafetería'
         leerTexto(texto);
       }
     }
     for (let i = 0; i < redis2.length; i++) {
       if (oracion.includes(redis2[i])) {
+        animar(0, 1);
         const texto = 'Carlos Arturo Salgar Ramirez es el subdirector del centro de formacion de talento humano en salud y el director de la revista Reedis'
         leerTexto(texto);
       }
     }
     for (let i = 0; i < rafael.length; i++) {
       if (oracion.includes(rafael[i])) {
+        animar(0, 1);
         const texto = 'Rafael Mesa Perez es el dinamisador Sennova y jefe del area de investigación'
         leerTexto(texto);
       }
@@ -595,6 +604,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < pdf.length; i++) {
       if (oracion.includes(pdf[i])) {
+        animar(0, 1);
         const texto = '¿tengo varias opciones de pdf, si sabes cual quieres ver: nómbralo o si quieres pide un listado?';
         leerTexto(texto);
         activo = 6;
@@ -603,7 +613,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < gracias.length; i++) {
       if (oracion.includes(gracias[i])) {
-    
+        animar(0, 1);
         const texto = 'con gusto, ¿te puedo ayudar en algo más?';
       
         leerTexto(texto);
@@ -611,7 +621,8 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < adios.length; i++) {
       if (oracion.includes(adios[i])) {
-        
+        animar(0, 7);
+        Cambiar(2);
         console. log('cambiar titulo es = a 2');
         contenido_main = 'equipo';
         console.log('contenido main esta en: ' + contenido_main)
@@ -641,6 +652,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < externa.length; i++) {
       if (oracion.includes(externa[i])) {
+        animar(0, 1);
         const texto = 'Bienvenido al área de consulta externa. puedes empezar con la palabra iniciar';
         leerTexto(texto);
         activo = 12;
@@ -682,6 +694,7 @@ function responderTexto(texto) {
     
     for (let i = 0; i < retirar.length; i++) {
       if (oracion.includes(retirar[i])) {
+        animar(0, 1);
         const texto = 'para desafiliarse, usted debe presentar una carta';
         leerTexto(texto);
       }
@@ -706,6 +719,7 @@ function responderTexto(texto) {
   
     for (let i = 0; i < facturar.length; i++) {
       if (oracion.includes(facturar[i])) {
+        animar(0, 1);
         const texto = 'debe anexar los documentos del medico y entregarlos en la caja';
         leerTexto(texto);
       }
@@ -713,12 +727,14 @@ function responderTexto(texto) {
     
     for (let i = 0; i < ubicacion.length; i++) {
       if (oracion.includes(ubicacion[i])) {
+        animar(0, 1);
         const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de facturacion';
         leerTexto(texto);
       }
     }
     for (let i = 0; i < tema.length; i++) {
       if (oracion.includes(tema[i])) {
+        animar(0, 1);
         const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
         leerTexto(texto);
         activo = 0;
@@ -749,8 +765,9 @@ function responderTexto(texto) {
       
     for (let i = 0; i < claro.length; i++) {
       if (oracion.includes(claro[i])) {
+        animar(0, 2);
         const texto = 'reforcemos tus conocimientos mediante un caso hipotético. puedes seleccionar: urgencias, atención telefónica o atención presencial';
-        Cambiarsubtitulo(2);
+        
         console. log('cambiar titulo es = 1  ');
         leerTexto(texto);
         activo = 1;
@@ -761,7 +778,7 @@ function responderTexto(texto) {
       if (oracion.includes(ahora[i])) {
         const main = document.getElementById("main");
         main.innerHTML = "";
-        Cambiarsubtitulo(1);
+        animar(0, 5);
         console. log('cambiar titulo es = a 2');
         contenido_main = 'casos';
         console.log('contenido main esta en: ' + contenido_main)
@@ -773,7 +790,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < noclaro.length; i++) {
       if (oracion.includes(noclaro[i])) {
-        Cambiarsubtitulo(2);
+        animar(0, 9);
         console. log('cambiar titulo es = a 2');
         contenido_main = 'video';
         console.log('contenido main esta en: ' + contenido_main)
@@ -784,13 +801,14 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < conocerlos.length; i++) {
       if (oracion.includes(conocerlos[i])) {
+        animar(0, 6)
         const texto = 'El personal de admisiones es encargado de: Registro de datos, asignación del área de atención o habitación, verificar la documentación, validación de derechos del usuario, identificación, asignación del personal de atención, proceso de facturación, comunicación, coordinación interna, seguimiento y actualización de datos. Si quieres conocer específicamente alguno de los pasos nómbralo o si prefieres te doy un listado nuevamente para que selecciones';
         leerTexto(texto);
       }
     }    
     for (let i = 0; i < urgencia.length; i++) {
       if (oracion.includes(urgencia[i])) {
-        Cambiarsubtitulo(1);
+        animar(0, 2);
         const texto = 'Bienvenido al área de  urgencias. puedes empezar con la palabra iniciar';
         leerTexto(texto);
         activo = 11;
@@ -819,49 +837,7 @@ function responderTexto(texto) {
         const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
         leerTexto(texto);
       }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
     }
-    for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }
-
     for (let i = 0; i < tema.length; i++) {
       if (oracion.includes(tema[i])) {
         const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
@@ -880,6 +856,7 @@ function responderTexto(texto) {
     
     for (let i = 0; i < ingreso.length; i++) {
       if (oracion.includes(ingreso[i])) {
+        animar(0, 1);
         const texto = 'atencion al usuario se encarga de apoyarle';
         leerTexto(texto);
       }
@@ -887,12 +864,14 @@ function responderTexto(texto) {
     
     for (let i = 0; i < ubicacion.length; i++) {
       if (oracion.includes(ubicacion[i])) {
+        animar(0, 1);
         const texto = 'en la recepcionle pueden ayudar';
         leerTexto(texto);
       }
     }
     for (let i = 0; i < tema.length; i++) {
       if (oracion.includes(tema[i])) {
+        animar(0, 1);
         const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
         leerTexto(texto);
         activo = 0;
@@ -912,6 +891,7 @@ function responderTexto(texto) {
 
     for (let i = 0; i < listado.length; i++) {
       if (oracion.includes(listado[i])) {
+        animar(0, 2);
         const texto = 'Aquí tienes un listado de los PDF disponibles: flujo gramas de admisión, afiliación, facturación y atención al usuario. ¿Cual deseas ver?';
         leerTexto(texto);
       }
@@ -963,8 +943,9 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < tema.length; i++) {
       if (oracion.includes(tema[i])) {
+        animar(0, 1);
         const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
-      pdfViewer.style.display = 'none'; // Oculta el PDF
+        pdfViewer.style.display = 'none'; // Oculta el PDF
         leerTexto(texto);
         activo = 0;
         console. log('activo = 0')
@@ -996,9 +977,10 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < tercera.length; i++) {
       if (oracion.includes(tercera[i])) {
-        Cambiarsubtitulo(2);
+        animar(0, 1);
         console. log('cambiar titulo es = a 2');
         contenido_main = 'pdf';
+        Cambiar(2);
         console.log('contenido main esta en: ' + contenido_main)
         mostrarContenido();
         const texto = 'con gusto, aquí está un pdf con la ley 1164 de 2007';
@@ -1007,13 +989,14 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < importancia.length; i++) {
       if (oracion.includes(importancia[i])) {
+        animar(0, 3);
         const texto = 'toda la norma se relaciona con el talento humano en salud, desde la planeación formación, vigilancia, control y desempeño y define unos principios con los que se rige el Talento Humano en el área de la salud';
         leerTexto(texto);
       }
     }
     for (let i = 0; i < plantea.length; i++) {
       if (oracion.includes(plantea[i])) {
-        Cambiarsubtitulo(2);
+        
         console. log('cambiar titulo es = a 2');
         contenido_main = 'especifico';
         console.log('contenido main esta en: ' + contenido_main)
@@ -1024,7 +1007,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < gracias.length; i++) {
       if (oracion.includes(gracias[i])) {
-        Cambiarsubtitulo(1);
+        animar(0, 1);
         console. log('cambiar titulo es = 1');
         const texto = 'Fue un placer, ¿te puedo ayudar en algo más?';        
         leerTexto(texto);
@@ -1066,7 +1049,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < documento.length; i++) {
       if (oracion.includes(documento[i])) {
-        Cambiarsubtitulo(1);
+        animar(0, 4);
         console. log('cambiar titulo es = a 2');
         const texto = '¡perfecto!. Sin importar la dolencia o urgencia del usuario es indispensable realizar un registro y validación que se debe realizar con el documento de identificación. en donde debe validar al usuario: ¿en la EPS, en la plataforma adres, o en ambos? ';
         leerTexto(texto);    
@@ -1074,6 +1057,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < ambos.length; i++) {
       if (oracion.includes(ambos[i])) {
+        animar(0, 3);
         const texto = '¡Sigamos!. Para brindar servicios al usuario se debe realizar ambas validaciones.... El usuario Felipe Monsalve se encuentra activo en el sistema, ahora responde si o no: ¿el usuario tiene cita activa en sistema?';
         leerTexto(texto);    
       }
@@ -1094,6 +1078,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < dolor.length; i++) {
       if (oracion.includes(dolor[i])) {
+        animar(0, 3);
         const texto = '¡eso es incorrecto!. la persona de admisiones no es un médico u enfermero para diagnosticar a un usuario, su trabajo es: realizar el registro y verificar derechos del usuario. intenta de nuevo. ¿Le solicitas documento de identidad o le pregunta que tiene?';
         leerTexto(texto);
       }
@@ -1108,6 +1093,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < tema.length; i++) {
       if (oracion.includes(tema[i])) {
+        animar(0, 1);
         const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
         leerTexto(texto);
         activo = 0;
@@ -1304,36 +1290,42 @@ function responderTexto(texto) {
     
     for (let i = 0; i < iniciar.length; i++) {
       if (oracion.includes(iniciar[i])) {
+        animar(0, 3);
         const texto = 'El usuario se acerca al Prestador de Servicios de Salud para acudir a la cita médica, el funcionario le solicita el tipo y número de documento de identidad para verificar si reposa historia clínica en el archivo de gestión de la prestadora de servicios de salud. Este usuario es atendido por primera vez que se debe hacer: ¿apertura de historia clínica o hacerlo pasar con el médico para que él haga apertura de la historia clínica?'    
         leerTexto(texto);
       }
     }
     for (let i = 0; i < apertura.length; i++) {
       if (oracion.includes(apertura[i])) {
+        animar(0, 3);
         const texto = 'Una historia clínica se abre con el propósito principal de documentar y mantener un registro completo y organizado de la información médica y de salud de un paciente a lo largo del tiempo. Esta información es esencial para proporcionar atención médica de alta calidad y segura. ¿Conoces la información que se registra en una historia clínica?  Responde si la conozco o no la conozco';
         leerTexto(texto);    
       }
     }
     for (let i = 0; i < pasar.length; i++) {
       if (oracion.includes(pasar[i])) {
+        animar(0, 3);
         const texto = '¡lo siento eso es incorrecto! Para brindar servicios al usuario por primera vez se debe abrir una historia clínica. intenta de nuevo, se debe abrir historia clínica o hacer pasar con el medico?';
         leerTexto(texto);    
       }
     }
     for (let i = 0; i < siconozco.length; i++) {
       if (oracion.includes(siconozco[i])) {
+        animar(0, 3);
         const texto = '¡Perfecto! Para asegurarme de ello voy a listar la información y me dirás cual hace falta, los datos que se requieren son: tipo y número de identificación, apellidos y nombres completos, Estado civil, Edad, Sexo, Ocupación, dirección, teléfono, lugar de residencia, Aseguradora o EPS y el Tipo de vinculación Cotizante, beneficiario o vinculado si aciertas podremos seguir, si no, solo di no la conozco';
         leerTexto(texto);    
       }
     }
     for (let i = 0; i < noconozco.length; i++) {
       if (oracion.includes(noconozco[i])) {
+        animar(0, 3);
         const texto = 'Se deben tener en cuenta los siguientes datos tipo y número de identificación, apellidos y nombres completos, Estado civil, fecha de nacimiento, Edad, Sexo, Ocupación, dirección, teléfono, lugar de residencia, Aseguradora o EPS y el Tipo de vinculación Cotizante, beneficiario o vinculado. El usuario viene con un acompañante ¿sabes que datos se deben solicitar? Responde: si sé o no sé';
         leerTexto(texto);  
       }
     }
     for (let i = 0; i < nose.length; i++) {
       if (oracion.includes(nose[i])) {
+        animar(0, 3);
         const texto = 'Los datos que se deben solicitar son Nombre completo del acompañante, Teléfono, Parentesco de la persona, Grado de consanguinidad, de afinidad o civil. ¿reconoces cuáles son los aspectos claves a tener en cuenta para diligenciar la historia clínica? Responde Si reconozco o no reconozco';
         leerTexto(texto);    
       }
@@ -1341,18 +1333,21 @@ function responderTexto(texto) {
 
     for (let i = 0; i < eps.length; i++) {
       if (oracion.includes(eps[i])) {
+        animar(0, 3);
         const texto = 'estas cerca pero rectifica tu respuesta y vuelve a seleccionar, porque las dos validaciones son importantes, entonces ¿Validas el usuario en sistema de la EPS, en la plataforma adres o ambos?.';
         leerTexto(texto);
       }
     }
     for (let i = 0; i < dinero.length; i++) {
       if (oracion.includes(dinero[i])) {
+        animar(0, 3);
         const texto = '¡lo siento!. Rectifica tu respuesta y vuelve a seleccionar, porque hay que hacer registro del usuario y para eso no es necesario solicitar dinero o cuotas moderadoras, entonces ¿qué es lo primero que usted debe solicitar?';
         leerTexto(texto);
       }
     }
     for (let i = 0; i < nose.length; i++) {
       if (oracion.includes(nose[i])) {
+        animar(0, 3);
         const texto = 'debes prepararte un poco mas, yo puedo guiarte con tus conocimientos pero el aprendizaje depende de tí. vamos a enpezar de nuevo';
         leerTexto(texto);
         activo = 0;
@@ -1361,6 +1356,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < casos.length; i++) {
       if (oracion.includes(casos[i])) {
+        animar(0, 3);
         const texto = 'puedes seleccionar una de las opciones, telefonico, urgencias o presencial';
         leerTexto(texto);
         activo = 1;
@@ -1369,6 +1365,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < tema.length; i++) {
       if (oracion.includes(tema[i])) {
+        animar(0, 3);
         const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
         leerTexto(texto);
         activo = 0;
@@ -1376,6 +1373,4 @@ function responderTexto(texto) {
       }
     }
   } 
-   
-
 }

@@ -27,7 +27,7 @@ body{
     width: 40%;
 }
 #fondo3{
-    margin-top: 400px;
+    margin-top: 20%;
     height: 400px;
     width: 400px;
     background-repeat: no-repeat;
@@ -97,11 +97,24 @@ body{
     font-family: Josefin Sans;
     font-size: 120%;
 }
+@media screen and (max-width: 1400px) and (min-width: 1190px) {
+    #contenedor{
+        width: 90%;
+        height: 1000px;
+    }
+    #container3D{
+        width: 90%;
+        height: 360px;
+        margin-left: 4%;
+        
+    }
+    
+}
 
 @media screen and (max-width: 720px) {
     .titulo1{
         background-color: none;
-        margin-left: 8%;
+        margin-left: -26%;
         display: grid;
         grid-template-columns: 80% 20%;
         color: #00B100;
@@ -111,20 +124,40 @@ body{
     }
     #titulo2{
         background-color: none;
-        margin-left: 0px;
+        margin-left: -20%;
         margin-right: 10%;
         display: grid;
         grid-template-columns: 80% 20%;
         color: #fff;
         padding: 1%;
         font-family: Josefin Sans;
-        font-size: 60%;
+        font-size: 80%;
     }
     #img1{
         margin-left: 0px;
-        width: 40%;
+        width: 90%;
+    }
+    #sidebar{
+        grid-column-start: span 2;
+        width: auto;
+        background: none;
+    }
+    #main{
+        grid-column-start: span 2;
+        width: 100%;
+    }
+    button{
+        background-color: #00B100;
+        color: #fff;
+        width: 800px;
+        height: 60%;
+        border-radius: 15%;
+        padding: 1%;
+        font-size: 60%;
+        font-family: Josefin Sans;
     }
 }
+
 button{
     background-color: #00B100;
     color: #fff;

@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>CSS GRID</title>
-	<link type="text/css" rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS GRID</title>
+    <link type="text/css" rel="stylesheet" href="main.css">
 
 </head>
-
 <body>
 
 	<script type="importmap">
@@ -23,73 +21,51 @@
 
     </script>  
     
-    
-	<div id="particles-js"></div>
-	<div id="fondo3">
-		<img src="imagenes/circulos-04.png" height="400">
 
-	</div>
+    <div id="particles-js"></div>
+    <div id="fondo3">
+        <img src="imagenes/circulos-04.png" height="400">
+    </div>
+
+    <div class="contenedor" id="contenedor">
+        <div class="header" id="header">
+            <div>
+                <div class="titulo1">
+                    <h1>Hola, Soy Azusena</h1>
+
+                </div>
+                <div id="titulo2">IA Procesos Administrativos CFTHS</div>
+            </div>
+            <div><img id="img1" src="imagenes/logo1.png"></div>
+        </div>
+
+        <div class="sidebar" id="sidebar">
+                <div id="container3D">
+                    <script  type="module" src="./index.js"></script>
+                </div>
+                <div id="contenido" class="hidden">
+                    <video id="videoPlayer" width="1" height="1" color="blue"></video>
+                </div>
+            <div class="textos">
+                <textarea name="area" id="textArea" cols="40" rows="1"></textarea>
+            </div>
+        </div>
+
+        <div class="main" id="main">
+            <textarea name="text" id="textarea2" cols="30" rows="21"></textarea>
+        </div>
+
+        <div class="footer" id="footer">
+            <h2>© 2023 Desarrollado por SENNOVA CFTHS</h2>
+            <button  id="btnStart">INICIAR</button>
+            <button  id="btnStop">DETENER</button>
+        </div>
+        <script src="cambiar.js"></script>
      
-	<div class="contenedor" id="contenedor">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="./particles/particles.js"></script>
 
-		<div class="header" id="header">
-			<div>
-				<div class="titulo1">
-					<h1>
-					   Hola, soy AzuSena
-					</h1>
-				</div>
-				<div id="titulo2"> IA Procesos Administrativos CFTHS   
-				</div>				
-			</div>
-			<div><img id="img1" src="imagenes/logo1.png"></div>
-		</div>
-      
-		<div class="sidebar" id="sidebar">	
-			<div class="principal">
-				<div id="container3D">					
-					<script type="module" src="index.js"></script>
-				</div> 
-				<div id="contenido" class="hidden">
-					<video id="videoPlayer" width="1" height="1" color="blue" ></video>						
-				</div>
-			</div>
-			<div class="textos">
-                <textarea id="textArea" cols="40" rows="1"></textarea>
-			</div>
-			
-		
-		        		
-		</div>
-			
-	   <div class="main" id="main">
-		    <textarea name="text" id="textarea2" cols="30" rows="21"></textarea>
-	   </div>
-
-		<div class="footer" id="footer">
-			
-			<h2>© 2023 Desarrollado por SENNOVA CFTHS</h2>
-			<button type="button" id="btnStart" >INICIAR</button>
-			<button type="button" id="btnStop">DETENER</button>		
-	   
-		</div>
-		
-		
-		<div class="buttones-container2">
-			<button2 id="animation_button_1" >ANIM1</button>
-			<button2 id="animation_button_2">ANIM2</button>
-		</div>
-	</div>
-		
-	<li><a id="boton">Admisiones</a></li>
-	<li><a id="boton2">Afiliaciones</a></li>
-	<li><a id="boton3">Facturacion</a></li>
-	<li><a id="boton4">Orientacion al usuario</a></li>
-    <script> src="./cambiar.js"</script>
-	</div>
-	
-
-	<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-	<script src="particles.js"></script>
+   
 </body>
 </html>

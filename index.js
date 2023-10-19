@@ -1,6 +1,145 @@
-import *as THREE from './librerias/three.module.js';
-import { OrbitControls } from "./OrbitControls.js";
-import { GLTFLoader } from './GLTFLoader.js';
+import *as THREE from './librerias/three/three.module.js';
+import { OrbitControls } from './librerias/OrbitControls.js';
+import { GLTFLoader } from './librerias/GLTFLoader.js';
+import { Cambiar } from './cambiar.js';
+Cambiar(1);
+let object;
+let mixer;
+let actions = [];
+let currentAnimation, prevAnimation = null;
+let objToRender = "path";
+let repetir;
+//crear camara, escena, y renderizado en la pantalla
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera();
+
+//agregar el modelo 3d usando la libreria GLTFLoader
+let contador = 0;
+
+const gltfloader = new GLTFLoader();
+gltfloader.load("./path/hablar3.glb", function(gltf){
+    console.log(gltf); //permite ver las propiedades del objeto
+    object = gltf.scene;
+    scene.add(object);
+    //la variable mixer permite agregar las diferentes animaciones
+    mixer = new THREE.AnimationMixer(object);
+    //para navegar entre las diferentes animaciones el metodo clip
+    for(const clip of gltf.animations){
+        let action_1 = mixer.clipAction(clip);
+        actions.push(action_1);
+    }
+    if(actions.length > 0){
+       
+        currentAnimation = mixer.clipAction(actions[0].getClip());
+        currentAnimation.loop = THREE.LoopRepeat;
+        currentAnimation.clampWhenFinished = true;
+        currentAnimation.repetitions = repetir;
+     
+        currentAnimation.reset();
+        console.log("contador: ", repetir)
+    }
+},function(xhr){
+    console.log((xhr.loaded / xhr.total * 100) + "% loaded"); //metodo para ver el proceso de carga del objeto
+}, function(error){
+    console.log(error); // metodo para ver si existe un error al cargar el objeto
+
+});
+
+function animar(index, repetir){
+    prevAnimation = currentAnimation;
+    currentAnimation = actions[index];
+    currentAnimation.play();
+    if(index >= 0 && index < actions.length){
+        for(const action_1 of actions){
+            action_1.stop();
+        }
+        const currentAnimation = actions[index];
+        currentAnimation.reset();
+        currentAnimation.play();
+    }
+    currentAnimation.repetitions = repetir; //numero de repeticiones
+}
+
+// function animar(index){
+       
+//     prevAnimation = currentAnimation;
+//     currentAnimation = actions[index];
+//     currentAnimation.play();
+//     if(prevAnimation !== currentAnimation){
+//         currentAnimation.fadeOut(0.5);
+//         currentAnimation.reset();
+//         prevAnimation.fadeIn(1);
+//         prevAnimation.play();
+//         prevAnimation.fadeOut(0.5);
+//         currentAnimation.fadeIn(0.5);
+//     }
+//     currentAnimation.clampWhenFinished = true;
+// }
+
+
+
+//renderizado de la pantalla
+const renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 0.85;
+renderer.setSize(window.innerWidth / 3.4, window.innerHeight /1.8, true);
+
+//agregar modelo al contenedor
+document.getElementById("container3D").appendChild(renderer.domElement);
+
+//la variable camera permite ubicarse en un area frente al modelo
+
+camera.position.z = 2.3;
+camera.position.y = 0;
+camera.position.x = -0.5;
+//necesario para iluminar el modelo en varias direcciones
+
+const topLight = new THREE.DirectionalLight(0xffffff, 1);
+topLight.position.set(0, 0, 100);
+topLight.castShadow = true;
+scene.add(topLight);
+
+const topLight_1 = new THREE.DirectionalLight(0xA7C7B7, 1);
+topLight_1.position.set(-300, 300, -500);
+topLight_1.castShadow = true;
+scene.add(topLight_1);
+
+const ambientLight = new THREE.AmbientLight(0x00000, objToRender ==="path" ? 5 : 1);
+ambientLight.add(scene);
+
+//la variable controls permite un evento en el mause que mueve el objeto
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.minDistance = 2;
+controls.maxDistance = 3;
+controls.minPolarAngle = Math.PI / 2;
+controls.maxPolarAngle = Math.PI / 2;
+controls.maxAzimuthAngle = Math.PI / 4;
+controls.minAzimuthAngle = Math.PI / -4;
+controls.update();
+//resize en pantalla, responsive
+window.addEventListener("resize", onWindowResize, true);
+function onWindowResize(){
+    camera.aspect = container3D.clientWidth / container3D.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container3D.clientWidth, container3D.clientHeight);
+
+}
+
+//la funcion update permite que renderice la escena durante 1 segunado a 60 frames
+
+function update(){
+    requestAnimationFrame(update);
+    if(mixer){
+        mixer.update(0.02);   
+        renderer.render(scene, camera);
+        onWindowResize();      
+    }
+}
+update();
+
+
 const btnStart = document.getElementById('btnStart');
 const btnStop = document.getElementById('btnStop');
 const pdfViewer = document.getElementById('mipdf');
@@ -28,138 +167,6 @@ if (mostrar === 1) {
   videoPlayer.pause();
 }
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera();
-
-let object;
-let mixer;
-let actions = [];
-let clock;
-let currentAnimation, prevAnimation;
-let objToRender = "path";
-clock = new THREE.Clock();
-
-// Obtener el elemento de contenido
-const contenido = document.getElementById("contenido");
-
-
-//agrega el modelo 3d usando la libreria gltf en js
-const gltfloader = new GLTFLoader();
-gltfloader.load("./path/hablar3.glb", function(gltf){
-    console.log(gltf);
-    object = gltf.scene;
-    scene.add(object);
-    
-    //la variable mixer me permite agregar las diferentes animaciones cargadas en el modelo
-    mixer = new THREE.AnimationMixer(object);
-    
-    //para navegar en cada una de las animaciones el metodo clip
-    for(const clip of gltf.animations){
-        let action_1 = mixer.clipAction(clip);
-        actions.push(action_1);       
-    }
-    
-}, 
-function(xhr){
-    console.log((xhr.loaded / xhr.total * 100) + "% loaded");
-
-}, function(error){
-    console.log(error);
-});
- // la funcion animar permite controlar y acceder cada una de las animaciones
- // usando cada una cuando lo requiera
-function animar(index){
-    prevAnimation = currentAnimation;
-    currentAnimation = actions[index];
-    currentAnimation.play();
-    if(prevAnimation != currentAnimation){
-        currentAnimation.fadeOut(0.5);
-        currentAnimation.reset();
-        prevAnimation.fadeIn(1);
-        prevAnimation.play();
-        prevAnimation.fadeOut(0.5);
-        currentAnimation.fadeIn(0.5);
-    }
-}
-
-// las variables animation_button permite ordenar la activacion de la animacion
-const animation_button_1 = document.getElementById("animation_button_1");
-animation_button_1.addEventListener("click", function(){
-    animar(0);
-} );
-
-const animation_button_2 = document.getElementById("animation_button_2");
-animation_button_2.addEventListener("click", function(){
-    animar(1);
-} );
-
-//el renderizado de la pantalla
-const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true});
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 0.85;
-renderer.setSize(window.innerWidth/3.4, window.innerHeight/1.8, true);
-
-//agregar modelo en un contenedor
-document.getElementById("container3D").appendChild(renderer.domElement);
-
-//la variable camara permite ubicarse en un area frente al modelo
-camera.position.z = 2.3;
-camera.position.y = 0;
-camera.position.x = -0.5;
-
-//necesario iluminar el modelo en varias direcciones
-const topLight = new THREE.DirectionalLight(0xffffff, 1);
-topLight.position.set(0, 0, 100);
-topLight.castShadow = true;
-scene.add(topLight);
-
-const topLight_1 = new THREE.DirectionalLight(0xA7C7B7, 1);
-topLight_1.position.set(-300, 300, 500);
-topLight_1.castShadow = true;
-scene.add(topLight_1);
-
-const ambientLight = new THREE.AmbientLight(0xffffff, objToRender ==="path" ? 5 : 1);
-ambientLight.add(scene)
-
-//la variable controls permite un evento en el mouse que 
-//mueve el objeto y zoom
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.minDistance = 2;
-controls.maxDistance = 3;
-controls.minPolarAngle = Math.PI / 2;
-controls.maxPolarAngle = Math.PI / 2;
-controls.maxAzimuthAngle = Math.PI / 4;
-controls.minAzimuthAngle = Math.PI / -4;
-
-// controls.minAzimuthAngle = Math.PI ;
-controls.update();
-// objToRender.addEventListener("resize", function(){
-//     camera.aspect = objToRender.innerWidth / objToRender.innerHeight;
-//     camera.updateProjectionMatrix();
-//     renderer.setSize(objToRender.innerWidth, objToRender.innerHeight);  
-// });
-
-window.addEventListener("resize", onWindowResize, true );
-function onWindowResize(){
-    camera.aspect = container3D.clientWidth / container3D.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(container3D.clientWidth , container3D.clientHeight);
-
-};
-
-//la funcion animate permite que renderice la escena 
-//durante 1 segundo a 60 frames
-function animate(){    
-    requestAnimationFrame(animate);
-    const delta = clock.getDelta();
-    // for(var index = 0; index < actions.length; index++ ){
-    //     actions[index].update(delta);
-    // }
-    mixer.update(delta);    
-    onWindowResize();
-    renderer.render(scene, camera);
-}
 
 //lector de textos
 
@@ -375,7 +382,7 @@ console. log('activo esta en: ' + activo)
 console.log('cambiar esta en: ' + cambiar)
 console.log('contenido main esta en: ' + contenido_main)
 function leerTexto(text) {
-  animar(0);
+
   const speech = new SpeechSynthesisUtterance(text);
   speech.volume = 1;
   speech.rate = 1;
@@ -395,7 +402,7 @@ function detenerReconocimiento() {
 }
 
 function responderTexto(texto) {
-  animar(1);
+  animar(1, 100);
   if (activo === 0) { // inicio
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
     const inicio = ["hola azucena"];
@@ -421,21 +428,24 @@ function responderTexto(texto) {
     const diseño = ["diseñador", "ivan","ivancho","artista","diseño"];
     const pregunta1=["ubicado senova","ubicación de senova","encuentra senova"];
     const redis2 = ["director de la revista", "subdirector del centro","carlos salgar"];
-    
-
+  
     for (let i = 0; i < inicio.length; i++) {
       if (oracion.includes(inicio[i])) {
+        animar(0, 2);
         const texto = 'Hola, Muy buen día para todos. gracias por invitarme a este magnifico evento';
         leerTexto(texto);
+        
       }
-    } 
+    }
     for (let i = 0; i < inicio1.length; i++) {
       if (oracion.includes(inicio1[i])) {
+        animar(0, 1);
         const texto = 'Hola Cristian bienvenido de nuevo, Soy Azusena. Una IA disponible para tu aprendizaje constante. que te gustaría saber';
         leerTexto(texto);
-      }
+      }    
     }   for (let i = 0; i < proyecto.length; i++) {
       if (oracion.includes(proyecto[i])) {
+        animar(0, 1);
         const texto = 'soy una IA que permite interactuar con aprendices e instructores para fortalecer los procesos administrativos en salud. quieres saber que procesos administrativos se contemplan?';
         leerTexto(texto);
       }
@@ -443,6 +453,7 @@ function responderTexto(texto) {
     for (let i = 0; i < continuemos.length; i++) {
       if (oracion.includes(continuemos[i])) {
         Cambiarsubtitulo(2);
+        animar(0, 1);
         console. log('cambiar titulo es = a 2');
         contenido_main = 'listado';
         console.log('contenido main esta en: ' + contenido_main)
@@ -453,7 +464,8 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < casos.length; i++) {
       if (oracion.includes(casos[i])) {
-        Cambiarsubtitulo(1);
+        animar(0, 2);
+        Cambiar(1);
         const texto = 'Con gusto. Tengo casos de consulta externa telefónica, consulta externa presencial y consulta por urgencias. ¿cual quieres conocer?';
         leerTexto(texto);
         activo = 1;
@@ -462,6 +474,7 @@ function responderTexto(texto) {
     }    
     for (let i = 0; i < facturacion.length; i++) {
       if (oracion.includes(facturacion[i])) {
+        animar(0, 1);
         const texto = '¿Qué deseas saber sobre facturacion?';
         leerTexto(texto);
         activo = 3;
@@ -471,7 +484,8 @@ function responderTexto(texto) {
 
     for (let i = 0; i < admisiones.length; i++) {
       if (oracion.includes(admisiones[i])) {
-        Cambiarsubtitulo(2);
+        animar(0, 3);
+        Cambiar(2);
         console. log('cambiar titulo es = a 2');
         contenido_main = 'admisiones';
         console.log('contenido main esta en: ' + contenido_main)
@@ -484,7 +498,8 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < usuario.length; i++) {
       if (oracion.includes(usuario[i])) {
-        Cambiarsubtitulo(2);
+        animar(0, 1);
+        Cambiar(5);
         const texto = '¿Qué deseas saber sobre atencion al usuario?';
         leerTexto(texto);
         activo = 5;
@@ -493,7 +508,8 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < afiliaciones.length; i++) {
       if (oracion.includes(afiliaciones[i])) {
-        Cambiarsubtitulo(2);
+        animar(0, 1);
+        Cambiar(4);
         const texto = '¿Qué deseas saber sobre afiliaciones?';
         leerTexto(texto);
         activo = 2;
@@ -502,6 +518,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < listar.length; i++) {
       if (oracion.includes(listar[i])) {
+        animar(0, 1);
         Cambiarsubtitulo(2);
         console. log('cambiar titulo es = a 2');
         contenido_main = 'documentos';
@@ -564,11 +581,14 @@ function responderTexto(texto) {
     
     for (let i = 0; i < invitados.length; i++) {
       if (oracion.includes(invitados[i])) {
+        animar(0, 1);
         const texto = '¡que bien!... y, quiénes son los invitados?';
         leerTexto(texto);
       }
     }for (let i = 0; i < tecnoparque.length; i++) {
       if (oracion.includes(tecnoparque[i])) {
+        animar(0, 1);
+        Cambiar(1);
         const texto = '¡maravilloso!... empecemos con la demostración entonces';
         leerTexto(texto);
       }
@@ -583,15 +603,15 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < gracias.length; i++) {
       if (oracion.includes(gracias[i])) {
-        Cambiarsubtitulo(1);
+    
         const texto = 'con gusto, ¿te puedo ayudar en algo más?';
-        Cambiarsubtitulo(1);
+      
         leerTexto(texto);
       }
     }
     for (let i = 0; i < adios.length; i++) {
       if (oracion.includes(adios[i])) {
-        Cambiarsubtitulo(2);
+        
         console. log('cambiar titulo es = a 2');
         contenido_main = 'equipo';
         console.log('contenido main esta en: ' + contenido_main)
@@ -611,6 +631,7 @@ function responderTexto(texto) {
 
     for (let i = 0; i < urgencia.length; i++) {
       if (oracion.includes(urgencia[i])) {
+        animar(0, 1);
         const texto = 'Bienvenido al área de  urgencias. puedes empezar con la palabra iniciar';
         leerTexto(texto);
         activo = 11;
@@ -628,6 +649,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < presencial.length; i++) {
       if (oracion.includes(presencial[i])) {
+        animar(0, 1);
         const texto = 'Bienvenido al área de consulta externa presencial. puedes empezar con la palabra iniciar';
         leerTexto(texto);
         activo = 13;
@@ -636,6 +658,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < tema.length; i++) {
       if (oracion.includes(tema[i])) {
+        animar(0, 1);
         const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
         leerTexto(texto);
         activo = 0;
@@ -651,6 +674,7 @@ function responderTexto(texto) {
   
     for (let i = 0; i < afiliar.length; i++) {
       if (oracion.includes(afiliar[i])) {
+        animar(0, 1);
         const texto = 'para realizar la afiliación usted debe reguistrarse en adres';
         leerTexto(texto);
       }
@@ -664,6 +688,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < tema.length; i++) {
       if (oracion.includes(tema[i])) {
+        animar(0, 1);
         const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
         leerTexto(texto);
         activo = 0;
@@ -1030,7 +1055,7 @@ function responderTexto(texto) {
 
     for (let i = 0; i < iniciar.length; i++) {
       if (oracion.includes(iniciar[i])) {
-        Cambiarsubtitulo(2);
+        animar(0, 2);
         console. log('cambiar titulo es = a 2');
         contenido_main = 'casoUrgencias';
         console.log('contenido main esta en: ' + contenido_main)
@@ -1354,197 +1379,3 @@ function responderTexto(texto) {
    
 
 }
-animate();
-
-//estilos
-
-function Cambiarsubtitulo(cambiar){
-  if(cambiar == 1){
-      document.getElementById("titulo2").innerHTML = "IA Procesos Administrativos CFTHS";
-      let contenedor = document.getElementById("contenedor");
-      let main = document.getElementById("main");
-      let sidebar = document.getElementById("sidebar");
-      let textarea2 = document.getElementById("textarea2");
-    
-      contenedor.style = `background-color: none;  
-                          padding-left: 4%; 
-                          width: 90%; 
-                          height: 90%; 
-                          margin-top: 1%; 
-                          margin-bottom: 3%; 
-                          margin-left: 4%; 
-                          margin-right: 4%; 
-                          display: grid; 
-                          grid-gap: 1%; 
-                          grid-template-columns: repeat(2, 1fr); 
-                          grid-template-rows: repeat(3, auto); `;
-      
-      sidebar.style = `grid-column-start: span 2; 
-                       margin-right: 4%; 
-                       background: none; `;
-      main.style = ` margin-top: -40px; 
-                     text-indent: -1000%;  
-                     font: 0/0 a; text-shadow: transparent; 
-                     color: transparent; 
-                     text-decoration: none;`;
-  
-  }else if(cambiar == 2){
-      document.getElementById("titulo2").innerHTML = "IA Procesos Administrativos CFTHS - ADMISIONES";
-      let contenedor = document.getElementById("contenedor");
-      let main = document.getElementById("main");
-      let sidebar = document.getElementById("sidebar");
-
-      contenedor.style = `background-color: none;  
-                          padding-left: 4%; 
-                          width: 90%; 
-                          height: 90%; 
-                          margin-top: 1%; 
-                          margin-bottom: 3%; 
-                          margin-left: 4%; 
-                          margin-right: 4%; 
-                          display: grid; 
-                          grid-gap: 1%; 
-                          grid-template-columns: repeat(2, 1fr); 
-                          grid-template-rows: repeat(3, auto); `;
-
-      
-      sidebar.style = ` grid-column-start: 1 / 2; 
-                        margin-right: 10%; 
-                        background: none;`;
-
-      main.style = " grid-column-start: 2 / 1; width: 100%;";
-  
-  }else if(cambiar == 3){
-      document.getElementById("titulo2").innerHTML = "IA Procesos Administrativos CFTHS - FACTURACIÓN";
-      let contenedor = document.getElementById("contenedor");
-      let main = document.getElementById("main");
-      let sidebar = document.getElementById("sidebar");
-
-      contenedor.style = `background-color: none;  
-                          padding-left: 4%; 
-                          width: 90%; height: 90%; 
-                          margin-top: 1%; 
-                          margin-bottom: 3%; 
-                          margin-left: 4%; 
-                          margin-right: 4%; 
-                          display: grid; grid-gap: 1%; 
-                          grid-template-columns: repeat(2, 1fr); 
-                          grid-template-rows: repeat(3, auto); `;
-      sidebar.style = " grid-column-start: 1 / 2; margin-right: 10%; background: none;";
-
-      main.style = " grid-column-start: 2 / 1; width: 100%;";
-  
-  }else if(cambiar == 4){
-      document.getElementById("titulo2").innerHTML = "IA Procesos Administrativos CFTHS - ORIENTACIÓN AL USUARIO";
-      let contenedor = document.getElementById("contenedor");
-      let main = document.getElementById("main");
-      let sidebar = document.getElementById("sidebar");
-      let header = document.getElementById("header");
-
-      contenedor.style = `background-color: none;  
-                          padding-left: 4%; 
-                          width: 90%; 
-                          height: 90%; 
-                          margin-top: 1%; 
-                          margin-bottom: 3%; 
-                          margin-left: 4%; 
-                          margin-right: 4%; 
-                          display: grid; 
-                          grid-gap: 1%; 
-                          grid-template-columns: repeat(2, 1fr); 
-                          grid-template-rows: repeat(3, auto); `;
-
-      sidebar.style = " grid-column-start: 1 / 2; margin-right: 10%; background: none;";
-
-      main.style = " grid-column-start: 2 / 1; width: 100%;";
-      
-      header.style = `	background-color: none;
-                          grid-column-start: 1;
-                          grid-column-end: -1;
-                          width: auto;
-                          padding: 1%;
-                          display: grid;
-                          grid-template-columns: 80% 20%;
-                          margin-left: 1%;
-                          margin-right: 1%;
-                          font-family:Josefin Sans;`
-  }else if(cambiar == 5){
-    document.getElementById("titulo2").innerHTML = "IA Procesos Administrativos CFTHS - Afiliaciones";
-    let contenedor = document.getElementById("contenedor");
-    let main = document.getElementById("main");
-    let sidebar = document.getElementById("sidebar");
-    let header = document.getElementById("header");
-
-    contenedor.style = `background-color: none;  
-                        padding-left: 4%; 
-                        width: 90%; 
-                        height: 90%; 
-                        margin-top: 1%; 
-                        margin-bottom: 3%; 
-                        margin-left: 4%; 
-                        margin-right: 4%; 
-                        display: grid; 
-                        grid-gap: 1%; 
-                        grid-template-columns: repeat(2, 1fr); 
-                        grid-template-rows: repeat(3, auto); `;
-
-    sidebar.style = " grid-column-start: 1 / 2; margin-right: 10%; background: none;";
-
-    main.style = " grid-column-start: 2 / 1; width: 100%;";
-    
-    header.style = `	background-color: none;
-                        grid-column-start: 1;
-                        grid-column-end: -1;
-                        width: auto;
-                        padding: 1%;
-                        display: grid;
-                        grid-template-columns: 80% 20%;
-                        margin-left: 1%;
-                        margin-right: 1%;
-                        font-family:Josefin Sans;`
-  }
-
-}
-let contenedor = document.getElementById("contenedor");
-contenedor.style = `background-color: none;  
-padding-left: 4%; 
-width: 90%; 
-height: 90%; 
-margin-top: 1%; 
-margin-bottom: 3%; 
-margin-left: 4%; 
-margin-right: 4%; 
-display: grid; 
-grid-gap: 1%; 
-grid-template-columns: repeat(2, 1fr); 
-grid-template-rows: repeat(3, auto); `;
-
-let sidebar = document.getElementById("sidebar");
-sidebar.style = ` grid-column-start: span 2; 
-margin-right: 10%; 
-background: none;`;
-
-let main = document.getElementById("main");
-main.style = `margin-top: -40px; 
-text-indent: -1000%;  
-font: 0/0 a; text-shadow: transparent; 
-color: transparent; 
-text-decoration: none;`
-
-
-// const boton = document.getElementById("boton");
-// boton.addEventListener("click", function(){
-//   Cambiarsubtitulo(1);
-// });
-// const boton2 = document.getElementById("boton2");
-// boton2.addEventListener("click", function(){
-//   Cambiarsubtitulo(2);
-// });
-// const boton3 = document.getElementById("boton3");
-// boton3.addEventListener("click", function(){
-//   Cambiarsubtitulo(3);
-// });
-// const boton4 = document.getElementById("boton4");
-// boton4.addEventListener("click", function(){
-//   Cambiarsubtitulo(4);
-// });

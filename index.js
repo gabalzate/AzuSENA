@@ -175,8 +175,8 @@ let contenido_main = ''; // Inicialmente, no se muestra ningún contenido
 function mostrarContenido() {
   const main = document.getElementById("main");
   main.innerHTML = ""; // Limpia el contenido anterior
-  
-  if (contenido_main === "listado") {
+//Texto
+if (contenido_main === "listado") {
     // Agrega un listado de procesos administrativos en salud
     const procesosList = document.createElement("ul");
     const procesos = [
@@ -198,7 +198,10 @@ function mostrarContenido() {
   });
 
   main.appendChild(procesosList);
-} else if (contenido_main === "admisiones") {
+
+}
+//Texto parrafo
+else if (contenido_main === "admisiones") {//Texto
   // Limpia el contenido anterior
   const main = document.getElementById("main");
   main.innerHTML = "";
@@ -216,7 +219,9 @@ function mostrarContenido() {
 
   // Agrega el párrafo al cuadro main
   main.appendChild(textoParrafo);
-} else if (contenido_main === "video") {
+} 
+//video mp4
+else if (contenido_main === "video") {
   // Limpia el contenido anterior
   const main = document.getElementById("main");
   main.innerHTML = "";
@@ -242,7 +247,9 @@ function mostrarContenido() {
 
   // Agrega el reproductor de video al cuadro main
   main.appendChild(videoElement);
-} else if (contenido_main === "equipo") {
+} 
+//foto png
+else if (contenido_main === "equipo") {
   // Limpia el contenido anterior
   const main = document.getElementById("main");
   main.innerHTML = "";
@@ -262,7 +269,9 @@ function mostrarContenido() {
 
   // Agrega la imagen al cuadro main
   main.appendChild(imgElement);
-} else if(contenido_main === "casos") {
+} 
+//texto listado
+else if(contenido_main === "casos") {
   // Agrega un listado de procesos administrativos en salud
   const procesosList = document.createElement("ul");
   const procesos = [
@@ -283,7 +292,9 @@ function mostrarContenido() {
 });
 
 main.appendChild(procesosList);
-}  else if (contenido_main === "casoUrgencias") {
+}  
+//Texto parrafo
+else if (contenido_main === "casoUrgencias") {
   // Limpia el contenido anterior
   const main = document.getElementById("main");
   main.innerHTML = "";
@@ -301,7 +312,9 @@ main.appendChild(procesosList);
 
   // Agrega el párrafo al cuadro main
   main.appendChild(textoParrafo);
-} else if (contenido_main === "documentos") {
+} 
+//Texto listado
+else if (contenido_main === "documentos") {
   // Agrega un listado de procesos administrativos en salud
   const procesosList = document.createElement("ul");
   const procesos = [
@@ -322,7 +335,9 @@ main.appendChild(procesosList);
 });
 
 main.appendChild(procesosList);
-} else if (contenido_main === "pdf") {
+} 
+//documento pdf
+else if (contenido_main === "pdf") {
     // Agrega un visor de PDF u otro contenido PDF
     // Puedes personalizar esto según tus necesidades
     const pdfEmbed = document.createElement("embed");
@@ -331,7 +346,9 @@ main.appendChild(procesosList);
     pdfEmbed.width = "100%";
     pdfEmbed.height = "500px";
     main.appendChild(pdfEmbed);
-} else if (contenido_main === "especifico") {
+} 
+//documento pdf
+else if (contenido_main === "especifico") {
   // Agrega un visor de PDF u otro contenido PDF
   // Puedes personalizar esto según tus necesidades
   const pdfEmbed = document.createElement("embed");
@@ -431,8 +448,10 @@ function responderTexto(texto) {
   
     for (let i = 0; i < inicio.length; i++) {
       if (oracion.includes(inicio[i])) {
-        animar(0, 2);
-        const texto = 'Hola, Muy buen día para todos. gracias por invitarme a este magnifico evento';
+
+        const texto = 'Hola, soy Asucena ¿como puedo ayudarte?';
+        animar(0, 2);     
+
         leerTexto(texto);
         
       }
@@ -627,6 +646,9 @@ function responderTexto(texto) {
     const urgencia = ["urgencias"]; // activo = 11 
     const externa = ["telefonica"]; // activo = 12 
     const presencial = ["presencial"]; // activo = 13 
+    const clinica = ["historia clinica"]; // activo = 14 
+    const neonata = ["neonatal","canguro"]; // activo = 15
+    const pqr = ["pqr"]; // activo = 16
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
 
     for (let i = 0; i < urgencia.length; i++) {
@@ -653,6 +675,30 @@ function responderTexto(texto) {
         const texto = 'Bienvenido al área de consulta externa presencial. puedes empezar con la palabra iniciar';
         leerTexto(texto);
         activo = 13;
+        console. log('activo esta en: ' + activo)
+      }
+    }
+    for (let i = 0; i < clinica.length; i++) {
+      if (oracion.includes(clinica[i])) {
+        const texto = 'Bienvenido al área de historia clinica. puedes empezar con la palabra iniciar';
+        leerTexto(texto);
+        activo = 14;
+        console. log('activo esta en: ' + activo)
+      }
+    }
+    for (let i = 0; i < neonata.length; i++) {
+      if (oracion.includes(neonata[i])) {
+        const texto = 'Bienvenido al área de consulta externa neonatal. puedes empezar con la palabra iniciar';
+        leerTexto(texto);
+        activo = 15;
+        console. log('activo esta en: ' + activo)
+      }
+    }
+    for (let i = 0; i < pqr.length; i++) {
+      if (oracion.includes(pqr[i])) {
+        const texto = '	¡¡Bienvenido al área de PQRSD!!. puedes empezar con la palabra iniciar';
+        leerTexto(texto);
+        activo = 16;
         console. log('activo esta en: ' + activo)
       }
     }
@@ -819,37 +865,8 @@ function responderTexto(texto) {
         const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
         leerTexto(texto);
       }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < ubicacion.length; i++) {
+    }
+    for (let i = 0; i < ubicacion.length; i++) {
       if (oracion.includes(ubicacion[i])) {
         const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
         leerTexto(texto);
@@ -861,7 +878,42 @@ function responderTexto(texto) {
         leerTexto(texto);
       }
     }
-
+    for (let i = 0; i < ubicacion.length; i++) {
+      if (oracion.includes(ubicacion[i])) {
+        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < ubicacion.length; i++) {
+      if (oracion.includes(ubicacion[i])) {
+        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < ubicacion.length; i++) {
+      if (oracion.includes(ubicacion[i])) {
+        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < ubicacion.length; i++) {
+      if (oracion.includes(ubicacion[i])) {
+        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < ubicacion.length; i++) {
+      if (oracion.includes(ubicacion[i])) {
+        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < ubicacion.length; i++) {
+      if (oracion.includes(ubicacion[i])) {
+        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
+        leerTexto(texto);
+      }
+    }
     for (let i = 0; i < tema.length; i++) {
       if (oracion.includes(tema[i])) {
         const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
@@ -1296,10 +1348,20 @@ function responderTexto(texto) {
     const siconozco = ["si la conozco"];
     const noconozco = ["no la conozco"];
     const nose = ["no se", "fecha de naciemiento"];
-    const si = ["no"];
-    const gobierno = ["el gobierno","el estado"];
-    const sise = ["eps", "adres", "address"];
-    const nosep = ["no se"];
+    const sitengo = ["si tengo conocimiento"];
+    const notengo = ["no tengo conocimiento", "espacios en blanco"];
+    const borrar = ["borrar"];
+    const registro = ["nuevo registro"];
+    const identifica = ["identificar", "ingresar"];
+    const ambos = ["ambos","los dos"];
+    const revisa = ["documentacion","revisar"];
+    const remite = ["remitir","remitirlo"];
+    const nombre = ["aleatorio"];
+    const desconocido = ["nomen","nescio"];
+    const adres = ["adres","eps"];
+    const juntos = ["las dos",];
+    const paga = ["pago", "dinero"];
+    const poliza = ["poliza"];
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"];
     
     for (let i = 0; i < iniciar.length; i++) {
@@ -1334,37 +1396,93 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < nose.length; i++) {
       if (oracion.includes(nose[i])) {
-        const texto = 'Los datos que se deben solicitar son Nombre completo del acompañante, Teléfono, Parentesco de la persona, Grado de consanguinidad, de afinidad o civil. ¿reconoces cuáles son los aspectos claves a tener en cuenta para diligenciar la historia clínica? Responde Si reconozco o no reconozco';
+        const texto = 'Los datos que se deben solicitar son Nombre completo del acompañante, Teléfono, Parentesco de la persona, Grado de consanguinidad, de afinidad o civil. tienes conocimiento de ¿cuáles son los aspectos claves a tener en cuenta para diligenciar la historia clínica? Responde Si tengo conocimiento o no tengo conocimiento';
         leerTexto(texto);    
       }
     }
 
-    for (let i = 0; i < eps.length; i++) {
-      if (oracion.includes(eps[i])) {
-        const texto = 'estas cerca pero rectifica tu respuesta y vuelve a seleccionar, porque las dos validaciones son importantes, entonces ¿Validas el usuario en sistema de la EPS, en la plataforma adres o ambos?.';
+    for (let i = 0; i < sitengo.length; i++) {
+      if (oracion.includes(sitengo[i])) {
+        const texto = 'Para estar seguros te daré un listado y me dirás cual hace falta. Se debe tener en cuenta los siguientes aspectos: Diligenciamiento en forma clara, legible, sin intercalaciones, no utilizar siglas, Hora y fecha en la que se realiza el diligenciamiento, Nombre completo y firma del autor del diligenciamiento.  sí aciertas seguimos, de lo contrario responde no tengo conocimiento.';
         leerTexto(texto);
       }
     }
-    for (let i = 0; i < dinero.length; i++) {
-      if (oracion.includes(dinero[i])) {
-        const texto = '¡lo siento!. Rectifica tu respuesta y vuelve a seleccionar, porque hay que hacer registro del usuario y para eso no es necesario solicitar dinero o cuotas moderadoras, entonces ¿qué es lo primero que usted debe solicitar?';
+    for (let i = 0; i < notengo.length; i++) {
+      if (oracion.includes(notengo[i])) {
+        const texto = 'Es importante tener cuenta los siguientes aspectos: Diligenciamiento en forma clara, legible, sin intercalaciones, no dejar espacios en blanco y sin utilizar siglas, Hora y fecha en la que se realiza el diligenciamiento, Nombre completo y firma del autor del diligenciamiento. ¿Cuándo se encuentra un error de diligenciamiento en la historia clínico el funcionario debe borrar y corregir o hacer un nuevo registro con la corrección?';
         leerTexto(texto);
       }
     }
-    for (let i = 0; i < nose.length; i++) {
-      if (oracion.includes(nose[i])) {
-        const texto = 'debes prepararte un poco mas, yo puedo guiarte con tus conocimientos pero el aprendizaje depende de tí. vamos a enpezar de nuevo';
+    for (let i = 0; i < borrar.length; i++) {
+      if (oracion.includes(borrar[i])) {
+        const texto = 'Eso es incorrecto. Si se encuentra un error por ningun motivo se debe borrar un registro en la historia clinica intenta de nuevo.';
         leerTexto(texto);
-        activo = 0;
-        console. log('activo esta en: ' + activo)
       }
     }
-    for (let i = 0; i < casos.length; i++) {
-      if (oracion.includes(casos[i])) {
-        const texto = 'puedes seleccionar una de las opciones, telefonico, urgencias o presencial';
+    for (let i = 0; i < registro.length; i++) {
+      if (oracion.includes(registro[i])) {
+        const texto = 'El funcionario debe agregar en el registro de modificación la fecha, hora, nombre e identificación de quien hizo la corrección y haciendo referencia al error que se subsana. El funcionario verifica la documentación aportada por los colaboradores, para saber qué tipo de procedimiento médico se realizó. Si es una nota médica que debe hacer Identificar el registro específico, ingresar la información contenida o ambos';
         leerTexto(texto);
-        activo = 1;
-        console. log('activo esta en: ' + activo)
+      }
+    }
+    for (let i = 0; i < identifica.length; i++) {
+      if (oracion.includes(identifica[i])) {
+        const texto = 'eso es incorrecto inténtalo de nuevo Si es una nota médica que debe hacer Identificar el registro específico, ingresar la información contenida o ambos';
+        leerTexto(texto);
+      }
+    } 
+    for (let i = 0; i < ambos.length; i++) {
+      if (oracion.includes(ambos[i])) {
+        const texto = '¡Muy bien! No solamente para las notas medicas se debe hacer este procedimiento, también se usa para nota de enfermería, resultado médico obtenido por un procedimiento de laboratorio clínico o un resultado médico obtenido por un procedimiento de ayuda diagnóstica, si llega un usuario por urgencias al prestador de Servicios de Salud donde tiene habilitado el servicio, el funcionario verifica las condiciones iniciales de salud y encuentra que está inconsciente, ¿qué debe hacer remitirlo inmediatamente a valoración clínica preliminar o revisar su documentación?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < revisa.length; i++) {
+      if (oracion.includes(revisa[i])) {
+        const texto = 'eso es incorrecto si el paciente está inconsciente se debe hacer una rápida valoración, intenta de nuevo ¿qué debe hacer remitirlo inmediatamente a valoración clínica preliminar o revisar su documentación?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < remite.length; i++) {
+      if (oracion.includes(remite[i])) {
+        const texto = 'Cuando un paciente llega inconsciente se debe remitir lo más pronto posible para valoración clínica Preliminar ya que esto puede hacer la diferencia entre la vida y la muerte del paciente. la valoración es superior a TRIAGE II se debe ingresar inmediatamente a sala de Observación o Sala de Cirugía luego de hacer revisión de las pertenencias del paciente no se encontró documentación que se debe hacer continuar el ingreso con un nombre aleatorio o registrarlo como Nomen Nescio';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < nombre.length; i++) {
+      if (oracion.includes(nombre[i])) {
+        const texto = 'Eso es incorrecto, el funcionario no puede inventar nombres a un usuario intenta de nuevo, que se debe hacer continuar el ingreso con un nombre aleatorio o registrarlo como Nomen Nescio';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < desconocido.length; i++) {
+      if (oracion.includes(desconocido[i])) {
+        const texto = 'El usuario será registrado como Nomen Nescio (Nombre desconocido) en la base de datos de la Prestadora de Servicios de Salud y se registrarán los procedimientos médicos realizados se iniciará el protocolo de identificación del paciente y se informará a la entidad encargada Departamental, Distrital o Municipal de la situación presentada. Si el usuario cuenta con documento de identidad que se debe hacer consultar en la plataforma ADRES en la EPS o en las dos';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < adres.length; i++) {
+      if (oracion.includes(adres[i])) {
+        const texto = 'Eso es incorrecto intenta de nuevo se debe hacer consultar en la plataforma ADRES en la EPS o en las dos';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < juntos.length; i++) {
+      if (oracion.includes(juntos[i])) {
+        const texto = 'Se debe consultar con el tipo y número documento de identidad del usuario en ADRES y el sistema de la institución para hacer verificación de derechos y determinar el tipo de afiliación. Luego de hacer la verificación se encuentra que el usuario no está activo en el sistema porque es un turista extranjero ¿qué se debe hacer solicitar el pago de todos los servicios al usuario o se verifica si cuenta con una póliza?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < paga.length; i++) {
+      if (oracion.includes(paga[i])) {
+        const texto = 'Eso es incorrecto verifica tu respuesta, ¿qué se debe hacer solicitar el pago de todos los servicios al usuario o se verifica si cuenta con una póliza?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < poliza.length; i++) {
+      if (oracion.includes(poliza[i])) {
+        const texto = 'Se debe consultar al usuario si cuenta con una póliza se le garantiza la atención inicial de urgencia, al tenor de los principios éticos y las normas que determinan las acciones y el comportamiento del personal de salud se realizan el proceso de egreso, valoración médica, estancia, entre otras y se realiza la solicitud de cobro del servicio prestado a la asegurada contratada por el turista extranjero y asi termina la atención del usuario y la apertura de la historia clínica. ahora puede cambiar de tema';
+        leerTexto(texto);
       }
     }
     for (let i = 0; i < tema.length; i++) {
@@ -1376,6 +1494,337 @@ function responderTexto(texto) {
       }
     }
   } 
+  if (activo === 15) { // consulta externa neonatal
+    const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
+    const iniciar = ["iniciar", "inicio"]; 
+    const documento = ["documento de identidad", "identificacion","cedula"]; 
+    const dinero = ["cuota moderadora"];  
+    const ambos = ["ambos"];
+    const eps = ["eps", "adres", "address"];
+    const control = ["verifica", "verificar", "control de rutina"];
+    const sala = ["espere en sala", "espere en la sala"];
+    const doctor = ["llama al doctor", "llamar al doctor"];
+    const espera = ["espero", "esperar"];
+    const report = ["reporta", "reportar", "reporto"];
+    const termina = ["deja la gestion", "dejar la gestion"];
+    const tema = ['cambiar tema',"cambiar el tema","cambiemos de tema","cambiar de tema"];
+
+    for (let i = 0; i < iniciar.length; i++) {
+      if (oracion.includes(iniciar[i])) {
+        const texto = 'Empecemos con este caso donde usuaria Amelia Castañeda llega al Hospital Universitario Barrios Unidos por un control rutinario neonatal del programa especial Mamá Canguro que tiene con su bebe. 	¿Le solicitas documento de identidad o cuota moderadora?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < documento.length; i++) {
+      if (oracion.includes(documento[i])) {
+        const texto = '¡Muy bien!!.la solicitud del documento es muy importante. Debes validar si el usuario esta registrado en sistema ¿Validas al usuario en el sistema de la EPS, ADRESS o ambos? ';
+        leerTexto(texto);    
+      }
+    }
+    for (let i = 0; i < dinero.length; i++) {
+      if (oracion.includes(dinero[i])) {
+        const texto = '¡lo siento!. Rectifica tu respuesta y vuelve a seleccionar, porque hay que hacer registro del usuario y para eso no es necesario solicitar dinero o cuotas moderadoras, rectifica en tu conocimiento y vuelve a seleccionar.	¿Le solicitas documento de identidad o cuota moderadora?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < ambos.length; i++) {
+      if (oracion.includes(ambos[i])) {
+        const texto = '¡Sigamos!. Para brindar servicios al usuario se debe realizar ambas validaciones.luego que encuentras que sí está registrado la usuaria Amelia Castañeda con su bebe, cuéntame ¿Verificas si tiene su control de rutina o la envías a sala de espera?';
+        leerTexto(texto);    
+      }
+    }
+    for (let i = 0; i < eps.length; i++) {
+      if (oracion.includes(eps[i])) {
+        const texto = 'estas cerca pero rectifica tu respuesta y vuelve a seleccionar, porque las dos validaciones son importantes, entonces ¿Validas el usuario en sistema de la EPS, en la plataforma adres o ambos?.';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < control.length; i++) {
+      if (oracion.includes(control[i])) {
+        const texto = '¡Muy bien!. antes de hacer esperar al usuario se debe confirmar si tiene o no control programado. 	Después que la usuaria Amelia termina su control rutinario neonatal con los signos vitales bien de su bebe, sale a la sala de llamados en espera del pediatra cuando el bebe empieza a presentar una tonalidad morada y amarilla en la piel ¿Esperas a que llegue un asistencial o haces llamado al doctor más cercano?';
+        leerTexto(texto);    
+      }
+    }
+    for (let i = 0; i < sala.length; i++) {
+      if (oracion.includes(sala[i])) {
+        const texto = 'no debes hacer esperar en sala a un usuario que no tenga cita programada porque no lo atenderán y solo le hará perder su tiempo. vuelve a intentar.¿Verificas si tiene su control de rutina o la envías a sala de espera?';
+        leerTexto(texto); 
+      }
+    }
+    for (let i = 0; i < doctor.length; i++) {
+      if (oracion.includes(doctor[i])) {
+        const texto = '¡vas muy bien! en ese momento debes pedir la sistencia del doctor más cercano porque esto podría salvar la vida de una persona. despues de que llego el doctor y a pesar de los intentos de primeros auxilios por parte del personal capacitado, el bebe entra en un estado de paro cardio-respiratorio y fallece ¿Usted empieza protocolo para reporte por fallecimiento neonatal o deja la gestión hasta el momento?';
+        leerTexto(texto);    
+      }
+    }
+    for (let i = 0; i < espera.length; i++) {
+      if (oracion.includes(espera[i])) {
+        const texto = 'te equivocas, porque de eso dependerá la vida de una persona, intentalo de nuevo ¿Esperas a que llegue un asistencial o haces llamado al doctor más cercano?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < report.length; i++) {
+      if (oracion.includes(report[i])) {
+        const texto = 'excelente aún cuando el usuario fallece es importante que inicie el protocolo de fallecimineto para ya que en ese momento es usted la persona con los datos necesarios para ello... has teminado el caso correctamente ahora ya puedes cambiar de tema';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < termina.length; i++) {
+      if (oracion.includes(termina[i])) {
+        const texto = 'lo siento rectifica tu respuesta, porque en ese momento el usuario hizo registro de ingreso con usted, asi que ¿Usted empieza protocolo para reporte por fallecimiento neonatal o deja la gestión hasta el momento?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < tema.length; i++) {
+      if (oracion.includes(tema[i])) {
+        const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
+        leerTexto(texto);
+        activo = 0;
+        console. log('activo esta en: ' + activo)
+      }
+    }
+  }
+  if (activo === 16) { // PQRSD
+    const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
+    const iniciar = ["iniciar", "inicio"]; 
+    const quees = ["que son las pqrs", "que es el pqrs"]; 
+    const sigla = ["siglas pqrs"];  
+    const cas = ["caso pqrs"];
+    const realiza = ["realiza aprendiz", "realiza un aprendiz", "realiza el aprendiz"];
+    const tema = ['cambiar tema',"cambiar el tema","cambiemos de tema","cambiar de tema"];
+
+    for (let i = 0; i < iniciar.length; i++) {
+      if (oracion.includes(iniciar[i])) {
+        const texto = 'Es el área encargada de realizar el proceso de ingreso de los pacientes a los diferentes servicios que presta la IPS o EPS como lo son consulta externa o consulta urgencias. ¿Cuál deseas indagar?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < quees.length; i++) {
+      if (oracion.includes(quees[i])) {
+        const texto = 'Las PQRSD nos permite evaluar la calidad, oportunidad, accesibilidad y continuidad de uso en los servicios de salud para generar acciones correctivas.';
+        leerTexto(texto);    
+      }
+    }
+    for (let i = 0; i < sigla.length; i++) {
+      if (oracion.includes(sigla[i])) {
+        const texto = 'PETICION: Solicitud que tiene como objeto indagar sobre un hecho, acto o actuación administrativa que corresponda a la naturaleza y finalidad del Ministerio. QUEJA: Manifestación mediante la cual se pone en conocimiento del Ministerio de Salud y Protección Social conductas inadecuadas por parte de sus funcionarios en el ejercicio de su cargo. RECLAMO: Manifestación mediante la cual se ponen en conocimiento del Ministerio de Salud y Protección Social deficiencias en la prestación de los servicios que ofrece la entidad. SUGERENCIA: Es una recomendación o propuesta que formula un ciudadano para el mejoramiento de las funciones, servicios, metas y objetivos de la entidad. DENUNCIA: Manifestación mediante la cual se ponen en conocimiento del Ministerio de Salud y Protección Social conductas posiblemente irregulares por parte de sus funcionarios, relacionadas con extralimitación de funciones, toma de decisiones prohibidas en el ejercicio de su cargo o el interés directo en una decisión tomada. Incluye actos de corrupción.';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < cas.length; i++) {
+      if (oracion.includes(cas[i])) {
+        const texto = 'Paciente hospitalizado, informa e interpone una PQRSD por falta de comunicación entre jefes de enfermería al cambio de turno para la suministración de medicamento al paciente sin dejar el registro clínico. En esta situación, se genera por medios virtuales, como lo es el correo electrónico, se procede hacer la creación de la PQRSD al correo institucional correspondiente. Cuando la institución recibe, deberá descargar el archivo y se empieza analizar la situación según lo estipulado en la normatividad vigente. Una vez se haya cargado en la plataforma y sea analizado, se debe transcribir al formulario, que se encuentra en la página institucional de la EPS. Los datos más comunes son, tipo y numero de documento, nombres completos, correo electrónico, lugar de los hechos y descripción del problema (EPS Sanitas). En este caso, el paciente decide poner una queja.';
+        leerTexto(texto);    
+      }
+    }
+    for (let i = 0; i < realiza.length; i++) {
+      if (oracion.includes(realiza[i])) {
+        const texto = '	Se debe analizar la situación, se hace la transcripción de datos al formulario y se le deberá dar respuesta al usuario que en 15 día hábiles se le dará un numero de radicado para que valide su respuesta a su PQRSD por el correo electrónico del paciente. En caso de que la solicitud sea por teléfono, se deberá transcribir lo que el usuario indiqué en la llamada, darle un numero de radicado, indicarle el tiempo estipulado de respuesta es de menor a 15 días hábiles y que se esté comunicando con ese número de radicado. O indicarle al paciente la repuesta emitida por la institución o entidad a cargo.';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < tema.length; i++) {
+      if (oracion.includes(tema[i])) {
+        const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
+        leerTexto(texto);
+        activo = 0;
+        console. log('activo esta en: ' + activo)
+      }
+    }
+  }
    
 
 }
+animate();
+
+//estilos
+
+function Cambiarsubtitulo(cambiar){
+  if(cambiar == 1){
+      document.getElementById("titulo2").innerHTML = "IA Procesos Administrativos CFTHS";
+      let contenedor = document.getElementById("contenedor");
+      let main = document.getElementById("main");
+      let sidebar = document.getElementById("sidebar");
+      let textarea2 = document.getElementById("textarea2");
+    
+      contenedor.style = `background-color: none;  
+                          padding-left: 4%; 
+                          width: 90%; 
+                          height: 90%; 
+                          margin-top: 1%; 
+                          margin-bottom: 3%; 
+                          margin-left: 4%; 
+                          margin-right: 4%; 
+                          display: grid; 
+                          grid-gap: 1%; 
+                          grid-template-columns: repeat(2, 1fr); 
+                          grid-template-rows: repeat(3, auto); `;
+      
+      sidebar.style = `grid-column-start: span 2; 
+                       margin-right: 4%; 
+                       background: none; `;
+      main.style = ` margin-top: -40px; 
+                     text-indent: -1000%;  
+                     font: 0/0 a; text-shadow: transparent; 
+                     color: transparent; 
+                     text-decoration: none;`;
+  
+  }else if(cambiar == 2){
+      document.getElementById("titulo2").innerHTML = "IA Procesos Administrativos CFTHS - ADMISIONES";
+      let contenedor = document.getElementById("contenedor");
+      let main = document.getElementById("main");
+      let sidebar = document.getElementById("sidebar");
+
+      contenedor.style = `background-color: none;  
+                          padding-left: 4%; 
+                          width: 90%; 
+                          height: 90%; 
+                          margin-top: 1%; 
+                          margin-bottom: 3%; 
+                          margin-left: 4%; 
+                          margin-right: 4%; 
+                          display: grid; 
+                          grid-gap: 1%; 
+                          grid-template-columns: repeat(2, 1fr); 
+                          grid-template-rows: repeat(3, auto); `;
+
+      
+      sidebar.style = ` grid-column-start: 1 / 2; 
+                        margin-right: 10%; 
+                        background: none;`;
+
+      main.style = " grid-column-start: 2 / 1; width: 100%;";
+  
+  }else if(cambiar == 3){
+      document.getElementById("titulo2").innerHTML = "IA Procesos Administrativos CFTHS - FACTURACIÓN";
+      let contenedor = document.getElementById("contenedor");
+      let main = document.getElementById("main");
+      let sidebar = document.getElementById("sidebar");
+
+      contenedor.style = `background-color: none;  
+                          padding-left: 4%; 
+                          width: 90%; height: 90%; 
+                          margin-top: 1%; 
+                          margin-bottom: 3%; 
+                          margin-left: 4%; 
+                          margin-right: 4%; 
+                          display: grid; grid-gap: 1%; 
+                          grid-template-columns: repeat(2, 1fr); 
+                          grid-template-rows: repeat(3, auto); `;
+      sidebar.style = " grid-column-start: 1 / 2; margin-right: 10%; background: none;";
+
+      main.style = " grid-column-start: 2 / 1; width: 100%;";
+  
+  }else if(cambiar == 4){
+      document.getElementById("titulo2").innerHTML = "IA Procesos Administrativos CFTHS - ORIENTACIÓN AL USUARIO";
+      let contenedor = document.getElementById("contenedor");
+      let main = document.getElementById("main");
+      let sidebar = document.getElementById("sidebar");
+      let header = document.getElementById("header");
+
+      contenedor.style = `background-color: none;  
+                          padding-left: 4%; 
+                          width: 90%; 
+                          height: 90%; 
+                          margin-top: 1%; 
+                          margin-bottom: 3%; 
+                          margin-left: 4%; 
+                          margin-right: 4%; 
+                          display: grid; 
+                          grid-gap: 1%; 
+                          grid-template-columns: repeat(2, 1fr); 
+                          grid-template-rows: repeat(3, auto); `;
+
+      sidebar.style = " grid-column-start: 1 / 2; margin-right: 10%; background: none;";
+
+      main.style = " grid-column-start: 2 / 1; width: 100%;";
+      
+      header.style = `	background-color: none;
+                          grid-column-start: 1;
+                          grid-column-end: -1;
+                          width: auto;
+                          padding: 1%;
+                          display: grid;
+                          grid-template-columns: 80% 20%;
+                          margin-left: 1%;
+                          margin-right: 1%;
+                          font-family:Josefin Sans;`
+  }else if(cambiar == 5){
+    document.getElementById("titulo2").innerHTML = "IA Procesos Administrativos CFTHS - Afiliaciones";
+    let contenedor = document.getElementById("contenedor");
+    let main = document.getElementById("main");
+    let sidebar = document.getElementById("sidebar");
+    let header = document.getElementById("header");
+
+    contenedor.style = `background-color: none;  
+                        padding-left: 4%; 
+                        width: 90%; 
+                        height: 90%; 
+                        margin-top: 1%; 
+                        margin-bottom: 3%; 
+                        margin-left: 4%; 
+                        margin-right: 4%; 
+                        display: grid; 
+                        grid-gap: 1%; 
+                        grid-template-columns: repeat(2, 1fr); 
+                        grid-template-rows: repeat(3, auto); `;
+
+    sidebar.style = " grid-column-start: 1 / 2; margin-right: 10%; background: none;";
+
+    main.style = " grid-column-start: 2 / 1; width: 100%;";
+    
+    header.style = `	background-color: none;
+                        grid-column-start: 1;
+                        grid-column-end: -1;
+                        width: auto;
+                        padding: 1%;
+                        display: grid;
+                        grid-template-columns: 80% 20%;
+                        margin-left: 1%;
+                        margin-right: 1%;
+                        font-family:Josefin Sans;`
+  }
+}
+let contenedor = document.getElementById("contenedor");
+contenedor.style = `background-color: none;  
+padding-left: 4%; 
+width: 90%; 
+height: 90%; 
+margin-top: 1%; 
+margin-bottom: 3%; 
+margin-left: 4%; 
+margin-right: 4%; 
+display: grid; 
+grid-gap: 1%; 
+grid-template-columns: repeat(2, 1fr); 
+grid-template-rows: repeat(3, auto); `;
+
+let sidebar = document.getElementById("sidebar");
+sidebar.style = ` grid-column-start: span 2; 
+margin-right: 10%; 
+background: none;`;
+
+let main = document.getElementById("main");
+main.style = `margin-top: -40px; 
+text-indent: -1000%;  
+font: 0/0 a; text-shadow: transparent; 
+color: transparent; 
+text-decoration: none;`
+
+
+// const boton = document.getElementById("boton");
+// boton.addEventListener("click", function(){
+//   Cambiarsubtitulo(1);
+// });
+// const boton2 = document.getElementById("boton2");
+// boton2.addEventListener("click", function(){
+//   Cambiarsubtitulo(2);
+// });
+// const boton3 = document.getElementById("boton3");
+// boton3.addEventListener("click", function(){
+//   Cambiarsubtitulo(3);
+// });
+// const boton4 = document.getElementById("boton4");
+// boton4.addEventListener("click", function(){
+//   Cambiarsubtitulo(4);
+// });

@@ -494,7 +494,7 @@ function responderTexto(texto) {
     for (let i = 0; i < facturacion.length; i++) {
       if (oracion.includes(facturacion[i])) {
         animar(0, 1);
-        const texto = '¿Qué deseas saber sobre facturacion?';
+        const texto = '¡Bienvenido al área de facturación!. Recuerda que el área de facturación es la encargada de realizar el proceso de liquidar los diferentes servicios que presta una entidad en salud al atender a un usuario cuando requiera un servicio, puede seleccionar una de las siguientes opciones: facturación de consulta externa o facturación de urgencias.';
         leerTexto(texto);
         activo = 3;
         console. log('activo esta en: ' + activo)
@@ -746,20 +746,81 @@ function responderTexto(texto) {
 
   if (activo === 3) { //  facturacion
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
-    const facturar = ["como facturar"];
-    const ubicacion = ["donde facturar", "donde queda facturacion", "donde es facturacion"];
+    const externa = ["consulta externa"];
+    const tipo = ["tipo de documento"];
+    const tarejeta = ["tarjeta bancaria", "nombre completo"];
+    const correc = ["correcta","correcto"];
+    const incorr = ["incorrecto"];
+    const pertenece = ["grupo"];
+    const ejecutar = ["ejecutar factura"];
+    const ingreso = ["ingreso base", "base de cotizacion"];
+    const magnit = ["magnitud del servicio"];
+    const urgencias = ["consulta por urgencias"];
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
   
-    for (let i = 0; i < facturar.length; i++) {
-      if (oracion.includes(facturar[i])) {
-        const texto = 'debe anexar los documentos del medico y entregarlos en la caja';
+    for (let i = 0; i < externa.length; i++) {
+      if (oracion.includes(externa[i])) {
+        const texto = '¡Bienvenido al área de FACTURACIÓN DE CONSULTA EXTERNA! Empecemos con este caso: El 05 de MAYO de 2023, el auxiliar administrativo del HOSPITAL ENGATIVA atiende a la Sra. Nancy Silva González la cual expresa tener una cita médica de odontología programada a las 8:30 AM con el Dr. Sebastián Rodríguez De conformidad con lo anterior ¿Qué información es pertinente solicitar para proceder con la atención?. tipo de documento, tarjeta bancaria o nombre completo';
         leerTexto(texto);
       }
     }
-    
-    for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de facturacion';
+    for (let i = 0; i < tarejeta.length; i++) {
+      if (oracion.includes(tarejeta[i])) {
+        const texto = 'rectifica en tu conocimiento y vuelve a seleccionar.¿Qué información es pertinente solicitar para proceder con la atención?. tipo de documento, tarjeta bancaria o nombre completo';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < tipo.length; i++) {
+      if (oracion.includes(tipo[i])) {
+        const texto = 'Muy bien. ⮚	Obtenido el tipo de documento el auxiliar debe ingresar el número de identificación en la base de datos de la entidad para confirmar y realizar la validación de la información, ¿la anterior afirmación es correcta?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < correc.length; i++) {
+      if (oracion.includes(correc[i])) {
+        const texto = 'Muy bien, Después de obtener la validación de la información, Si el usuario pertenece al régimen contributivo ¿que se procederá a realizar el auxiliar? identificación al grupo que pertenece, sea afiliado o beneficiario o ejecutar la factura';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < incorr.length; i++) {
+      if (oracion.includes(incorr[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿la anterior afirmación es correcta?';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < pertenece.length; i++) {
+      if (oracion.includes(pertenece[i])) {
+        const texto = 'Muy bien. Si el usuario paciente pertenece al régimen contributivo. El cobro del Copago varía según el ingreso base de cotización IBC o la magnitud del servicio';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < ejecutar.length; i++) {
+      if (oracion.includes(ejecutar[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿que se procederá a realizar el auxiliar? identificación al grupo que pertenece, sea afiliado o beneficiario o ejecutar la factura';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < ingreso.length; i++) {
+      if (oracion.includes(ingreso[i])) {
+        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales perteneciera al régimen contributivo y tenga un rango de ingresos menor a 2 Salarios Mínimos Mínimo Legal Mensual Vigente ¿cuánto será el tope de copago por año y por evento?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < magnit.length; i++) {
+      if (oracion.includes(magnit[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. El ingreso base de cotización IBC o la magnitud del servicio';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < falsedad.length; i++) {
+      if (oracion.includes(falsedad[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿la anterior afirmación es correcta?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < falsedad.length; i++) {
+      if (oracion.includes(falsedad[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿la anterior afirmación es correcta?';
         leerTexto(texto);
       }
     }

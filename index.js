@@ -755,6 +755,10 @@ function responderTexto(texto) {
     const ejecutar = ["ejecutar factura"];
     const ingreso = ["ingreso base", "base de cotizacion"];
     const magnit = ["magnitud del servicio"];
+    const primcopago = ["610227", "304583"];
+    const errprim = ["546799", "272924"];
+    const segucopago = ["2440909", "1220455"];
+    const errseg = ["2187195", "1093597"];
     const urgencias = ["consulta por urgencias"];
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
   
@@ -802,7 +806,7 @@ function responderTexto(texto) {
     }    
     for (let i = 0; i < ingreso.length; i++) {
       if (oracion.includes(ingreso[i])) {
-        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales perteneciera al régimen contributivo y tenga un rango de ingresos menor a 2 Salarios Mínimos Mínimo Legal Mensual Vigente ¿cuánto será el tope de copago por año y por evento?';
+        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales perteneciera al régimen contributivo y tenga un rango de ingresos menor a 2 Salarios Mínimos Mínimo Legal Mensual Vigente ¿cuánto será el tope de copago por año y por evento? $610227 por año y $304583 por evento, $546799 por año y 272924 por evento';
         leerTexto(texto);
       }
     }   
@@ -812,15 +816,27 @@ function responderTexto(texto) {
         leerTexto(texto);
       }
     }   
-    for (let i = 0; i < falsedad.length; i++) {
-      if (oracion.includes(falsedad[i])) {
-        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿la anterior afirmación es correcta?';
+    for (let i = 0; i < primcopago.length; i++) {
+      if (oracion.includes(primcopago[i])) {
+        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales perteneciera al régimen contributivo tenga un rango de ingresos entre 2 y 5 Salarios Mínimos Mínimo Legales Mensuales Vigentes ¿cuánto será el tope de copago por año y por evento?';
         leerTexto(texto);
       }
     }   
-    for (let i = 0; i < falsedad.length; i++) {
-      if (oracion.includes(falsedad[i])) {
-        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿la anterior afirmación es correcta?';
+    for (let i = 0; i < errprim.length; i++) {
+      if (oracion.includes(errprim[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar.¿cuánto será el tope de copago por año y por evento?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < segucopago.length; i++) {
+      if (oracion.includes(segucopago[i])) {
+        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales pertenezca al régimen contributivo tenga un rango de ingresos mayor a 5 Salarios Mínimos Mínimo Legales Mensuales Vigentes ¿cuánto será el tope de copago por año y por evento?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < errseg.length; i++) {
+      if (oracion.includes(errseg[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar.¿cuánto será el tope de copago por año y por evento?';
         leerTexto(texto);
       }
     }

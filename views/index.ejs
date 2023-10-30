@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS GRID</title>
+    <link type="text/css" rel="stylesheet" href="../public/main.css">
+
+</head>
+<body>
+
+	<script type="importmap">
+        {
+            "imports": {
+                "three": "../build/three.module.js",
+                "three/addons/": "./jsm/",
+                "three/nodes": "./jsm/nodes/Nodes.js"
+            }
+        }
+
+    </script>  
+    
+
+    <div id="particles-js"></div>
+    <div id="fondo3">
+        <img src="../public/imagenes/circulos-04.png" height="400">
+    </div>
+    
+    <div class="contenedor" id="contenedor">
+        <div class="header" id="header">
+            <div>
+                <div class="titulo1">
+                    <h1>Hola, Soy Azusena</h1>
+                   
+                </div>
+                <div id="titulo2">IA Procesos Administrativos CFTHS</div>
+            </div>
+            <div><img id="img1" src="../public/imagenes/logo1.png"></div>
+        </div>
+
+        <div class="sidebar" id="sidebar">
+                <div id="container3D">
+                    <script  type="module" src="../public/index.js"></script>
+                </div>
+                <div id="contenido" class="hidden">
+                    <video id="videoPlayer" width="1" height="1" color="blue"></video>
+                </div>
+            <div class="textos">
+                <textarea name="area" id="textArea" cols="40" rows="1"></textarea>
+            </div>
+        </div>
+
+        <div class="main" id="main">
+            <textarea name="text" id="textarea2" cols="30" rows="21"></textarea>
+        </div>
+
+        <div class="footer" id="footer">
+            <h2>© 2023 Desarrollado por SENNOVA CFTHS</h2>
+            <button  id="btnStart">INICIAR</button>
+            <button  id="btnStop">DETENER</button>
+        </div>
+        <script src="../public/cambiar.js"></script>
+     
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="../public/particles/particles.js"></script>
+
+   
+</body>
+</html>

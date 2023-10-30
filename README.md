@@ -1,16 +1,21 @@
 # AzuSENA
+
 Software de inteligencia artificial para desarrollo de competencias de aprendices Tecnólogo en Gestión Administrativa del Sector Salud
 
 
-MANUAL DE USUSARIO AZUSENA
+## MANUAL DE USUSARIO AZUSENA
+
+
 ¡Bienvenidos al Manual de Usuario de Azusena, su asistente de inteligencia artificial especializado en el campo de la administración en el área de la salud!
 Azusena está diseñada para brindar apoyo y orientación a estudiantes y profesionales que buscan perfeccionar sus habilidades y conocimientos en la gestión de servicios de salud.
 En un entorno tan dinámico y crítico como el sector de la salud, la administración efectiva es esencial para garantizar la prestación de servicios de alta calidad, la 
 optimización de recursos y el cumplimiento de normativas rigurosas. Azusena se ha creado con la misión de ser su compañera confiable en este viaje educativo y
 profesional.
+
 En este manual, le proporcionaremos información detallada sobre cómo utilizar Azusena para obtener el máximo provecho de sus capacidades. Desde la
 navegación en la interfaz hasta la utilización de sus funciones avanzadas, le guiaremos paso a paso para aprovechar al máximo esta poderosa herramienta de
 aprendizaje y asesoramiento en administración de la salud.
+
 Azusena está aquí para responder sus preguntas, proporcionar información relevante, ofrecer recomendaciones y simplificar procesos complejos. Al poner
 esta IA a su disposición, estamos seguros de que su experiencia en la administración de servicios de salud será más eficiente, efectiva y enriquecedora.
 Este manual proporcionará una visión general de las capacidades de Azucena, cómo puede ayudarlo en su área de especialización, y cómo interactuar con ella de

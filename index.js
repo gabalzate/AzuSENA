@@ -494,7 +494,7 @@ function responderTexto(texto) {
     for (let i = 0; i < facturacion.length; i++) {
       if (oracion.includes(facturacion[i])) {
         animar(0, 1);
-        const texto = '¿Qué deseas saber sobre facturacion?';
+        const texto = '¡Bienvenido al área de facturación!. Recuerda que el área de facturación es la encargada de realizar el proceso de liquidar los diferentes servicios que presta una entidad en salud al atender a un usuario cuando requiera un servicio, puede seleccionar una de las siguientes opciones: facturación de consulta externa o facturación de urgencias.';
         leerTexto(texto);
         activo = 3;
         console. log('activo esta en: ' + activo)
@@ -746,20 +746,97 @@ function responderTexto(texto) {
 
   if (activo === 3) { //  facturacion
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
-    const facturar = ["como facturar"];
-    const ubicacion = ["donde facturar", "donde queda facturacion", "donde es facturacion"];
+    const externa = ["consulta externa"];
+    const tipo = ["tipo de documento"];
+    const tarejeta = ["tarjeta bancaria", "nombre completo"];
+    const correc = ["correcta","correcto"];
+    const incorr = ["incorrecto"];
+    const pertenece = ["grupo"];
+    const ejecutar = ["ejecutar factura"];
+    const ingreso = ["ingreso base", "base de cotizacion"];
+    const magnit = ["magnitud del servicio"];
+    const primcopago = ["610227", "304583"];
+    const errprim = ["546799", "272924"];
+    const segucopago = ["2440909", "1220455"];
+    const errseg = ["2187195", "1093597"];
+    const urgencias = ["consulta por urgencias"];
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
   
-    for (let i = 0; i < facturar.length; i++) {
-      if (oracion.includes(facturar[i])) {
-        const texto = 'debe anexar los documentos del medico y entregarlos en la caja';
+    for (let i = 0; i < externa.length; i++) {
+      if (oracion.includes(externa[i])) {
+        const texto = '¡Bienvenido al área de FACTURACIÓN DE CONSULTA EXTERNA! Empecemos con este caso: El 05 de MAYO de 2023, el auxiliar administrativo del HOSPITAL ENGATIVA atiende a la Sra. Nancy Silva González la cual expresa tener una cita médica de odontología programada a las 8:30 AM con el Dr. Sebastián Rodríguez De conformidad con lo anterior ¿Qué información es pertinente solicitar para proceder con la atención?. tipo de documento, tarjeta bancaria o nombre completo';
         leerTexto(texto);
       }
     }
-    
-    for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de facturacion';
+    for (let i = 0; i < tarejeta.length; i++) {
+      if (oracion.includes(tarejeta[i])) {
+        const texto = 'rectifica en tu conocimiento y vuelve a seleccionar.¿Qué información es pertinente solicitar para proceder con la atención?. tipo de documento, tarjeta bancaria o nombre completo';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < tipo.length; i++) {
+      if (oracion.includes(tipo[i])) {
+        const texto = 'Muy bien. ⮚	Obtenido el tipo de documento el auxiliar debe ingresar el número de identificación en la base de datos de la entidad para confirmar y realizar la validación de la información, ¿la anterior afirmación es correcta?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < correc.length; i++) {
+      if (oracion.includes(correc[i])) {
+        const texto = 'Muy bien, Después de obtener la validación de la información, Si el usuario pertenece al régimen contributivo ¿que se procederá a realizar el auxiliar? identificación al grupo que pertenece, sea afiliado o beneficiario o ejecutar la factura';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < incorr.length; i++) {
+      if (oracion.includes(incorr[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿la anterior afirmación es correcta?';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < pertenece.length; i++) {
+      if (oracion.includes(pertenece[i])) {
+        const texto = 'Muy bien. Si el usuario paciente pertenece al régimen contributivo. El cobro del Copago varía según el ingreso base de cotización IBC o la magnitud del servicio';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < ejecutar.length; i++) {
+      if (oracion.includes(ejecutar[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿que se procederá a realizar el auxiliar? identificación al grupo que pertenece, sea afiliado o beneficiario o ejecutar la factura';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < ingreso.length; i++) {
+      if (oracion.includes(ingreso[i])) {
+        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales perteneciera al régimen contributivo y tenga un rango de ingresos menor a 2 Salarios Mínimos Mínimo Legal Mensual Vigente ¿cuánto será el tope de copago por año y por evento? $610227 por año y $304583 por evento, $546799 por año y 272924 por evento';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < magnit.length; i++) {
+      if (oracion.includes(magnit[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. El ingreso base de cotización IBC o la magnitud del servicio';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < primcopago.length; i++) {
+      if (oracion.includes(primcopago[i])) {
+        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales perteneciera al régimen contributivo tenga un rango de ingresos entre 2 y 5 Salarios Mínimos Mínimo Legales Mensuales Vigentes ¿cuánto será el tope de copago por año y por evento?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < errprim.length; i++) {
+      if (oracion.includes(errprim[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar.¿cuánto será el tope de copago por año y por evento?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < segucopago.length; i++) {
+      if (oracion.includes(segucopago[i])) {
+        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales pertenezca al régimen contributivo tenga un rango de ingresos mayor a 5 Salarios Mínimos Mínimo Legales Mensuales Vigentes ¿cuánto será el tope de copago por año y por evento?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < errseg.length; i++) {
+      if (oracion.includes(errseg[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar.¿cuánto será el tope de copago por año y por evento?';
         leerTexto(texto);
       }
     }
@@ -1584,42 +1661,99 @@ function responderTexto(texto) {
       }
     }
   }
-  if (activo === 16) { // PQRSD
+  if (activo === 3) { //  facturacion
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
-    const iniciar = ["iniciar", "inicio"]; 
-    const quees = ["que son las pqrs", "que es el pqrs"]; 
-    const sigla = ["siglas pqrs"];  
-    const cas = ["caso pqrs"];
-    const realiza = ["realiza aprendiz", "realiza un aprendiz", "realiza el aprendiz"];
-    const tema = ['cambiar tema',"cambiar el tema","cambiemos de tema","cambiar de tema"];
-
-    for (let i = 0; i < iniciar.length; i++) {
-      if (oracion.includes(iniciar[i])) {
-        const texto = 'Es el área encargada de realizar el proceso de ingreso de los pacientes a los diferentes servicios que presta la IPS o EPS como lo son consulta externa o consulta urgencias. ¿Cuál deseas indagar?';
+    const externa = ["consulta externa"];
+    const tipo = ["tipo de documento"];
+    const tarejeta = ["tarjeta bancaria", "nombre completo"];
+    const correc = ["correcta","correcto"];
+    const incorr = ["incorrecto"];
+    const pertenece = ["grupo"];
+    const ejecutar = ["ejecutar factura"];
+    const ingreso = ["ingreso base", "base de cotizacion"];
+    const magnit = ["magnitud del servicio"];
+    const primcopago = ["610227", "304583"];
+    const errprim = ["546799", "272924"];
+    const segucopago = ["2440909", "1220455"];
+    const errseg = ["2187195", "1093597"];
+    const urgencias = ["consulta por urgencias"];
+    const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
+  
+    for (let i = 0; i < externa.length; i++) {
+      if (oracion.includes(externa[i])) {
+        const texto = '¡Bienvenido al área de FACTURACIÓN DE CONSULTA EXTERNA! Empecemos con este caso: El 05 de MAYO de 2023, el auxiliar administrativo del HOSPITAL ENGATIVA atiende a la Sra. Nancy Silva González la cual expresa tener una cita médica de odontología programada a las 8:30 AM con el Dr. Sebastián Rodríguez De conformidad con lo anterior ¿Qué información es pertinente solicitar para proceder con la atención?. tipo de documento, tarjeta bancaria o nombre completo';
         leerTexto(texto);
       }
     }
-    for (let i = 0; i < quees.length; i++) {
-      if (oracion.includes(quees[i])) {
-        const texto = 'Las PQRSD nos permite evaluar la calidad, oportunidad, accesibilidad y continuidad de uso en los servicios de salud para generar acciones correctivas.';
-        leerTexto(texto);    
-      }
-    }
-    for (let i = 0; i < sigla.length; i++) {
-      if (oracion.includes(sigla[i])) {
-        const texto = 'PETICION: Solicitud que tiene como objeto indagar sobre un hecho, acto o actuación administrativa que corresponda a la naturaleza y finalidad del Ministerio. QUEJA: Manifestación mediante la cual se pone en conocimiento del Ministerio de Salud y Protección Social conductas inadecuadas por parte de sus funcionarios en el ejercicio de su cargo. RECLAMO: Manifestación mediante la cual se ponen en conocimiento del Ministerio de Salud y Protección Social deficiencias en la prestación de los servicios que ofrece la entidad. SUGERENCIA: Es una recomendación o propuesta que formula un ciudadano para el mejoramiento de las funciones, servicios, metas y objetivos de la entidad. DENUNCIA: Manifestación mediante la cual se ponen en conocimiento del Ministerio de Salud y Protección Social conductas posiblemente irregulares por parte de sus funcionarios, relacionadas con extralimitación de funciones, toma de decisiones prohibidas en el ejercicio de su cargo o el interés directo en una decisión tomada. Incluye actos de corrupción.';
+    for (let i = 0; i < tarejeta.length; i++) {
+      if (oracion.includes(tarejeta[i])) {
+        const texto = 'rectifica en tu conocimiento y vuelve a seleccionar.¿Qué información es pertinente solicitar para proceder con la atención?. tipo de documento, tarjeta bancaria o nombre completo';
         leerTexto(texto);
       }
     }
-    for (let i = 0; i < cas.length; i++) {
-      if (oracion.includes(cas[i])) {
-        const texto = 'Paciente hospitalizado, informa e interpone una PQRSD por falta de comunicación entre jefes de enfermería al cambio de turno para la suministración de medicamento al paciente sin dejar el registro clínico. En esta situación, se genera por medios virtuales, como lo es el correo electrónico, se procede hacer la creación de la PQRSD al correo institucional correspondiente. Cuando la institución recibe, deberá descargar el archivo y se empieza analizar la situación según lo estipulado en la normatividad vigente. Una vez se haya cargado en la plataforma y sea analizado, se debe transcribir al formulario, que se encuentra en la página institucional de la EPS. Los datos más comunes son, tipo y numero de documento, nombres completos, correo electrónico, lugar de los hechos y descripción del problema (EPS Sanitas). En este caso, el paciente decide poner una queja.';
-        leerTexto(texto);    
+    for (let i = 0; i < tipo.length; i++) {
+      if (oracion.includes(tipo[i])) {
+        const texto = 'Muy bien. ⮚	Obtenido el tipo de documento el auxiliar debe ingresar el número de identificación en la base de datos de la entidad para confirmar y realizar la validación de la información, ¿la anterior afirmación es correcta?';
+        leerTexto(texto);
       }
     }
-    for (let i = 0; i < realiza.length; i++) {
-      if (oracion.includes(realiza[i])) {
-        const texto = '	Se debe analizar la situación, se hace la transcripción de datos al formulario y se le deberá dar respuesta al usuario que en 15 día hábiles se le dará un numero de radicado para que valide su respuesta a su PQRSD por el correo electrónico del paciente. En caso de que la solicitud sea por teléfono, se deberá transcribir lo que el usuario indiqué en la llamada, darle un numero de radicado, indicarle el tiempo estipulado de respuesta es de menor a 15 días hábiles y que se esté comunicando con ese número de radicado. O indicarle al paciente la repuesta emitida por la institución o entidad a cargo.';
+    for (let i = 0; i < correc.length; i++) {
+      if (oracion.includes(correc[i])) {
+        const texto = 'Muy bien, Después de obtener la validación de la información, Si el usuario pertenece al régimen contributivo ¿que se procederá a realizar el auxiliar? identificación al grupo que pertenece, sea afiliado o beneficiario o ejecutar la factura';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < incorr.length; i++) {
+      if (oracion.includes(incorr[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿la anterior afirmación es correcta?';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < pertenece.length; i++) {
+      if (oracion.includes(pertenece[i])) {
+        const texto = 'Muy bien. Si el usuario paciente pertenece al régimen contributivo. El cobro del Copago varía según el ingreso base de cotización IBC o la magnitud del servicio';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < ejecutar.length; i++) {
+      if (oracion.includes(ejecutar[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿que se procederá a realizar el auxiliar? identificación al grupo que pertenece, sea afiliado o beneficiario o ejecutar la factura';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < ingreso.length; i++) {
+      if (oracion.includes(ingreso[i])) {
+        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales perteneciera al régimen contributivo y tenga un rango de ingresos menor a 2 Salarios Mínimos Mínimo Legal Mensual Vigente ¿cuánto será el tope de copago por año y por evento? $610227 por año y $304583 por evento, $546799 por año y 272924 por evento';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < magnit.length; i++) {
+      if (oracion.includes(magnit[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. El ingreso base de cotización IBC o la magnitud del servicio';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < primcopago.length; i++) {
+      if (oracion.includes(primcopago[i])) {
+        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales perteneciera al régimen contributivo tenga un rango de ingresos entre 2 y 5 Salarios Mínimos Mínimo Legales Mensuales Vigentes ¿cuánto será el tope de copago por año y por evento?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < errprim.length; i++) {
+      if (oracion.includes(errprim[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar.¿cuánto será el tope de copago por año y por evento?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < segucopago.length; i++) {
+      if (oracion.includes(segucopago[i])) {
+        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales pertenezca al régimen contributivo tenga un rango de ingresos mayor a 5 Salarios Mínimos Mínimo Legales Mensuales Vigentes ¿cuánto será el tope de copago por año y por evento?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < errseg.length; i++) {
+      if (oracion.includes(errseg[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar.¿cuánto será el tope de copago por año y por evento?';
         leerTexto(texto);
       }
     }
@@ -1631,6 +1765,7 @@ function responderTexto(texto) {
         console. log('activo esta en: ' + activo)
       }
     }
+    
   }
    
 

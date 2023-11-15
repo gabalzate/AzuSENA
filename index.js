@@ -426,7 +426,7 @@ function responderTexto(texto) {
     const inicio1 = ["que tal"];
     const proyecto = ["este proyecto"];
     const continuemos = ["si por favor", "si quiero"];
-    const gracias =["muchas gracias"];
+    const gracias =["gracias"];
     const casos = ["casos"]; // activo = 1
     const afiliaciones = ["afiliaciones"]; // activo = 2
     const facturacion = ["facturacion"]; // activo = 3
@@ -449,7 +449,7 @@ function responderTexto(texto) {
     for (let i = 0; i < inicio.length; i++) {
       if (oracion.includes(inicio[i])) {
 
-        const texto = 'Hola, soy Asucena ¿como puedo ayudarte?';
+        const texto = 'Hola, soy Asucena una inteligencia artificial creada para brindar información acerca de los servicios administrativos del sector salud, puedes encontrar procesos de admisiones, facturación, afiliaciones, atención al usuario, PQR, casos reales o información general ¿como puedo ayudarte?';
         animar(0, 2);     
 
         leerTexto(texto);
@@ -696,9 +696,10 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < pqr.length; i++) {
       if (oracion.includes(pqr[i])) {
-        const texto = '	¡¡Bienvenido al área de PQRSD!!. puedes empezar con la palabra iniciar';
+        const texto = '¡Bienvenido al área de PQRSD! Recuerda que el área de PQRSD nos permite evaluar la calidad, oportunidad, accesibilidad y continuidad de uso en los servicios de salud para generar acciones correctivas!. Tengo varios casos para analizar y estudiar, vamos con uno puedes empezar con la palabra iniciar';
         leerTexto(texto);
-        activo = 16;
+         // Generar un número aleatorio entre 16 y 17
+        activo = Math.random() < 0.5 ? 15 : 16;
         console. log('activo esta en: ' + activo)
       }
     }
@@ -1661,9 +1662,9 @@ function responderTexto(texto) {
       }
     }
   }
-  if (activo === 3) { //  facturacion
+  if (activo === 16) { //  pqrsd opcion 1 
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
-    const externa = ["consulta externa"];
+    const iniciar = ["iniciar", "inicio"]; 
     const tipo = ["tipo de documento"];
     const tarejeta = ["tarjeta bancaria", "nombre completo"];
     const correc = ["correcta","correcto"];
@@ -1679,9 +1680,9 @@ function responderTexto(texto) {
     const urgencias = ["consulta por urgencias"];
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
   
-    for (let i = 0; i < externa.length; i++) {
-      if (oracion.includes(externa[i])) {
-        const texto = '¡Bienvenido al área de FACTURACIÓN DE CONSULTA EXTERNA! Empecemos con este caso: El 05 de MAYO de 2023, el auxiliar administrativo del HOSPITAL ENGATIVA atiende a la Sra. Nancy Silva González la cual expresa tener una cita médica de odontología programada a las 8:30 AM con el Dr. Sebastián Rodríguez De conformidad con lo anterior ¿Qué información es pertinente solicitar para proceder con la atención?. tipo de documento, tarjeta bancaria o nombre completo';
+    for (let i = 0; i < iniciar.length; i++) {
+      if (oracion.includes(iniciar[i])) {
+        const texto = 'El señor Alberto Ortiz cae desde su altura y se lastima la rodilla, al llegar a urgencias le realizan una radiografía de la rodilla como apoyo diagnóstico, al ver que no hay fractura le dan medicamentos y lo envían a casa; él no estando de acuerdo solicita una ecografía de rodilla, pero se la niegan y se retira a su casa. Días después vuelve al médico a interponer una queja presencial, ya que fue a un médico particular donde le practicaron la ecografía de rodilla como apoyo diagnóstico y le encuentran una bursitis que es operada y tratada ya que por la falta de profesionalismo pudo haber perdido su miembro inferior.usted como auxiliar administrativo atiende al señor Alberto, que debes solicitar para iniciar la atencion documento de identidad o la historia clínica?';
         leerTexto(texto);
       }
     }

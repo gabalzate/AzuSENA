@@ -1,6 +1,6 @@
 function Cambiar(cambiar){
     if(cambiar == 1){
-        document.getElementById("titulo2").innerHTML = "IA Procesos Administartivos CFTHS";
+        document.getElementById("titulo2").innerHTML = "IA Procesos Administrativos CFTHS";
         let contenedor = document.getElementById("contenedor");
         let main = document.getElementById("main");
         let sidebar = document.getElementById("sidebar");

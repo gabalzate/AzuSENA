@@ -336,6 +336,35 @@ else if (contenido_main === "documentos") {
 
 main.appendChild(procesosList);
 } 
+else if (contenido_main === "general") {
+  // Agrega un listado de procesos administrativos en salud
+  const procesosList = document.createElement("ul");
+  const procesos = [
+      "este proyecto",
+      "ubicacion de senova",
+      "director regional",
+      "subdirector del centro",
+      "coordinacion misional",
+      "ubicacion de senova",
+      "dinamizador",
+      "programador",
+      "diseñador",
+      "robotica",
+      "administrador en la nube"
+  ];
+  procesos.forEach(proceso => {
+    const procesoItem = document.createElement("li");
+    procesoItem.textContent = proceso;
+    
+    // Establece el tamaño de letra y el color de texto
+    procesoItem.style.fontSize =  "200%"; // Cambia el tamaño de letra según sea necesario
+    procesoItem.style.color = "white"; // Cambia el color de texto según sea necesario
+    
+    procesosList.appendChild(procesoItem);
+});
+
+main.appendChild(procesosList);
+} 
 //documento pdf
 else if (contenido_main === "pdf") {
     // Agrega un visor de PDF u otro contenido PDF
@@ -423,9 +452,7 @@ function responderTexto(texto) {
   if (activo === 0) { // inicio
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
     const inicio = ["hola azucena"];
-    const inicio1 = ["que tal"];
-    const proyecto = ["este proyecto"];
-    const continuemos = ["si por favor", "si quiero"];
+    const inicio1 = ["que tal"];    
     const gracias =["gracias"];
     const casos = ["casos"]; // activo = 1
     const afiliaciones = ["afiliaciones"]; // activo = 2
@@ -433,23 +460,15 @@ function responderTexto(texto) {
     const admisiones = ["admisiones"]; // activo = 4
     const usuario = ["atencion al usuario"]; // activo = 5
     const pdf = ["mostrar pdf", "ver pdf"]; // activo = 6
+    const gener = ["informacion general"]; // activo = 7
     const listar = ["documentacion","documentos"];
     const consultar = ["consultar documento"];    
     const adios = ["despedirse", "despidase","despidete"];
-    const invitados = ["invitados"];
-    const tecnoparque = ["tecnoparque"];
-    const cristian = ["cristian", "programador"];
-    const rafael = ["dinamizador"];
-    const cordinacion = ["ana carolina","cordinadora misional","cordinacion de senova"];
-    const regional = ["arturo medina","gerardo medina", "gerardo arturo", "director regional"];
-    const diseño = ["diseñador", "ivan","ivancho","artista","diseño"];
-    const pregunta1=["ubicado senova","ubicación de senova","encuentra senova"];
-    const redis2 = ["director de la revista", "subdirector del centro","carlos salgar"];
-  
+      
     for (let i = 0; i < inicio.length; i++) {
       if (oracion.includes(inicio[i])) {
 
-        const texto = 'Hola, soy Asucena una inteligencia artificial creada para brindar información acerca de los servicios administrativos del sector salud, puedes encontrar procesos de admisiones, facturación, afiliaciones, atención al usuario, PQR, casos reales o información general ¿como puedo ayudarte?';
+        const texto = 'Hola, soy Asucena una inteligencia artificial creada para brindar información acerca de los servicios administrativos del sector salud, ¿como puedo ayudarte, selecciona una de las siguientes opciónes? procesos de admisiones, facturación, afiliaciones, atención al usuario, PQR, casos reales o información general';
         animar(0, 2);     
 
         leerTexto(texto);
@@ -465,7 +484,7 @@ function responderTexto(texto) {
     }   for (let i = 0; i < proyecto.length; i++) {
       if (oracion.includes(proyecto[i])) {
         animar(0, 1);
-        const texto = 'soy una IA que permite interactuar con aprendices e instructores para fortalecer los procesos administrativos en salud. quieres saber que procesos administrativos se contemplan?';
+        const texto = 'soy una IA que permite interactuar con aprendices e instructores para fortalecer los procesos administrativos en salud. ¿quieres saber que procesos administrativos se contemplan?, responde si quiero o no gracias';
         leerTexto(texto);
       }
     }     
@@ -535,6 +554,16 @@ function responderTexto(texto) {
         console. log('activo esta en: ' + activo)
       }
     }
+    for (let i = 0; i < gener.length; i++) {
+      if (oracion.includes(gener[i])) {
+        animar(0, 2);
+        const texto = 'Con gusto. Seleccina una de las siguientes opciones información sobre este proyecto, ubicacion de senova, director regional, subdirector del centro , coordinacion misional, dinamizador, programador, diseñador, robotica, administrador en la nube. ¿cual quieres conocer?';
+       
+        leerTexto(texto);
+        activo = 7;
+        console. log('activo esta en: ' + activo)
+      }
+    } 
     for (let i = 0; i < listar.length; i++) {
       if (oracion.includes(listar[i])) {
         animar(0, 1);
@@ -1170,6 +1199,44 @@ function responderTexto(texto) {
         console. log('activo esta en: ' + activo)
       }
     }
+  }
+  if (activo === 8) { //  informacion general
+    const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
+    const proyecto = ["este proyecto"];
+    const continuemos = ["si por favor", "si quiero"];
+    const invitados = ["invitados"];
+    const tecnoparque = ["tecnoparque"];
+    const cristian = ["cristian", "programador"];
+    const rafael = ["dinamizador"];
+    const cordinacion = ["ana carolina","cordinadora misional","cordinacion de senova"];
+    const regional = ["arturo medina","gerardo medina", "gerardo arturo", "director regional"];
+    const diseño = ["diseñador", "ivan","ivancho","artista","diseño"];
+    const pregunta1=["ubicado senova","ubicación de senova","encuentra senova"];
+    const redis2 = ["director de la revista", "subdirector del centro","carlos salgar"];
+    const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
+    
+    for (let i = 0; i < ingreso.length; i++) {
+      if (oracion.includes(ingreso[i])) {
+        const texto = 'atencion al usuario se encarga de apoyarle';
+        leerTexto(texto);
+      }
+    }
+    
+    for (let i = 0; i < ubicacion.length; i++) {
+      if (oracion.includes(ubicacion[i])) {
+        const texto = 'en la recepcionle pueden ayudar';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < tema.length; i++) {
+      if (oracion.includes(tema[i])) {
+        const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
+        leerTexto(texto);
+        activo = 0;
+        console. log('activo = 0')
+      }
+    }
+    
   }
   if (activo === 11) { // consulta por urgencias 
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas

@@ -481,25 +481,7 @@ function responderTexto(texto) {
         const texto = 'Hola Cristian bienvenido de nuevo, Soy Azusena. Una IA disponible para tu aprendizaje constante. que te gustaría saber';
         leerTexto(texto);
       }    
-    }   for (let i = 0; i < proyecto.length; i++) {
-      if (oracion.includes(proyecto[i])) {
-        animar(0, 1);
-        const texto = 'soy una IA que permite interactuar con aprendices e instructores para fortalecer los procesos administrativos en salud. ¿quieres saber que procesos administrativos se contemplan?, responde si quiero o no gracias';
-        leerTexto(texto);
-      }
-    }     
-    for (let i = 0; i < continuemos.length; i++) {
-      if (oracion.includes(continuemos[i])) {
-        Cambiarsubtitulo(2);
-        animar(0, 1);
-        console. log('cambiar titulo es = a 2');
-        contenido_main = 'listado';
-        console.log('contenido main esta en: ' + contenido_main)
-        mostrarContenido();
-        const texto = 'los procesos administrativos en salud son: Admisiones, afiliaciones, facturación, atención al usuario y casos. ¿cuál quieres abordar?';
-        leerTexto(texto);
-      }
-    }
+    }   
     for (let i = 0; i < casos.length; i++) {
       if (oracion.includes(casos[i])) {
         animar(0, 2);
@@ -584,63 +566,7 @@ function responderTexto(texto) {
         console. log('activo esta en: ' + activo)
       }
     }
-    for (let i = 0; i < cristian.length; i++) {
-      if (oracion.includes(cristian[i])) {
-        const texto = 'Cristian Reinoso, es mi creador, es un programador e investigador experto del área de senova'; 
-        leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < cordinacion.length; i++) {
-      if (oracion.includes(cordinacion[i])) {
-        const texto = 'Ana Carolina Feris Córdoba Coordinadora del Grupo de Formación Integral, Gestión Educativa y Promoción y Relaciones Corporativas'
-        leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < regional.length; i++) {
-      if (oracion.includes(regional[i])) {
-         const texto = 'Gerardo Arturo Medina Rosas es el director de la regional distrito capital'
-         leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < diseño.length; i++) {
-      if (oracion.includes(diseño[i])) {
-        const texto = 'Iván Darío García es el encargado del arte gráfico y un investigador experto de Senoba'
-        leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < pregunta1.length; i++) {
-      if (oracion.includes(pregunta1[i])) {
-        const texto = 'Senoba se encuenta ubicado en el nivel 1, bajando por las escaleras cerca de la cafetería'
-        leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < redis2.length; i++) {
-      if (oracion.includes(redis2[i])) {
-        const texto = 'Carlos Arturo Salgar Ramirez es el subdirector del centro de formacion de talento humano en salud y el director de la revista Reedis'
-        leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < rafael.length; i++) {
-      if (oracion.includes(rafael[i])) {
-        const texto = 'Rafael Mesa Perez es el dinamisador Sennova y jefe del area de investigación'
-        leerTexto(texto);
-      }
-    }
     
-    for (let i = 0; i < invitados.length; i++) {
-      if (oracion.includes(invitados[i])) {
-        animar(0, 1);
-        const texto = '¡que bien!... y, quiénes son los invitados?';
-        leerTexto(texto);
-      }
-    }for (let i = 0; i < tecnoparque.length; i++) {
-      if (oracion.includes(tecnoparque[i])) {
-        animar(0, 1);
-        Cambiar(1);
-        const texto = '¡maravilloso!... empecemos con la demostración entonces';
-        leerTexto(texto);
-      }
-    }
     for (let i = 0; i < pdf.length; i++) {
       if (oracion.includes(pdf[i])) {
         const texto = '¿tengo varias opciones de pdf, si sabes cual quieres ver: nómbralo o si quieres pide un listado?';
@@ -1033,20 +959,36 @@ function responderTexto(texto) {
 
   if (activo === 5) { //  atencion al usuario
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
-    const ingreso = ["quien me puede ayudar"];
-    const ubicacion = ["donde presento una queja"];
+    const ayuda = ["quien me puede ayudar"];
+    const queja = ["donde presento una queja"];
+    const caso = ["si quiero"];
+    const gracia = ["gracias"];// activo = 0 
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
     
-    for (let i = 0; i < ingreso.length; i++) {
-      if (oracion.includes(ingreso[i])) {
-        const texto = 'atencion al usuario se encarga de apoyarle';
+    for (let i = 0; i < ayuda.length; i++) {
+      if (oracion.includes(ayuda[i])) {
+        const texto = 'La "atención al usuario en admisiones en el servicio de salud" se refiere a la gestión y atención que se brinda a los pacientes y usuarios cuando ingresan a un servicio de salud, ya sea un hospital, clínica u otro establecimiento de atención médica. Este proceso es crucial para establecer una comunicación efectiva entre el personal de salud y los pacientes desde el momento en que llegan al centro de atención. por el momento estamos trabajando e la actualizacion de mi base de datos y no te puedo dar mas información. pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
+        activo(16);
         leerTexto(texto);
       }
-    }
-    
-    for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la recepcionle pueden ayudar';
+    }    
+    for (let i = 0; i < queja.length; i++) {
+      if (oracion.includes(queja[i])) {
+        const texto = 'El personal encargado de recibir y gestionar los PQRS puede variar según la estructura organizativa del establecimiento de salud. Sin embargo, generalmente, los PQRS en admisiones pueden ser recibidos por: Personal de Atención al Usuario o Servicio al Cliente, Recepcionistas y Personal de Admisiones, Oficina de Calidad o Departamento de Gestión de la Calidad o Comités de Ética o Comités de Calidad. por el momento estamos trabajando e la actualizacion de mi base de datos y no te puedo dar mas información. pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
+        activo(16);
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < caso.length; i++) {
+      if (oracion.includes(caso[i])) {
+        const texto = 'biembenido a casos, por favor mensione la palabra iniciar';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < gracia.length; i++) {
+      if (oracion.includes(gracia[i])) {
+        const texto = 'El personal encargado de recibir y gestionar los PQRS puede variar según la estructura organizativa del establecimiento de salud. Sin embargo, generalmente, los PQRS en admisiones pueden ser recibidos por: Personal de Atención al Usuario o Servicio al Cliente, Recepcionistas y Personal de Admisiones, Oficina de Calidad o Departamento de Gestión de la Calidad o Comités de Ética o Comités de Calidad. por el momento estamos trabajando e la actualizacion de mi base de datos y no te puedo dar mas información. pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
+        activo(0);
         leerTexto(texto);
       }
     }
@@ -1211,20 +1153,99 @@ function responderTexto(texto) {
     const cordinacion = ["ana carolina","cordinadora misional","cordinacion de senova"];
     const regional = ["arturo medina","gerardo medina", "gerardo arturo", "director regional"];
     const diseño = ["diseñador", "ivan","ivancho","artista","diseño"];
-    const pregunta1=["ubicado senova","ubicación de senova","encuentra senova"];
-    const redis2 = ["director de la revista", "subdirector del centro","carlos salgar"];
+    const ubicacion=["ubicado senova","ubicación de senova","encuentra senova"];
+    const subdirec = ["director de la revista", "subdirector del centro","carlos salgar"];
+    const gracia = ["gracias"];
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
     
-    for (let i = 0; i < ingreso.length; i++) {
-      if (oracion.includes(ingreso[i])) {
-        const texto = 'atencion al usuario se encarga de apoyarle';
+    for (let i = 0; i < cristian.length; i++) {
+      if (oracion.includes(cristian[i])) {
+        const texto = 'Cristian Reinoso, es mi creador, es un programador e investigador experto del área de senova'; 
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < cordinacion.length; i++) {
+      if (oracion.includes(cordinacion[i])) {
+        const texto = 'Ana Carolina Feris Córdoba Coordinadora del Grupo de Formación Integral, Gestión Educativa y Promoción y Relaciones Corporativas'
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < regional.length; i++) {
+      if (oracion.includes(regional[i])) {
+         const texto = 'Gerardo Arturo Medina Rosas es el director de la regional distrito capital'
+         leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < diseño.length; i++) {
+      if (oracion.includes(diseño[i])) {
+        const texto = 'Iván Darío García es el encargado del arte gráfico y un investigador experto de Senoba'
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < ubicacion.length; i++) {
+      if (oracion.includes(ubicacion[i])) {
+        const texto = 'Senoba se encuenta ubicado en el nivel 1, bajando por las escaleras cerca de la cafetería'
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < proyecto.length; i++) {
+      if (oracion.includes(proyecto[i])) {
+        animar(0, 1);
+        const texto = 'soy una IA que permite interactuar con aprendices e instructores para fortalecer los procesos administrativos en salud. ¿quieres saber que procesos administrativos se contemplan?, responde si quiero o no gracias';
+        leerTexto(texto);
+      }
+    }  
+    for (let i = 0; i < proyecto.length; i++) {
+      if (oracion.includes(proyecto[i])) {
+        animar(0, 1);
+        const texto = 'soy una IA que permite interactuar con aprendices e instructores para fortalecer los procesos administrativos en salud. ¿quieres saber que procesos administrativos se contemplan?, responde si quiero o no gracias';
+        activo(0);
+        leerTexto(texto);
+      }
+    }  
+    for (let i = 0; i < continuemos.length; i++) {
+      if (oracion.includes(continuemos[i])) {
+        Cambiarsubtitulo(2);
+        animar(0, 1);
+        console. log('cambiar titulo es = a 2');
+        contenido_main = 'listado';
+        console.log('contenido main esta en: ' + contenido_main)
+        mostrarContenido();
+        const texto = 'los procesos administrativos en salud son: Admisiones, afiliaciones, facturación, atención al usuario y casos. ¿cuál quieres abordar?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < subdirec.length; i++) {
+      if (oracion.includes(subdirec[i])) {
+        const texto = 'Carlos Arturo Salgar Ramirez es el subdirector del centro de formacion de talento humano en salud y el director de la revista Reedis'
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < rafael.length; i++) {
+      if (oracion.includes(rafael[i])) {
+        const texto = 'Rafael Mesa Perez es el dinamisador Sennova y jefe del area de investigación'
         leerTexto(texto);
       }
     }
     
-    for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la recepcionle pueden ayudar';
+    for (let i = 0; i < invitados.length; i++) {
+      if (oracion.includes(invitados[i])) {
+        animar(0, 1);
+        const texto = '¡que bien!... y, quiénes son los invitados?';
+        leerTexto(texto);
+      }
+    }for (let i = 0; i < tecnoparque.length; i++) {
+      if (oracion.includes(tecnoparque[i])) {
+        animar(0, 1);
+        Cambiar(1);
+        const texto = '¡maravilloso!... empecemos con la demostración entonces';
+        leerTexto(texto);
+      }
+    }
+    
+    for (let i = 0; i < gracia.length; i++) {
+      if (oracion.includes(gracia[i])) {
+        const texto = 'biembenido al inicio, ¿como puedo ayudarte, selecciona una de las siguientes opciónes? procesos de admisiones, facturación, afiliaciones, atención al usuario, PQR, casos reales o información general';
         leerTexto(texto);
       }
     }

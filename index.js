@@ -510,7 +510,7 @@ function responderTexto(texto) {
         contenido_main = 'admisiones';
         console.log('contenido main esta en: ' + contenido_main)
         mostrarContenido();
-        const texto = 'Admisiones es el proceso de recibir y registrar a pacientes en una institución de atención médica, como un hospital, una clínica o un centro de salud y es una parte crucial porque establece la primera relación entre el paciente y el proveedor de atención médica. ¿te quedó claro el concepto?';
+        const texto = 'Admisiones es el proceso de recibir y registrar a pacientes en una institución de atención médica, como un hospital, una clínica o un centro de salud y es una parte crucial porque establece la primera relación entre el paciente y el proveedor de atención médica. responde: es claro el concepto o no es claro el concepto';
         leerTexto(texto);
         activo = 4;
         console. log('activo esta en: ' + activo)
@@ -530,7 +530,7 @@ function responderTexto(texto) {
       if (oracion.includes(afiliaciones[i])) {
         animar(0, 1);
         Cambiar(4);
-        const texto = '¿Qué deseas saber sobre afiliaciones?';
+        const texto = 'En Colombia, el sistema de salud opera bajo el modelo de aseguramiento, donde las personas deben afiliarse a una Entidad Promotora de Salud (EPS) repite una de las opciones que quieras conocer: como afiliare o como desafiliarte';
         leerTexto(texto);
         activo = 2;
         console. log('activo esta en: ' + activo)
@@ -604,6 +604,7 @@ function responderTexto(texto) {
     const clinica = ["historia clinica"]; // activo = 14 
     const neonata = ["neonatal","canguro"]; // activo = 15
     const pqr = ["pqr"]; // activo = 16
+    const factura = ["facturacion"]
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
 
     for (let i = 0; i < urgencia.length; i++) {
@@ -661,37 +662,53 @@ function responderTexto(texto) {
     for (let i = 0; i < tema.length; i++) {
       if (oracion.includes(tema[i])) {
         animar(0, 1);
-        const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
+        const texto = 'Bienvenido al inicio, ¿como puedo ayudarte, selecciona una de las siguientes opciónes? procesos de admisiones, facturación, afiliaciones, atención al usuario, PQR, casos reales o información general';
         leerTexto(texto);
         activo = 0;
         console. log('activo esta en: ' + activo)
       }
     }
   }  
-  if (activo === 2) {0 //  afiliaciones
+  if (activo === 2) { //  afiliaciones
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
-    const afiliar = ["afiliacion", "afiliarme"];
+    const afiliar = ["como afiliarme"];
     const retirar = ["como desafiliarme", "como retirarme"];
+    const caso = ["si quiero"];
+    const gracia = ["gracias"];// activo = 0 
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
   
     for (let i = 0; i < afiliar.length; i++) {
       if (oracion.includes(afiliar[i])) {
         animar(0, 1);
-        const texto = 'para realizar la afiliación usted debe reguistrarse en adres';
+        const texto = 'En Colombia, el proceso de afiliación a una EPS (Entidad Promotora de Salud) sigue un conjunto de pasos específicos. A continuación, te proporciono una guía general para afiliarte a una EPS en Colombia: Elige una EPS, cumplir con los Requisitos de Afiliación, Solicitud de Afiliación, presentar la Documentación necesaria, Dependiendo del tipo de afiliación, podrías estar realizando un traslado desde otra EPS o una afiliación inicial, pagar de la Cuota de Afiliación, Espera la Aprobación, por último recibe tu Carnet de Afiliación o certificación en línea en donde indica tu estado de afiliación y la fecha de inicio del servicio; Por el momento estamos trabajando en la actualización de mi base de datos y no te puedo dar más información. Pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
         leerTexto(texto);
       }
     }
     
     for (let i = 0; i < retirar.length; i++) {
       if (oracion.includes(retirar[i])) {
-        const texto = 'para desafiliarse, usted debe presentar una carta';
+        const texto = 'En Colombia, el proceso de des afiliación de una Entidad Promotora de Salud (EPS) puede variar según la situación y las circunstancias individuales. Aquí te proporciono una guía general sobre cómo podrías proceder, pero ten en cuenta que es fundamental consultar directamente con la EPS en cuestión para obtener información específica y asegurarte de seguir los procedimientos correctos. A continuación, algunos pasos generales que podrías seguir: Contacta a tu EPS, solicita Información y Documentación necesaria para el proceso, informa el Motivo de Des afiliación, presentación de una solicitud formal, Cancela deudas, las pendientes, espera el tiempo requerido por la EPS para recibir la confirmación del trámite, Si decides afiliarte a otra EPS, asegúrate de realizar el proceso de afiliación con la nueva entidad de salud. Por el momento estamos trabajando en la actualización de mi base de datos y no te puedo dar más información. Pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
         leerTexto(texto);
+      }
+    }  
+    for (let i = 0; i < caso.length; i++) {
+      if (oracion.includes(caso[i])) {
+        const texto = 'Con gusto. Tengo casos de consulta externa telefónica, consulta externa presencial, consulta por urgencias, historia clinica, atencion neonatal y PQRSD. ¿cual quieres conocer?';
+        leerTexto(texto);
+        activo= 1;
+      }
+    }   
+    for (let i = 0; i < gracia.length; i++) {
+      if (oracion.includes(gracia[i])) {
+        const texto = 'bienvenido al inicio ¿como puedo ayudarte, selecciona una de las siguientes opciónes? procesos de admisiones, facturación, afiliaciones, atención al usuario, PQR, casos reales o información general';
+        leerTexto(texto);
+        activo= 0;
       }
     }
     for (let i = 0; i < tema.length; i++) {
       if (oracion.includes(tema[i])) {
         animar(0, 1);
-        const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
+        const texto = 'Bienvenido al inicio, ¿como puedo ayudarte, selecciona una de las siguientes opciónes? procesos de admisiones, facturación, afiliaciones, atención al usuario, PQR, casos reales o información general';
         leerTexto(texto);
         activo = 0;
         console. log('activo esta en: ' + activo)
@@ -702,98 +719,38 @@ function responderTexto(texto) {
 
   if (activo === 3) { //  facturacion
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
-    const externa = ["consulta externa"];
-    const tipo = ["tipo de documento"];
-    const tarejeta = ["tarjeta bancaria", "nombre completo"];
-    const correc = ["correcta","correcto"];
-    const incorr = ["incorrecto"];
-    const pertenece = ["grupo"];
-    const ejecutar = ["ejecutar factura"];
-    const ingreso = ["ingreso base", "base de cotizacion"];
-    const magnit = ["magnitud del servicio"];
-    const primcopago = ["610227", "304583"];
-    const errprim = ["546799", "272924"];
-    const segucopago = ["2440909", "1220455"];
-    const errseg = ["2187195", "1093597"];
-    const urgencias = ["consulta por urgencias"];
+    const factura = ["que es la facturacion"];
+    const hace = ["que hace"];
+    const caso = ["si quiero"];
+    const gracia = ["gracias"];// activo = 0 
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
-  
-    for (let i = 0; i < externa.length; i++) {
-      if (oracion.includes(externa[i])) {
-        const texto = '¡Bienvenido al área de FACTURACIÓN DE CONSULTA EXTERNA! Empecemos con este caso: El 05 de MAYO de 2023, el auxiliar administrativo del HOSPITAL ENGATIVA atiende a la Sra. Nancy Silva González la cual expresa tener una cita médica de odontología programada a las 8:30 AM con el Dr. Sebastián Rodríguez De conformidad con lo anterior ¿Qué información es pertinente solicitar para proceder con la atención?. tipo de documento, tarjeta bancaria o nombre completo';
+    
+    for (let i = 0; i < factura.length; i++) {
+      if (oracion.includes(factura[i])) {
+        const texto = 'Es el proceso mediante el cual las EPS gestionan los cobros y pagos asociados a los servicios de salud brindados a sus afiliados. Por el momento estamos trabajando en la actualización de mi base de datos y no te puedo dar más información. Pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
         leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < tarejeta.length; i++) {
-      if (oracion.includes(tarejeta[i])) {
-        const texto = 'rectifica en tu conocimiento y vuelve a seleccionar.¿Qué información es pertinente solicitar para proceder con la atención?. tipo de documento, tarjeta bancaria o nombre completo';
-        leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < tipo.length; i++) {
-      if (oracion.includes(tipo[i])) {
-        const texto = 'Muy bien. ⮚	Obtenido el tipo de documento el auxiliar debe ingresar el número de identificación en la base de datos de la entidad para confirmar y realizar la validación de la información, ¿la anterior afirmación es correcta?';
-        leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < correc.length; i++) {
-      if (oracion.includes(correc[i])) {
-        const texto = 'Muy bien, Después de obtener la validación de la información, Si el usuario pertenece al régimen contributivo ¿que se procederá a realizar el auxiliar? identificación al grupo que pertenece, sea afiliado o beneficiario o ejecutar la factura';
-        leerTexto(texto);
+        activo= 17;
       }
     }    
-    for (let i = 0; i < incorr.length; i++) {
-      if (oracion.includes(incorr[i])) {
-        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿la anterior afirmación es correcta?';
+    for (let i = 0; i < hace.length; i++) {
+      if (oracion.includes(hace[i])) {
+        const texto = ' Los proveedores de servicios de salud, como hospitales, clínicas, laboratorios, etc., envían facturas detalladas a la EPS por los servicios prestados a sus afiliados. Estas facturas incluyen información sobre los servicios, tarifas y cualquier otro cargo asociado, Las EPS procesan las facturas recibidas, verifican la información y determinan los pagos correspondientes a los proveedores de servicios de salud. Dependiendo de la póliza y las condiciones de afiliación, los afiliados pueden tener coberturas específicas y, en algunos casos, se les puede solicitar realizar copagos por ciertos servicios. Por el momento estamos trabajando en la actualización de mi base de datos y no te puedo dar más información. Pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
         leerTexto(texto);
-      }
-    }    
-    for (let i = 0; i < pertenece.length; i++) {
-      if (oracion.includes(pertenece[i])) {
-        const texto = 'Muy bien. Si el usuario paciente pertenece al régimen contributivo. El cobro del Copago varía según el ingreso base de cotización IBC o la magnitud del servicio';
-        leerTexto(texto);
-      }
-    }    
-    for (let i = 0; i < ejecutar.length; i++) {
-      if (oracion.includes(ejecutar[i])) {
-        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿que se procederá a realizar el auxiliar? identificación al grupo que pertenece, sea afiliado o beneficiario o ejecutar la factura';
-        leerTexto(texto);
-      }
-    }    
-    for (let i = 0; i < ingreso.length; i++) {
-      if (oracion.includes(ingreso[i])) {
-        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales perteneciera al régimen contributivo y tenga un rango de ingresos menor a 2 Salarios Mínimos Mínimo Legal Mensual Vigente ¿cuánto será el tope de copago por año y por evento? $610227 por año y $304583 por evento, $546799 por año y 272924 por evento';
-        leerTexto(texto);
+        activo= 17;
       }
     }   
-    for (let i = 0; i < magnit.length; i++) {
-      if (oracion.includes(magnit[i])) {
-        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. El ingreso base de cotización IBC o la magnitud del servicio';
+    for (let i = 0; i < caso.length; i++) {
+      if (oracion.includes(caso[i])) {
+        const texto = 'Con gusto. Tengo casos de consulta externa telefónica, consulta externa presencial, consulta por urgencias, historia clinica, atencion neonatal y PQRSD. ¿cual quieres conocer?';
         leerTexto(texto);
+        activo= 1;
       }
     }   
-    for (let i = 0; i < primcopago.length; i++) {
-      if (oracion.includes(primcopago[i])) {
-        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales perteneciera al régimen contributivo tenga un rango de ingresos entre 2 y 5 Salarios Mínimos Mínimo Legales Mensuales Vigentes ¿cuánto será el tope de copago por año y por evento?';
+    for (let i = 0; i < gracia.length; i++) {
+      if (oracion.includes(gracia[i])) {
+        const texto = 'bienvenido al inicio ¿como puedo ayudarte, selecciona una de las siguientes opciónes? procesos de admisiones, facturación, afiliaciones, atención al usuario, PQR, casos reales o información general';
         leerTexto(texto);
-      }
-    }   
-    for (let i = 0; i < errprim.length; i++) {
-      if (oracion.includes(errprim[i])) {
-        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar.¿cuánto será el tope de copago por año y por evento?';
-        leerTexto(texto);
-      }
-    }   
-    for (let i = 0; i < segucopago.length; i++) {
-      if (oracion.includes(segucopago[i])) {
-        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales pertenezca al régimen contributivo tenga un rango de ingresos mayor a 5 Salarios Mínimos Mínimo Legales Mensuales Vigentes ¿cuánto será el tope de copago por año y por evento?';
-        leerTexto(texto);
-      }
-    }   
-    for (let i = 0; i < errseg.length; i++) {
-      if (oracion.includes(errseg[i])) {
-        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar.¿cuánto será el tope de copago por año y por evento?';
-        leerTexto(texto);
+        activo= 0;
       }
     }
     for (let i = 0; i < tema.length; i++) {
@@ -801,7 +758,7 @@ function responderTexto(texto) {
         const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
         leerTexto(texto);
         activo = 0;
-        console. log('activo esta en: ' + activo)
+        console. log('activo = 0')
       }
     }
     
@@ -893,63 +850,9 @@ function responderTexto(texto) {
         console. log('activo esta en: ' + activo)
       }
     }
-    for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }
-    for (let i = 0; i < ubicacion.length; i++) {
-      if (oracion.includes(ubicacion[i])) {
-        const texto = 'en la ventanilla que esta en la recepcion. ahí encuentra el mofdulo de admisiones';
-        leerTexto(texto);
-      }
-    }
     for (let i = 0; i < tema.length; i++) {
       if (oracion.includes(tema[i])) {
-        const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
+        const texto = 'Bienvenido al inicio, ¿como puedo ayudarte, selecciona una de las siguientes opciónes? procesos de admisiones, facturación, afiliaciones, atención al usuario, PQR, casos reales o información general';
         leerTexto(texto);
         activo = 0;
         console. log('activo esta en: ' + activo)
@@ -967,29 +870,30 @@ function responderTexto(texto) {
     
     for (let i = 0; i < ayuda.length; i++) {
       if (oracion.includes(ayuda[i])) {
-        const texto = 'La "atención al usuario en admisiones en el servicio de salud" se refiere a la gestión y atención que se brinda a los pacientes y usuarios cuando ingresan a un servicio de salud, ya sea un hospital, clínica u otro establecimiento de atención médica. Este proceso es crucial para establecer una comunicación efectiva entre el personal de salud y los pacientes desde el momento en que llegan al centro de atención. por el momento estamos trabajando e la actualizacion de mi base de datos y no te puedo dar mas información. pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
-        activo(16);
+        const texto = 'La "atención al usuario en admisiones en el servicio de salud" se refiere a la gestión y atención que se brinda a los pacientes y usuarios cuando ingresan a un servicio de salud, ya sea un hospital, clínica u otro establecimiento de atención médica. Este proceso es crucial para establecer una comunicación efectiva entre el personal de salud y los pacientes desde el momento en que llegan al centro de atención. Por el momento estamos trabajando en la actualización de mi base de datos y no te puedo dar más información. Pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
         leerTexto(texto);
+        activo= 16;
       }
     }    
     for (let i = 0; i < queja.length; i++) {
       if (oracion.includes(queja[i])) {
-        const texto = 'El personal encargado de recibir y gestionar los PQRS puede variar según la estructura organizativa del establecimiento de salud. Sin embargo, generalmente, los PQRS en admisiones pueden ser recibidos por: Personal de Atención al Usuario o Servicio al Cliente, Recepcionistas y Personal de Admisiones, Oficina de Calidad o Departamento de Gestión de la Calidad o Comités de Ética o Comités de Calidad. por el momento estamos trabajando e la actualizacion de mi base de datos y no te puedo dar mas información. pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
-        activo(16);
+        const texto = 'El personal encargado de recibir y gestionar los PQRS puede variar según la estructura organizativa del establecimiento de salud. Sin embargo, generalmente, los PQRS en admisiones pueden ser recibidos por: Personal de Atención al Usuario o Servicio al Cliente, Recepcionistas y Personal de Admisiones, Oficina de Calidad o Departamento de Gestión de la Calidad o Comités de Ética o Comités de Calidad. Por el momento estamos trabajando en la actualización de mi base de datos y no te puedo dar más información. Pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
         leerTexto(texto);
+        activo= 16;
       }
     }   
     for (let i = 0; i < caso.length; i++) {
       if (oracion.includes(caso[i])) {
-        const texto = 'biembenido a casos, por favor mensione la palabra iniciar';
+        const texto = 'Con gusto. Tengo casos de consulta externa telefónica, consulta externa presencial, consulta por urgencias, historia clinica, atencion neonatal y PQRSD. ¿cual quieres conocer?';
         leerTexto(texto);
+        activo= 1;
       }
     }   
     for (let i = 0; i < gracia.length; i++) {
       if (oracion.includes(gracia[i])) {
-        const texto = 'El personal encargado de recibir y gestionar los PQRS puede variar según la estructura organizativa del establecimiento de salud. Sin embargo, generalmente, los PQRS en admisiones pueden ser recibidos por: Personal de Atención al Usuario o Servicio al Cliente, Recepcionistas y Personal de Admisiones, Oficina de Calidad o Departamento de Gestión de la Calidad o Comités de Ética o Comités de Calidad. por el momento estamos trabajando e la actualizacion de mi base de datos y no te puedo dar mas información. pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
-        activo(0);
+        const texto = 'bienvenido al inicio ¿como puedo ayudarte, selecciona una de las siguientes opciónes? procesos de admisiones, facturación, afiliaciones, atención al usuario, PQR, casos reales o información general';
         leerTexto(texto);
+        activo= 0;
       }
     }
     for (let i = 0; i < tema.length; i++) {
@@ -1813,6 +1717,111 @@ function responderTexto(texto) {
     for (let i = 0; i < espera.length; i++) {
       if (oracion.includes(espera[i])) {
         const texto = 'Muy bien, El funcionario abre un caso de solicitud de PQRSD en el sistema y le indica al usuario diligenciar el formato con todos los detalles de su inconformidad y lo entregue para anexarlo al caso ¿Esperas el formato de PQRSD del usuario o cierras el caso?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < magnit.length; i++) {
+      if (oracion.includes(magnit[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. El ingreso base de cotización IBC o la magnitud del servicio';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < primcopago.length; i++) {
+      if (oracion.includes(primcopago[i])) {
+        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales perteneciera al régimen contributivo tenga un rango de ingresos entre 2 y 5 Salarios Mínimos Mínimo Legales Mensuales Vigentes ¿cuánto será el tope de copago por año y por evento?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < errprim.length; i++) {
+      if (oracion.includes(errprim[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar.¿cuánto será el tope de copago por año y por evento?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < segucopago.length; i++) {
+      if (oracion.includes(segucopago[i])) {
+        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales pertenezca al régimen contributivo tenga un rango de ingresos mayor a 5 Salarios Mínimos Mínimo Legales Mensuales Vigentes ¿cuánto será el tope de copago por año y por evento?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < errseg.length; i++) {
+      if (oracion.includes(errseg[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar.¿cuánto será el tope de copago por año y por evento?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < tema.length; i++) {
+      if (oracion.includes(tema[i])) {
+        const texto = 'Bienvenido al inicio, seleccione el nuevo tema';
+        leerTexto(texto);
+        activo = 0;
+        console. log('activo esta en: ' + activo)
+      }
+    }
+    
+  }
+  if (activo === 17){
+    const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
+    const iniciar = ["iniciar"];
+    const tipo = ["tipo de documento"];
+    const tarejeta = ["tarjeta bancaria", "nombre completo"];
+    const correc = ["correcta","correcto"];
+    const incorr = ["incorrecto"];
+    const pertenece = ["grupo"];
+    const ejecutar = ["ejecutar factura"];
+    const ingreso = ["ingreso base", "base de cotizacion"];
+    const magnit = ["magnitud del servicio"];
+    const primcopago = ["610227", "304583"];
+    const errprim = ["546799", "272924"];
+    const segucopago = ["2440909", "1220455"];
+    const errseg = ["2187195", "1093597"];
+    const urgencias = ["consulta por urgencias"];
+    const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
+  
+    for (let i = 0; i < iniciar.length; i++) {
+      if (oracion.includes(iniciar[i])) {
+        const texto = 'El 05 de MAYO de 2023, el auxiliar administrativo del HOSPITAL ENGATIVA atiende a la Sra. Nancy Silva González la cual expresa tener una cita médica de odontología programada a las 8:30 AM con el Dr. Sebastián Rodríguez De conformidad con lo anterior ¿Qué información es pertinente solicitar para proceder con la atención?. tipo de documento, tarjeta bancaria o nombre completo';        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < tarejeta.length; i++) {
+      if (oracion.includes(tarejeta[i])) {
+        const texto = 'rectifica en tu conocimiento y vuelve a seleccionar.¿Qué información es pertinente solicitar para proceder con la atención?. tipo de documento, tarjeta bancaria o nombre completo';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < tipo.length; i++) {
+      if (oracion.includes(tipo[i])) {
+        const texto = 'Muy bien. ⮚	Obtenido el tipo de documento el auxiliar debe ingresar el número de identificación en la base de datos de la entidad para confirmar y realizar la validación de la información, ¿la anterior afirmación es correcta?';
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < correc.length; i++) {
+      if (oracion.includes(correc[i])) {
+        const texto = 'Muy bien, Después de obtener la validación de la información, Si el usuario pertenece al régimen contributivo ¿que se procederá a realizar el auxiliar? identificación al grupo que pertenece, sea afiliado o beneficiario o ejecutar la factura';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < incorr.length; i++) {
+      if (oracion.includes(incorr[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿la anterior afirmación es correcta?';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < pertenece.length; i++) {
+      if (oracion.includes(pertenece[i])) {
+        const texto = 'Muy bien. Si el usuario paciente pertenece al régimen contributivo. El cobro del Copago varía según el ingreso base de cotización IBC o la magnitud del servicio';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < ejecutar.length; i++) {
+      if (oracion.includes(ejecutar[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿que se procederá a realizar el auxiliar? identificación al grupo que pertenece, sea afiliado o beneficiario o ejecutar la factura';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < ingreso.length; i++) {
+      if (oracion.includes(ingreso[i])) {
+        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales perteneciera al régimen contributivo y tenga un rango de ingresos menor a 2 Salarios Mínimos Mínimo Legal Mensual Vigente ¿cuánto será el tope de copago por año y por evento? $610227 por año y $304583 por evento, $546799 por año y 272924 por evento';
         leerTexto(texto);
       }
     }   

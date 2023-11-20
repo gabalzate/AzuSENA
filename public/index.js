@@ -433,7 +433,7 @@ function responderTexto(texto) {
       if (oracion.includes(inicio[i])) {
         animar(0, 2);
         Cambiar(1);
-        const texto = 'Hola, Muy buen día para todos. gracias por invitarme a este magnifico evento';
+        const texto = 'Hola, Muy buen día para todos, soy una I A creada para tu aprendizaje que te da acceso a afiliaciones, admisiones, facturación, atencion al usuario y casos. De que quires aprender hoy.';
         leerTexto(texto);
         
       }

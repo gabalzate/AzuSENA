@@ -699,7 +699,7 @@ function responderTexto(texto) {
         const texto = '¡Bienvenido al área de PQRSD! Recuerda que el área de PQRSD nos permite evaluar la calidad, oportunidad, accesibilidad y continuidad de uso en los servicios de salud para generar acciones correctivas!. Tengo varios casos para analizar y estudiar, vamos con uno puedes empezar con la palabra iniciar';
         leerTexto(texto);
          // Generar un número aleatorio entre 16 y 17
-        activo = Math.random() < 0.5 ? 15 : 16;
+        activo = Math.random() < 0.5 ? 16 : 16;
         console. log('activo esta en: ' + activo)
       }
     }
@@ -1665,13 +1665,13 @@ function responderTexto(texto) {
   if (activo === 16) { //  pqrsd opcion 1 
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
     const iniciar = ["iniciar", "inicio"]; 
-    const tipo = ["tipo de documento"];
-    const tarejeta = ["tarjeta bancaria", "nombre completo"];
-    const correc = ["correcta","correcto"];
-    const incorr = ["incorrecto"];
-    const pertenece = ["grupo"];
-    const ejecutar = ["ejecutar factura"];
-    const ingreso = ["ingreso base", "base de cotizacion"];
+    const documento = ["documento"];
+    const cuota = ["cuota moderadora"];
+    const ambas = ["ambos"];
+    const adress= ["adres","eps"];
+    const control = ["control medico"];
+    const formatos = ["formato"];
+    const espera = ["espera", "espero", "esperar"];
     const magnit = ["magnitud del servicio"];
     const primcopago = ["610227", "304583"];
     const errprim = ["546799", "272924"];
@@ -1686,45 +1686,45 @@ function responderTexto(texto) {
         leerTexto(texto);
       }
     }
-    for (let i = 0; i < tarejeta.length; i++) {
-      if (oracion.includes(tarejeta[i])) {
-        const texto = 'rectifica en tu conocimiento y vuelve a seleccionar.¿Qué información es pertinente solicitar para proceder con la atención?. tipo de documento, tarjeta bancaria o nombre completo';
+    for (let i = 0; i < cuota.length; i++) {
+      if (oracion.includes(cuota[i])) {
+        const texto = 'rectifica en tu conocimiento y vuelve a seleccionar.¿Le solicitas documento de identidad o cuota moderadora?';
         leerTexto(texto);
       }
     }
-    for (let i = 0; i < tipo.length; i++) {
-      if (oracion.includes(tipo[i])) {
-        const texto = 'Muy bien. ⮚	Obtenido el tipo de documento el auxiliar debe ingresar el número de identificación en la base de datos de la entidad para confirmar y realizar la validación de la información, ¿la anterior afirmación es correcta?';
+    for (let i = 0; i < documento.length; i++) {
+      if (oracion.includes(documento[i])) {
+        const texto = 'Muy bien. Con documento de identidad el auxiliar puede verificar derechos del usuario. ¿en donde debe validar si el usuario esta registrado en sistema en la EPS, ADRESS o AMBOS?';
         leerTexto(texto);
       }
     }
-    for (let i = 0; i < correc.length; i++) {
-      if (oracion.includes(correc[i])) {
-        const texto = 'Muy bien, Después de obtener la validación de la información, Si el usuario pertenece al régimen contributivo ¿que se procederá a realizar el auxiliar? identificación al grupo que pertenece, sea afiliado o beneficiario o ejecutar la factura';
+    for (let i = 0; i < ambas.length; i++) {
+      if (oracion.includes(ambas[i])) {
+        const texto = 'Muy bien, Después de obtener la validación de la información, Encuentras que sí está registrado el usuario Alberto Ortiz, cuéntame ¿Verificas si tiene control médico o le entregas formato de PQRSD?';
         leerTexto(texto);
       }
     }    
-    for (let i = 0; i < incorr.length; i++) {
-      if (oracion.includes(incorr[i])) {
-        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿la anterior afirmación es correcta?';
+    for (let i = 0; i < adress.length; i++) {
+      if (oracion.includes(adress[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿Validas al usuario en el sistema de la EPS, ADRESS o AMBOS?';
         leerTexto(texto);
       }
     }    
-    for (let i = 0; i < pertenece.length; i++) {
-      if (oracion.includes(pertenece[i])) {
-        const texto = 'Muy bien. Si el usuario paciente pertenece al régimen contributivo. El cobro del Copago varía según el ingreso base de cotización IBC o la magnitud del servicio';
+    for (let i = 0; i < formatos.length; i++) {
+      if (oracion.includes(formatos[i])) {
+        const texto = 'Muy bien. como anteriormente escuchamos de que se trata la atención al señor Alberto, ya sabemos que el tramite que debe realizar es un PQRSD. a continuación el funcionario abre un caso de solicitud de PQRSD en el sistema y le indica al usuario diligenciar el formato con todos los detalles de su inconformidad y lo entregue para anexarlo al caso ¿Esperas el formato de PQRSD del usuario o cierras el caso?';
         leerTexto(texto);
       }
     }    
-    for (let i = 0; i < ejecutar.length; i++) {
-      if (oracion.includes(ejecutar[i])) {
-        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿que se procederá a realizar el auxiliar? identificación al grupo que pertenece, sea afiliado o beneficiario o ejecutar la factura';
+    for (let i = 0; i < control.length; i++) {
+      if (oracion.includes(control[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿Verificas si tiene control médico o le entregas formato de PQRSD?';
         leerTexto(texto);
       }
     }    
-    for (let i = 0; i < ingreso.length; i++) {
-      if (oracion.includes(ingreso[i])) {
-        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales perteneciera al régimen contributivo y tenga un rango de ingresos menor a 2 Salarios Mínimos Mínimo Legal Mensual Vigente ¿cuánto será el tope de copago por año y por evento? $610227 por año y $304583 por evento, $546799 por año y 272924 por evento';
+    for (let i = 0; i < espera.length; i++) {
+      if (oracion.includes(espera[i])) {
+        const texto = 'Muy bien, El funcionario abre un caso de solicitud de PQRSD en el sistema y le indica al usuario diligenciar el formato con todos los detalles de su inconformidad y lo entregue para anexarlo al caso ¿Esperas el formato de PQRSD del usuario o cierras el caso?';
         leerTexto(texto);
       }
     }   

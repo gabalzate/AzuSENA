@@ -492,7 +492,7 @@ function responderTexto(texto) {
     for (let i = 0; i < facturacion.length; i++) {
       if (oracion.includes(facturacion[i])) {
         animar(0, 1);
-        const texto = '¡Bienvenido al área de facturación!. Recuerda que el área de facturación es la encargada de realizar el proceso de liquidar los diferentes servicios que presta una entidad en salud al atender a un usuario cuando requiera un servicio, puede seleccionar una de las siguientes opciones: facturación de consulta externa o facturación de urgencias.';
+        const texto = '¡Bienvenido al área de facturación!. Recuerda que el área de facturación es la encargada de realizar el proceso de liquidar los diferentes servicios que presta una entidad en salud al atender a un usuario cuando requiera un servicio, puede seleccionar una de las siguientes opciones: que es la facturación o que hacen en factración.';
         leerTexto(texto);
         activo = 3;
         console. log('activo esta en: ' + activo)

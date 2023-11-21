@@ -451,7 +451,7 @@ function responderTexto(texto) {
   animar(1, 100);
   if (activo === 0) { // inicio
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
-    const inicio = ["hola azucena"];
+    const inicio = ["hola azucena", "iniciar"];
     const inicio1 = ["que tal"];    
     const gracias =["gracias"];
     const casos = ["casos"]; // activo = 1
@@ -463,22 +463,19 @@ function responderTexto(texto) {
     const gener = ["informacion general"]; // activo = 7
     const listar = ["documentacion","documentos"];
     const consultar = ["consultar documento"];    
-    const adios = ["despedirse", "despidase","despidete"];
+    const adios = ["despedirse", "despidase","despidete", "chao", "adios"];
       
     for (let i = 0; i < inicio.length; i++) {
       if (oracion.includes(inicio[i])) {
-
-        const texto = 'Hola, soy Asucena una inteligencia artificial creada para brindar información acerca de los servicios administrativos del sector salud, ¿como puedo ayudarte, selecciona una de las siguientes opciónes? procesos de admisiones, facturación, afiliaciones, atención al usuario, PQR, casos reales o información general';
-        animar(0, 2);     
-
-        leerTexto(texto);
-        
+        const texto = 'Hola, soy Asucena una inteligencia artificial creada para brindar información acerca de los servicios administrativos del sector salud, ¿como puedo ayudarte?, selecciona una de las siguientes opciónes procesos de admisiones, facturación, afiliaciones, atención al usuario, PQR, casos reales o información general';
+        animar(0, 2);   
+        leerTexto(texto);        
       }
     }
     for (let i = 0; i < inicio1.length; i++) {
       if (oracion.includes(inicio1[i])) {
         animar(0, 1);
-        const texto = 'Hola Cristian bienvenido de nuevo, Soy Azusena. Una IA disponible para tu aprendizaje constante. que te gustaría saber';
+        const texto = 'Hola Cristian bienvenido de nuevo, soy Asucena una inteligencia artificial creada para brindar información acerca de los servicios administrativos del sector salud, ¿como puedo ayudarte, selecciona una de las siguientes opciónes? procesos de admisiones, facturación, afiliaciones, atención al usuario, PQR, casos reales o información general';
         leerTexto(texto);
       }    
     }   
@@ -520,7 +517,7 @@ function responderTexto(texto) {
       if (oracion.includes(usuario[i])) {
         animar(0, 1);
         Cambiar(5);
-        const texto = '¿Qué deseas saber sobre atencion al usuario?';
+        const texto = 'La "atención al usuario en admisiones en el servicio de salud" se refiere a la gestión y atención que se brinda a los pacient1es y usuarios cuando ingresan a un servicio de salud, ya sea un hospital, clínica u otro establecimiento de atención médica. Este proceso es crucial para establecer una comunicación efectiva entre el personal de salud y los pacientes desde el momento en que llegan al centro de atención. para mas informacion pregunta: quien me puede ayudar o donde presento una queja';
         leerTexto(texto);
         activo = 5;
         console. log('activo esta en: ' + activo)
@@ -537,12 +534,15 @@ function responderTexto(texto) {
       }
     }
     for (let i = 0; i < gener.length; i++) {
-      if (oracion.includes(gener[i])) {
-        animar(0, 2);
+      if (oracion.includes(gener[i])) {  animar(0, 3);
+        Cambiar(2);
+        console. log('cambiar titulo es = a 2');
+        contenido_main = 'general';
+        console.log('contenido main esta en: ' + contenido_main)
+        mostrarContenido();
         const texto = 'Con gusto. Seleccina una de las siguientes opciones información sobre este proyecto, ubicacion de senova, director regional, subdirector del centro , coordinacion misional, dinamizador, programador, diseñador, robotica, administrador en la nube. ¿cual quieres conocer?';
-       
         leerTexto(texto);
-        activo = 7;
+        activo = 8;
         console. log('activo esta en: ' + activo)
       }
     } 
@@ -576,10 +576,8 @@ function responderTexto(texto) {
       }
     }
     for (let i = 0; i < gracias.length; i++) {
-      if (oracion.includes(gracias[i])) {
-    
-        const texto = 'con gusto, ¿te puedo ayudar en algo más?';
-      
+      if (oracion.includes(gracias[i])) {    
+        const texto = 'con gusto, ¿te puedo ayudar en algo más? recuerda que puedes seleccionar una de las siguientes opciónes procesos de admisiones, facturación, afiliaciones, atención al usuario, PQR, casos reales o información general';      
         leerTexto(texto);
       }
     }
@@ -870,14 +868,14 @@ function responderTexto(texto) {
     
     for (let i = 0; i < ayuda.length; i++) {
       if (oracion.includes(ayuda[i])) {
-        const texto = 'La "atención al usuario en admisiones en el servicio de salud" se refiere a la gestión y atención que se brinda a los pacientes y usuarios cuando ingresan a un servicio de salud, ya sea un hospital, clínica u otro establecimiento de atención médica. Este proceso es crucial para establecer una comunicación efectiva entre el personal de salud y los pacientes desde el momento en que llegan al centro de atención. Por el momento estamos trabajando en la actualización de mi base de datos y no te puedo dar más información. Pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
+        const texto = ' "Oficina de Atención al Usuario" o el "Departamento de Servicio al Cliente". Estas áreas están diseñadas para responder a las necesidades, preguntas y preocupaciones de los afiliados y usuarios del sistema de salud. Allí le pueden ayudar con: Recepción de Consultas y Quejas, Orientación e Información, Resolución de Problemas, Gestión de PQRS, Información sobre Derechos y Deberes, Coordinación de Citas y Trámites o Educación al Usuario. Por el momento estamos trabajando en la actualización de mi base de datos y no te puedo dar más información. Pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
         leerTexto(texto);
         activo= 16;
       }
     }    
     for (let i = 0; i < queja.length; i++) {
       if (oracion.includes(queja[i])) {
-        const texto = 'El personal encargado de recibir y gestionar los PQRS puede variar según la estructura organizativa del establecimiento de salud. Sin embargo, generalmente, los PQRS en admisiones pueden ser recibidos por: Personal de Atención al Usuario o Servicio al Cliente, Recepcionistas y Personal de Admisiones, Oficina de Calidad o Departamento de Gestión de la Calidad o Comités de Ética o Comités de Calidad. Por el momento estamos trabajando en la actualización de mi base de datos y no te puedo dar más información. Pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
+        const texto = 'El personal encargado de recibir y gestionar los PQRSD puede variar según la estructura organizativa del establecimiento de salud. Sin embargo, generalmente, los PQRS en admisiones pueden ser recibidos por: Personal de Atención al Usuario o Servicio al Cliente, Recepcionistas y Personal de Admisiones, Oficina de Calidad o Departamento de Gestión de la Calidad o Comités de Ética o Comités de Calidad. Por el momento estamos trabajando en la actualización de mi base de datos y no te puedo dar más información. Pero puedo remitirte a un caso real si lo deseas, responde si quiero casos o no gracias';
         leerTexto(texto);
         activo= 16;
       }

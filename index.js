@@ -588,7 +588,7 @@ function responderTexto(texto) {
         contenido_main = 'equipo';
         console.log('contenido main esta en: ' + contenido_main)
         mostrarContenido();
-        const texto = 'Queridos asistentes, En nombre de todo nuestro equipo, quiero expresarles nuestra más sincera gratitud por acompañarnos en este magnífico evento. La búsqueda del conocimiento y la innovación nos impulsa constantemente, y nos complace ofrecerles la oportunidad de explorar más allá. Les extendemos una cordial invitación para descubrir más sobre nuestros avances y perfeccionamientos en el apasionante mundo de la innovación en nuestro laboratorio, ubicado en el Centro de Formación de Talento Humano en Salud de la 45. Esperamos volver a encontrarnos en futuras ocasiones. ¡Hasta pronto!';
+        const texto = 'Gracias por confiar en mí para obtener información y asistencia. Si tienes más preguntas en el futuro, no dudes en volver. ¡Que tengas un excelente día! Adiós y hasta la próxima.';
         leerTexto(texto);
       }
     }
@@ -1562,7 +1562,7 @@ function responderTexto(texto) {
       }
     }
   } 
-  if (activo === 15) { // consulta externa neonatal
+  if (activo === 15) { // pqrsd consulta externa neonatal
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
     const iniciar = ["iniciar", "inicio"]; 
     const documento = ["documento de identidad", "identificacion","cedula"]; 
@@ -1758,7 +1758,7 @@ function responderTexto(texto) {
     }
     
   }
-  if (activo === 17){
+  if (activo === 17){ // facturacion
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
     const iniciar = ["iniciar"];
     const tipo = ["tipo de documento"];

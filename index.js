@@ -1049,7 +1049,7 @@ function responderTexto(texto) {
     const proyecto = ["este proyecto"];
     const continuemos = ["si por favor", "si quiero"];
     const invitados = ["invitados"];
-    const tecnoparque = ["tecnoparque"];
+    const aprendi = ["aprendices", "instructores"];
     const cristian = ["cristian", "programador"];
     const rafael = ["dinamizador"];
     const cordinacion = ["ana carolina","cordinadora misional","cordinacion de senova"];
@@ -1057,6 +1057,8 @@ function responderTexto(texto) {
     const diseño = ["diseñador", "ivan","ivancho","artista","diseño"];
     const ubicacion=["ubicado senova","ubicación de senova","encuentra senova"];
     const subdirec = ["director de la revista", "subdirector del centro","carlos salgar"];
+    const robot=["robotica"];
+    const ingeni = ["administrador en la nube"];
     const gracia = ["gracias"];
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
     
@@ -1129,6 +1131,18 @@ function responderTexto(texto) {
         leerTexto(texto);
       }
     }
+    for (let i = 0; i < robot.length; i++) {
+      if (oracion.includes(robot[i])) {
+        const texto = 'Yadir Leal es un aprendíz de mecatrónica que se encarga de mi programación en la parte visual y robotica para permitir que me pueda mover'
+        leerTexto(texto);
+      }
+    }
+    for (let i = 0; i < ingeni.length; i++) {
+      if (oracion.includes(ingeni[i])) {
+        const texto = 'Gabriel Alzate es un investigador Senova experto en mi base de datos en la nube'
+        leerTexto(texto);
+      }
+    }
     
     for (let i = 0; i < invitados.length; i++) {
       if (oracion.includes(invitados[i])) {
@@ -1136,8 +1150,8 @@ function responderTexto(texto) {
         const texto = '¡que bien!... y, quiénes son los invitados?';
         leerTexto(texto);
       }
-    }for (let i = 0; i < tecnoparque.length; i++) {
-      if (oracion.includes(tecnoparque[i])) {
+    }for (let i = 0; i < aprendi.length; i++) {
+      if (oracion.includes(aprendi[i])) {
         animar(0, 1);
         Cambiar(1);
         const texto = '¡maravilloso!... empecemos con la demostración entonces';
@@ -1662,12 +1676,17 @@ function responderTexto(texto) {
     const control = ["control medico"];
     const formatos = ["formato"];
     const espera = ["espera", "espero", "esperar"];
-    const magnit = ["magnitud del servicio"];
-    const primcopago = ["610227", "304583"];
-    const errprim = ["546799", "272924"];
-    const segucopago = ["2440909", "1220455"];
-    const errseg = ["2187195", "1093597"];
-    const urgencias = ["consulta por urgencias"];
+    const cerar = ["cierra", "cierro", "cerrar"];
+    const verif = ["verifica", "verificar"];
+    const remite= ["remite", "remitir"];
+    const veinte = ["20 dias"];
+    const quince = ["15 dias"];
+    const envia = ["enviar", "envia"];
+    const afecta = ["area afectada"];
+    const b= ["remite", "remitir"];
+    const c = ["20 dias"];
+    const d = ["15 dias"];
+    const e = ["consulta por urgencias"];
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
   
     for (let i = 0; i < iniciar.length; i++) {
@@ -1714,40 +1733,64 @@ function responderTexto(texto) {
     }    
     for (let i = 0; i < espera.length; i++) {
       if (oracion.includes(espera[i])) {
-        const texto = 'Muy bien, El funcionario abre un caso de solicitud de PQRSD en el sistema y le indica al usuario diligenciar el formato con todos los detalles de su inconformidad y lo entregue para anexarlo al caso ¿Esperas el formato de PQRSD del usuario o cierras el caso?';
+        const texto = 'Muy bien, Después de unos minutos el señor Alberto Ortiz se acerca nuevamente para entregar el formato cuando usted recibe el formato, lo verifica y lo agrega al caso lo remite al área especializada?';
         leerTexto(texto);
       }
     }   
-    for (let i = 0; i < magnit.length; i++) {
-      if (oracion.includes(magnit[i])) {
-        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. El ingreso base de cotización IBC o la magnitud del servicio';
+    for (let i = 0; i < cerar.length; i++) {
+      if (oracion.includes(cerar[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. ¿Esperas el formato de PQRSD del usuario o cierras el caso?';
         leerTexto(texto);
       }
     }   
-    for (let i = 0; i < primcopago.length; i++) {
-      if (oracion.includes(primcopago[i])) {
-        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales perteneciera al régimen contributivo tenga un rango de ingresos entre 2 y 5 Salarios Mínimos Mínimo Legales Mensuales Vigentes ¿cuánto será el tope de copago por año y por evento?';
+    for (let i = 0; i < verif.length; i++) {
+      if (oracion.includes(verif[i])) {
+        const texto = 'Muy bien, 	Después de esto usted como funcionario le entrega el radicado de la solicitud PQRSD, el usuario pregunta en cuanto tiempo le dan respuesta, usted le contesta, ¿en 20 días hábiles o 15 días hábiles?';
         leerTexto(texto);
       }
     }   
-    for (let i = 0; i < errprim.length; i++) {
-      if (oracion.includes(errprim[i])) {
-        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar.¿cuánto será el tope de copago por año y por evento?';
+    for (let i = 0; i < remite.length; i++) {
+      if (oracion.includes(remite[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar.cuanto tiempo le dan respuesta, usted le contesta, ¿en 20 días hábiles o 15 días hábiles?';
         leerTexto(texto);
       }
     }   
-    for (let i = 0; i < segucopago.length; i++) {
-      if (oracion.includes(segucopago[i])) {
-        const texto = 'Muy bien, En caso de que el usuario Nancy Silva Gonzales pertenezca al régimen contributivo tenga un rango de ingresos mayor a 5 Salarios Mínimos Mínimo Legales Mensuales Vigentes ¿cuánto será el tope de copago por año y por evento?';
+    for (let i = 0; i < quince.length; i++) {
+      if (oracion.includes(quince[i])) {
+        const texto = 'Muy bien, El usuario se retira y usted que realiza con el caso ¿lo envía al área correspondiente para verificación o lo deja abierto sin asignación de área?';
         leerTexto(texto);
       }
     }   
-    for (let i = 0; i < errseg.length; i++) {
-      if (oracion.includes(errseg[i])) {
-        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar.¿cuánto será el tope de copago por año y por evento?';
+    for (let i = 0; i < veinte.length; i++) {
+      if (oracion.includes(veinte[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar.cuanto tiempo le dan respuesta, usted le contesta, ¿en 20 días hábiles o 15 días hábiles?';
         leerTexto(texto);
       }
-    }
+    }     
+    for (let i = 0; i < envia.length; i++) {
+      if (oracion.includes(envia[i])) {
+        const texto = 'Muy bien, Si después de unos días el señor Alberto Ortiz se acerca nuevamente para averiguar el proceso de su solicitud de PQRSD ¿usted como revisa el caso, con el numero de la cedula del usuario o con el radicado de la solicitud?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < afecta.length; i++) {
+      if (oracion.includes(afecta[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar. una PQRSD debe tramitarse lo antes posible por eso no debes perder tiempo, ¿lo envía al área correspondiente para verificación o espera que área afectada venga por el caso?';
+        leerTexto(texto);
+      }
+    }    
+    for (let i = 0; i < quince.length; i++) {
+      if (oracion.includes(quince[i])) {
+        const texto = 'Muy bien,	El usuario se retira y usted que realiza con el caso ¿lo envía al área correspondiente para verificación o lo deja abierto sin asignación de área?';
+        leerTexto(texto);
+      }
+    }   
+    for (let i = 0; i < veinte.length; i++) {
+      if (oracion.includes(veinte[i])) {
+        const texto = 'Rectifica en tu conocimiento y vuelve a seleccionar.cuanto tiempo le dan respuesta, usted le contesta, ¿en 20 días hábiles o 15 días hábiles?';
+        leerTexto(texto);
+      }
+    }  
     for (let i = 0; i < tema.length; i++) {
       if (oracion.includes(tema[i])) {
         const texto = 'Bienvenido al inicio, seleccione el nuevo tema';

@@ -501,16 +501,14 @@ function responderTexto(texto) {
 
     for (let i = 0; i < admisiones.length; i++) {
       if (oracion.includes(admisiones[i])) {
-        animar(0, 3);
-        Cambiar(2);
+        Cambiarsubtitulo(2);
         console. log('cambiar titulo es = a 2');
-        contenido_main = 'admisiones';
+        contenido_main = 'video';
         console.log('contenido main esta en: ' + contenido_main)
-        mostrarContenido();
-        const texto = 'Admisiones es el proceso de recibir y registrar a pacientes en una institución de atención médica, como un hospital, una clínica o un centro de salud y es una parte crucial porque establece la primera relación entre el paciente y el proveedor de atención médica. responde: es claro el concepto o no es claro el concepto';
+        mostrarContenido();a
+        const texto = 'El proceso de admisiones en salud se trata de recibir a los pacientes de manera efectiv y eficiente, asegurando que se registren adecuadamente, se les proporcione el nivel adecuado de atención y se cumplan todos los requisitos administrativos y médicos necesarios. Este cuenta con varios pasos. Los cuales son: Registro del paciente, apertura o actualización de historia clínica, verificación de derechos, asignación de numero de registro, información sobre derechos del paciente, asignación de habitación o área de atención, entrevista inicial, firma de documentos y en algunos casos procedimientos de emergencia para una atención inmediata.si nquieres puedes reproducir nuevamente el video haciendo clic en la pantalla, si quieres conocer cada uno de estos pasos solo pronuncia la palabra conocer mas o seleccionar un caso, entre atencion telefonica, atencion presencial o urgencias.';
         leerTexto(texto);
         activo = 4;
-        console. log('activo esta en: ' + activo)
       }
     }
     for (let i = 0; i < usuario.length; i++) {
@@ -766,19 +764,12 @@ function responderTexto(texto) {
     const oracion = eliminarTildes(texto.toLowerCase()); // Eliminar tildes y convertir el texto a minúsculas
     const claro = ["si es claro", "si quedo claro","si es muy claro", "si quedo muy claro","asi esta bien"]; 
     const noclaro = ["no es claro", "no quedo claro","no es muy claro", "no quedo muy claro"]; 
-    const conocerlos = ["si quiero", "si quisiera", "si me gustaria"];
+    const conocerlos = ["saber mas"];
     const ahora = ["por ahora"]; 
+    const casos = ["casos"]; 
     const urgencia = ["urgencias"]; // activo = 11 
     const externa = ["telefonica"]; // activo = 12 
     const presencial = ["presencial"]; // activo = 13 
-    const registro = ["registro", "datos"];
-    const asignacion = ["asignacion", "habitacion"];
-    const documentacion = ["documentacion"];
-    const identificacion = ["identificacion"];
-    const facturacion = ["facturacion"];
-    const comunicacion = ["registro", "datos"];
-    const coordinacipon = ["cordinacion", "coordinacion", "interna"];
-    const seguimiento = ["seguimiento", "actualizacion"];
     const tema = ["cambiar tema", "cambiar el tema","cambiemos de tema","cambiar de tema"]; // activo = 0 
       
     for (let i = 0; i < claro.length; i++) {
@@ -818,7 +809,7 @@ function responderTexto(texto) {
     }
     for (let i = 0; i < conocerlos.length; i++) {
       if (oracion.includes(conocerlos[i])) {
-        const texto = 'El personal de admisiones es encargado de: Registro de datos, asignación del área de atención o habitación, verificar la documentación, validación de derechos del usuario, identificación, asignación del personal de atención, proceso de facturación, comunicación, coordinación interna, seguimiento y actualización de datos. Si quieres conocer específicamente alguno de los pasos nómbralo o si prefieres te doy un listado nuevamente para que selecciones';
+        const texto = 'El personal de admisiones es encargado de: Registro de datos, asignación del área de atención o habitación, verificar la documentación, validación de derechos del usuario, identificación, asignación del personal de atención, proceso de facturación, comunicación, coordinación interna, seguimiento y actualización de datos. Mi base de datos se encuentra en una actualizacion y no puedo brindarte mas informacion sobre el tema pronuncia la palabra, cambiar tema o casos';
         leerTexto(texto);
       }
     }    
@@ -847,7 +838,17 @@ function responderTexto(texto) {
         activo = 13;
         console. log('activo esta en: ' + activo)
       }
-    }
+    }  
+    for (let i = 0; i < casos.length; i++) {
+      if (oracion.includes(casos[i])) {
+        animar(0, 2);
+        Cambiar(1);
+        const texto = 'Con gusto. Tengo casos de consulta externa telefónica, consulta externa presencial y consulta por urgencias. ¿cual quieres conocer?';
+        leerTexto(texto);
+        activo = 1;
+        console. log('activo esta en: ' + activo)
+      }
+    }  
     for (let i = 0; i < tema.length; i++) {
       if (oracion.includes(tema[i])) {
         const texto = 'Bienvenido al inicio, ¿como puedo ayudarte, selecciona una de las siguientes opciónes? procesos de admisiones, facturación, afiliaciones, atención al usuario, PQR, casos reales o información general';

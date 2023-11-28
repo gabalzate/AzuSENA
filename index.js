@@ -461,6 +461,7 @@ function responderTexto(texto) {
     const usuario = ["atencion al usuario"]; // activo = 5
     const pdf = ["mostrar pdf", "ver pdf"]; // activo = 6
     const gener = ["informacion general"]; // activo = 7
+    const pqr = ["pqr"];
     const listar = ["documentacion","documentos"];
     const consultar = ["consultar documento"];    
     const adios = ["despedirse", "despidase","despidete", "chao", "adios"];
@@ -525,7 +526,7 @@ function responderTexto(texto) {
       if (oracion.includes(afiliaciones[i])) {
         animar(0, 1);
         Cambiar(4);
-        const texto = 'En Colombia, el sistema de salud opera bajo el modelo de aseguramiento, donde las personas deben afiliarse a una Entidad Promotora de Salud (EPS) repite una de las opciones que quieras conocer: como afiliare o como desafiliarte';
+        const texto = 'En Colombia, el sistema de salud opera bajo el modelo de aseguramiento, donde las personas deben afiliarse a una Entidad Promotora de Salud (EPS) repite una de las opciones que quieras conocer: como afiliarte o como desafiliarte';
         leerTexto(texto);
         activo = 2;
         console. log('activo esta en: ' + activo)
@@ -561,6 +562,15 @@ function responderTexto(texto) {
         const texto = '¿cual de los documentos quieres consultar: ley 100, ley 1733 o ley 1164?';
         leerTexto(texto);
         activo = 7;
+        console. log('activo esta en: ' + activo)
+      }
+    }
+    
+    for (let i = 0; i < pqr.length; i++) {
+      if (oracion.includes(pdf[i])) {
+        const texto = '¿tengo varias opciones de pdf, si sabes cual quieres ver: nómbralo o si quieres pide un listado?';
+        leerTexto(texto);
+        activo = 6;
         console. log('activo esta en: ' + activo)
       }
     }

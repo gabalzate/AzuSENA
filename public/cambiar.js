@@ -1,6 +1,7 @@
 function Cambiar(cambiar){
     if(cambiar == 1){
         document.getElementById("titulo2").innerHTML = "IA Procesos Administrativos CFTHS";
+        document.getElementById("menu").innerHTML = "Admisiones - Afiliaciones - Facturación - Atención al usuario - PQRSD";
         let contenedor = document.getElementById("contenedor");
         let main = document.getElementById("main");
         let sidebar = document.getElementById("sidebar");
@@ -29,6 +30,7 @@ function Cambiar(cambiar){
                          
     }else if(cambiar == 2){
         document.getElementById("titulo2").innerHTML = "IA Procesos Administartivos CFTHS - ADMISIONES";
+        document.getElementById("menu").innerHTML = ""
         let contenedor = document.getElementById("contenedor");
         let main = document.getElementById("main");
         let sidebar = document.getElementById("sidebar");
@@ -53,6 +55,7 @@ function Cambiar(cambiar){
                         
     }else if(cambiar == 3){
         document.getElementById("titulo2").innerHTML = "IA Procesos Administartivos CFTHS - FACTURACIÓN";
+        document.getElementById("menu").innerHTML = ""
         let contenedor = document.getElementById("contenedor");
         let main = document.getElementById("main");
         let sidebar = document.getElementById("sidebar");
@@ -76,6 +79,7 @@ function Cambiar(cambiar){
                       width: 100%;`;  
     }else if(cambiar == 4){
         document.getElementById("titulo2").innerHTML = "IA Procesos Administartivos CFTHS - AFILIACIONES";
+        document.getElementById("menu").innerHTML = ""
         let contenedor = document.getElementById("contenedor");
         let main = document.getElementById("main");
         let sidebar = document.getElementById("sidebar");
@@ -98,7 +102,8 @@ function Cambiar(cambiar){
         main.style = `grid-column-start: 2 / 1;
                       width: 100%;`;  
     }else if(cambiar == 5){
-        document.getElementById("titulo2").innerHTML = "IA Procesos Administartivos CFTHS - ORIENTACIÓN AL USUARIO";
+        document.getElementById("titulo2").innerHTML = "IA Procesos Administartivos CFTHS - ATENCIÓN AL USUARIO";
+        document.getElementById("menu").innerHTML = ""
         let contenedor = document.getElementById("contenedor");
         let main = document.getElementById("main");
         let sidebar = document.getElementById("sidebar");
